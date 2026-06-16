@@ -115,10 +115,11 @@ section{padding:170px 0;position:relative}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1)}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:920px){
-  .nav{position:fixed;inset:0;width:100%;flex-direction:column;align-items:center;justify-content:center;gap:30px;background:var(--bg);padding:44px;transform:translateX(100%);transition:transform .5s cubic-bezier(.4,0,.2,1);z-index:90}
-  .nav.open{transform:translateX(0)}
-  .nav a{font-size:1.6rem;font-family:var(--serif);color:var(--ink)}
-  .nav .cta{font-size:.74rem;margin-top:8px}
+  .nav{position:fixed;top:0;left:0;right:0;flex-direction:column;align-items:flex-start;gap:20px;background:var(--bg);padding:102px 32px 36px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .35s ease,transform .4s cubic-bezier(.4,0,.2,1),visibility .35s;box-shadow:0 26px 50px rgba(0,0,0,.55);border-bottom:1px solid var(--line);z-index:90}
+  .nav.open{opacity:1;visibility:visible;transform:none}
+  .nav a{font-size:1.35rem;font-family:var(--serif);color:var(--ink)}
+  .nav .cta{font-size:.72rem;margin-top:6px}
+  .brand{position:relative;z-index:110}
   .burger{display:flex;z-index:120;position:relative}
   .burger span{transition:transform .4s ease, opacity .3s ease}
   .nav.open ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
