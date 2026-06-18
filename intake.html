@@ -3,7 +3,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0B0E13">
 <title>Begin Your Site — Credence</title>
-<meta name="description" content="Start your Credence website. Choose a design, share your details, and approve before anything is charged.">
+<meta name="description" content="Share your details and we'll build your site. Nothing is charged until it's live and you approve it.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -153,6 +153,31 @@ section{padding:170px 0;position:relative}
 .reveal.in{filter:blur(0)}
 body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:140px 140px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none;filter:none}.hero .spot{display:none}}
+
+.intro-form{max-width:720px}
+.field{display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.field.full{grid-column:1 / -1}
+.field label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.field .hint{text-transform:none;letter-spacing:0;font-size:.78rem}
+.field input,.field textarea{background:rgba(255,255,255,.02);border:1px solid var(--line);color:var(--ink);font-family:var(--sans);font-size:1rem;padding:13px 15px;border-radius:2px;transition:border-color .3s,background .3s;width:100%}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.26)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--champagne);background:rgba(255,255,255,.05)}
+.field textarea{resize:vertical;min-height:92px;line-height:1.6}
+.field input[type=file]{padding:11px 14px;color:var(--muted);font-size:.85rem;cursor:pointer}
+.designpick{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dp{position:relative;border:1px solid var(--line);padding:22px 20px;cursor:pointer;transition:border-color .3s,background .3s;display:block}
+.dp:hover{border-color:rgba(255,255,255,.3)}
+.dp:has(input:checked){border-color:var(--champagne);background:rgba(255,255,255,.05)}
+.dp input{position:absolute;opacity:0;pointer-events:none}
+.dp h4{font-family:var(--serif);font-size:1.18rem;font-weight:400;margin:0 0 6px}
+.dp .dpm{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fsubmit-row{display:flex;align-items:center;gap:26px;margin-top:18px;flex-wrap:wrap}
+.fnote{font-size:.82rem;color:var(--muted)}
+.thanks{display:none;text-align:center;padding:130px 0 150px}
+.thanks.show{display:block}
+.thanks p{max-width:48ch;margin:14px auto 0;color:var(--muted)}
+@media(max-width:720px){.fgrid{grid-template-columns:1fr}.designpick{grid-template-columns:1fr}}
 </style></head>
 <body id="top">
 <header class="head"><div class="wrap head-in">
@@ -164,53 +189,85 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
   <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
 </div></header>
 
-<section class="hero" style="padding:210px 0 110px">
+<section class="hero" style="padding:200px 0 50px">
   <div class="wrap">
     <div class="label"><span class="n">&mdash;</span> Get Started</div>
-    <h1 class="display" style="max-width:16ch">Begin your site.</h1>
-    <p class="lead" style="max-width:48ch">Three steps — and nothing is charged until your site is live and you've approved it.</p>
-    <div class="hero-ctas">
-      <a href="intake.html" class="btn btn--p">Begin your site <span class="ar">&rarr;</span></a>
-      <a href="mailto:hello@credencesites.com" class="tlink">Have a question first?</a>
-    </div>
+    <h1 class="display" style="max-width:14ch">Tell us about you.</h1>
+    <p class="lead" style="max-width:50ch">A few details and we build your site — about ten minutes, and most of it you already have. Nothing is charged until your site is live and you've approved it.</p>
   </div>
 </section>
 
-<section>
+<section style="padding-top:24px">
   <div class="wrap">
-    <div class="shead reveal"><div class="label"><span class="n">01</span>&nbsp;&nbsp;How It Works</div>
-      <h2 class="h2">From here to live.</h2></div>
-    <div class="steps reveal">
-      <div class="st"><span class="sn">01</span><h3>Choose your design</h3><p>Editorial Luxury, Onyx, or Atelier — whichever suits your market.</p></div>
-      <div class="st"><span class="sn">02</span><h3>Share your details</h3><p>Your info, photos, and links — through one short form.</p></div>
-      <div class="st"><span class="sn">03</span><h3>We build, you review</h3><p>Your site, ready within days, sent to you for approval.</p></div>
-      <div class="st"><span class="sn">04</span><h3>Approve &amp; go live</h3><p>Once you're happy, we launch — and only then is your $1,200 charged and your $99/mo begins.</p></div>
-    </div>
-  </div>
-</section>
+  <form id="intakeForm" class="intro-form reveal" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="4fee9395-e72a-4894-9417-6d4de237a5b3">
+    <input type="hidden" name="subject" value="New Credence intake">
+    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
 
-<section>
-  <div class="wrap">
-    <div class="shead reveal"><div class="label"><span class="n">02</span>&nbsp;&nbsp;The Terms, Plainly</div>
-      <h2 class="h2">No surprises. Ever.</h2></div>
-    <div class="incl reveal">
-      <div class="irow"><div class="in">i.</div><div><h3>Nothing charged until you approve</h3><p>Your card is saved securely before we build. The $1,200 is charged only after your site is delivered and you approve it.</p></div></div>
-      <div class="irow"><div class="in">ii.</div><div><h3>What $99/month covers</h3><p>Hosting, security, and maintenance — plus up to three image changes and any text or content edits each month.</p></div></div>
-      <div class="irow"><div class="in">iii.</div><div><h3>Cancel anytime</h3><p>Your site stays live while your subscription is active. If you cancel, the site is taken offline.</p></div></div>
-      <div class="irow"><div class="in">iv.</div><div><h3>What stays yours</h3><p>Your domain and content remain yours. New sections or a full redesign are quoted separately.</p></div></div>
+    <div style="margin-bottom:64px">
+      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">01</span>&nbsp;&nbsp;Your Design</div><h2 class="h2">Choose your look.</h2></div>
+      <div class="designpick">
+        <label class="dp"><input type="radio" name="design" value="Editorial Luxury" required><h4>Editorial Luxury</h4><div class="dpm">Light · Navy · Classic</div></label>
+        <label class="dp"><input type="radio" name="design" value="Onyx"><h4>Onyx</h4><div class="dpm">Dark · Charcoal · Bold</div></label>
+        <label class="dp"><input type="radio" name="design" value="Atelier"><h4>Atelier</h4><div class="dpm">White · Minimal</div></label>
+      </div>
+      <p class="fnote" style="margin-top:12px">Not sure? Pick the closest — we'll advise.</p>
     </div>
-  </div>
-</section>
 
-<section class="final" style="padding:140px 0 180px">
-  <div class="wrap reveal">
-    <div class="label"><span class="n">03</span>&nbsp;&nbsp;Begin</div>
-    <h2 class="h2">Ready when you are.</h2>
-    <p>Start now and we'll send a short form for your details and photos. Secure checkout via Stripe — your card isn't charged until your site is live and approved.</p>
-    <div class="final-ctas">
-      <a href="intake.html" class="btn btn--p">Begin your site <span class="ar">&rarr;</span></a>
-      <a href="intake.html" class="tlink">See what we'll need</a>
+    <div style="margin-bottom:64px">
+      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">02</span>&nbsp;&nbsp;You &amp; Your Company</div><h2 class="h2">The basics.</h2></div>
+      <div class="fgrid">
+        <div class="field"><label>Full name</label><input name="name" required></div>
+        <div class="field"><label>Title</label><input name="title" placeholder="e.g. Mortgage Advisor"></div>
+        <div class="field"><label>Company</label><input name="company"></div>
+        <div class="field"><label>Primary city / market</label><input name="city_primary" placeholder="e.g. Santa Barbara"></div>
+        <div class="field"><label>Your NMLS #</label><input name="nmls"></div>
+        <div class="field"><label>Company NMLS #</label><input name="co_nmls"></div>
+      </div>
     </div>
+
+    <div style="margin-bottom:64px">
+      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">03</span>&nbsp;&nbsp;Contact &amp; Links</div><h2 class="h2">How clients reach you.</h2></div>
+      <div class="fgrid">
+        <div class="field"><label>Phone</label><input name="phone" type="tel"></div>
+        <div class="field"><label>Email</label><input name="email" type="email" required></div>
+        <div class="field full"><label>Office address</label><input name="address" placeholder="Street, City, State ZIP"></div>
+        <div class="field"><label>Scheduling link</label><input name="scheduling" placeholder="Calendly, etc."></div>
+        <div class="field"><label>Application link</label><input name="application"></div>
+        <div class="field"><label>Pre-qualification link</label><input name="prequal"></div>
+        <div class="field"><label>Instagram</label><input name="instagram" placeholder="@handle or URL"></div>
+        <div class="field"><label>LinkedIn</label><input name="linkedin"></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:64px">
+      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">04</span>&nbsp;&nbsp;Markets &amp; Story</div><h2 class="h2">In your words.</h2></div>
+      <div class="field full"><label>Service areas</label><textarea name="service_areas" placeholder="The cities and neighborhoods you serve — one per line is fine."></textarea></div>
+      <div class="field full"><label>About you</label><textarea name="bio" placeholder="A short bio — or a few notes and we'll write it in your voice."></textarea></div>
+      <div class="field full"><label>Testimonials</label><textarea name="testimonials" placeholder="Two or three you have permission to share. Include each client's name and a detail (e.g. First-Time Buyer · Santa Barbara)."></textarea></div>
+      <div class="field full"><label>Realtor partner quote <span class="hint">(optional)</span></label><textarea name="realtor_quote" placeholder="A few words from an agent who refers you."></textarea></div>
+    </div>
+
+    <div style="margin-bottom:64px">
+      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">05</span>&nbsp;&nbsp;Photos</div><h2 class="h2">Your images.</h2>
+        <p>A professional headshot plus any lifestyle or office shots. No need to attach anything here — once we confirm your design, we’ll send a simple, secure way to share full-resolution images. If they’re already in a shared folder, you can drop the link below.</p></div>
+      <div class="field full"><label>Photo folder link <span class="hint">(optional)</span></label><input name="photo_link" placeholder="Google Drive, Dropbox, etc."></div>
+    </div>
+
+    <div>
+      <div class="field full"><label>Anything else</label><textarea name="notes" placeholder="Brand colors, a logo, preferences, questions — anything that helps."></textarea></div>
+      <div class="fsubmit-row">
+        <button type="submit" class="btn btn--p fsubmit">Send my details <span class="ar">&rarr;</span></button>
+        <span class="fnote">We'll reply within a day to confirm your design and next steps.</span>
+      </div>
+    </div>
+  </form>
+
+  <div id="thanks" class="thanks">
+    <div class="label" style="justify-content:center"><span class="n">&mdash;</span> Received</div>
+    <h2 class="h2">Thank you — we've got it.</h2>
+    <p>We'll review your details and be in touch within a day to confirm your design and set up your card on file. Nothing is charged until your site is live and you've approved it.</p>
+  </div>
   </div>
 </section>
 
@@ -234,5 +291,19 @@ var hero=document.querySelector('.hero'),spot=document.querySelector('.spot');
 if(spot&&matchMedia('(hover:hover)').matches){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();spot.style.left=(e.clientX-r.left)+'px';spot.style.top=(e.clientY-r.top)+'px';});}
 var bgimg=document.querySelector('.hero-bg img');
 if(bgimg&&!rm){var t=false;addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){var y=Math.min(scrollY*0.18,90);bgimg.style.transform='scale(1.18) translate3d(0,'+y+'px,0)';t=false;});t=true;}},{passive:true});}
+</script>
+<script>
+(function(){
+  var f=document.getElementById('intakeForm'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=f.querySelector('.fsubmit'); if(btn){btn.disabled=true; btn.innerHTML='Sending…';}
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){ if(r.ok){ done(); } else { fail(btn); } })
+      .catch(function(){ fail(btn); });
+  });
+  function done(){ f.style.display='none'; var t=document.getElementById('thanks'); if(t) t.classList.add('show'); window.scrollTo({top:0,behavior:'smooth'}); }
+  function fail(btn){ if(btn){btn.disabled=false; btn.innerHTML='Send my details <span class=\"ar\">&rarr;</span>';} alert('Something went wrong — please email hello@credencesites.com and we\'ll take it from there.'); }
+})();
 </script>
 </body></html>
