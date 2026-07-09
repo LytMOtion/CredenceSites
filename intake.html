@@ -11,12 +11,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/credence-v2.css">
 <style>
-  body.page-start .head{background:rgba(244,243,239,.92);backdrop-filter:saturate(150%) blur(14px);box-shadow:0 1px 0 var(--line);color:var(--ink)}
-  body.page-start{background:var(--paper)}
+  /* Detailed intake — cleaner white / graphite / neutral balance.
+     All rules scoped under body.page-intake so start.html (page-start) and the
+     homepage are never affected. Content, layout, fields, and behavior unchanged. */
+  body.page-intake{background:#FFFFFF}
+  /* light header, always solid (hero is white, not a dark image) */
+  body.page-intake .head{background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(14px);box-shadow:0 1px 0 #D3D4CF;color:#111413}
+  body.page-intake .start-hero{background:#FFFFFF}
+  body.page-intake .start-hero .eyebrow{color:#B9533D}
+  body.page-intake .start-hero h1{color:#111413}
+  body.page-intake .start-hero .lead{color:#515754}
+  body.page-intake .fnote,body.page-intake .fnote.warn{color:#515754}
+  body.page-intake .fnote.warn{border-left:2px solid #D3D4CF}
+  /* form container: white with a fine neutral border, not a warm-gray box */
+  body.page-intake .form-shell{background:#FFFFFF;border:1px solid #D3D4CF;box-shadow:0 1px 2px rgba(17,20,19,.04)}
+  body.page-intake .fgroup{border-top-color:#D3D4CF}
+  body.page-intake .glabel .gn{color:#B9533D}
+  body.page-intake .glabel h3{color:#111413}
+  body.page-intake .field label{color:#111413}
+  body.page-intake .field .req{color:#B9533D}
+  body.page-intake .field .hint{color:#7B817C}
+  /* inputs: white, distinguished from the white form by clear neutral borders */
+  body.page-intake .field input,
+  body.page-intake .field select,
+  body.page-intake .field textarea{background:#FFFFFF;border:1px solid #C8CBC7;color:#111413}
+  body.page-intake .field input::placeholder,
+  body.page-intake .field textarea::placeholder{color:#9A9E9A}
+  body.page-intake .field input:focus,
+  body.page-intake .field select:focus,
+  body.page-intake .field textarea:focus{border-color:#B9533D;box-shadow:0 0 0 3px rgba(185,83,61,.16)}
+  /* checkboxes: graphite selected state, native focus handled by browser + clay accent */
+  body.page-intake input[type=checkbox]{accent-color:#161A18}
+  body.page-intake .checks{border-top-color:#D3D4CF}
+  /* submit: graphite button, white text */
+  body.page-intake .fsubmit{background:#161A18;color:#FFFFFF;border-color:#161A18}
+  body.page-intake .fsubmit:hover{background:#111413}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body id="top" class="page-start">
+<body id="top" class="page-intake">
 <a href="#intake" class="skip-link">Skip to the intake form</a>
 
 <header class="head"><div class="wrap head-in">
