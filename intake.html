@@ -81,7 +81,7 @@
     background:#FFFFFF;border:1px solid #D3D4CF;border-radius:4px;padding:12px 14px;color:#111413;min-height:92px}
   body.page-intake .field textarea::placeholder{color:#9A9E9A}
   body.page-intake .field textarea:focus{outline:none;border-color:#B9533D;box-shadow:0 0 0 3px rgba(185,83,61,.12)}
-  body.page-intake #priorities,body.page-intake #goals,body.page-intake #required_pages,body.page-intake #working{min-height:120px}
+  body.page-intake #website_improvements,body.page-intake #website_priority{min-height:120px}
   /* checkbox groups: editorial columns, NO pills, no cards */
   body.page-intake .taglist{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 24px;max-width:none}
   body.page-intake .taglist .chk{border:0;padding:0;display:inline-flex;gap:11px;align-items:center;min-height:24px}
@@ -101,6 +101,26 @@
   body.page-intake .thanks{padding:60px 4px}
   body.page-intake .thanks h2{color:#111413}
   body.page-intake .thanks .eyebrow{color:#B9533D}
+  /* Neutralize Safari/Chrome yellow autofill: keep fields white, text charcoal,
+     underline visible, caret charcoal. Autofill/autocomplete still works. */
+  body.page-intake input:-webkit-autofill,
+  body.page-intake input:-webkit-autofill:hover,
+  body.page-intake input:-webkit-autofill:focus,
+  body.page-intake input:-webkit-autofill:active,
+  body.page-intake textarea:-webkit-autofill,
+  body.page-intake textarea:-webkit-autofill:hover,
+  body.page-intake textarea:-webkit-autofill:focus,
+  body.page-intake select:-webkit-autofill,
+  body.page-intake select:-webkit-autofill:hover,
+  body.page-intake select:-webkit-autofill:focus{
+    -webkit-text-fill-color:#111413 !important;
+    -webkit-box-shadow:0 0 0 1000px #FFFFFF inset !important;
+    box-shadow:0 0 0 1000px #FFFFFF inset !important;
+    caret-color:#111413;
+    border-bottom:1px solid #BFC2BE !important;
+    transition:background-color 9999s ease-out 0s;
+  }
+  body.page-intake input:-webkit-autofill:focus{border-bottom:2px solid #B9533D !important}
 
   /* ---- Desktop: dark rail beside the form ---- */
   @media(min-width:960px){
@@ -156,7 +176,7 @@
       <p class="rail-lead">Complete this form after speaking with Credence. Share what you have available; we'll follow up on anything still needed.</p>
       <div class="rail-points">
         <div class="rail-point"><span class="mk" aria-hidden="true"></span><div><h4>Tailored to your course</h4><p>Your information helps us recommend the right system and scope.</p></div></div>
-        <div class="rail-point"><span class="mk" aria-hidden="true"></span><div><h4>Secure &amp; confidential</h4><p>Your information is used only to evaluate and prepare the project.</p></div></div>
+        <div class="rail-point"><span class="mk" aria-hidden="true"></span><div><h4>Handled with care</h4><p>Your information is used to review, prepare, and manage the project.</p></div></div>
         <div class="rail-point"><span class="mk" aria-hidden="true"></span><div><h4>Scope before we begin</h4><p>The scope and investment are confirmed before any design or build work starts.</p></div></div>
       </div>
       <div class="rail-invest">
@@ -187,6 +207,7 @@
         <input type="hidden" name="subject" value="New Credence course intake">
         <input type="hidden" name="from_name" value="Credence — Detailed Intake">
         <input type="hidden" id="accepted_at" name="accepted_at" value="">
+        <input type="hidden" name="agreement_version" value="2026-07-09">
         <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="fgroup" id="intake">
@@ -229,14 +250,11 @@
 
         <div class="fgroup">
           <div class="glabel"><h3>Current website</h3></div>
-          <div class="field full"><label for="working">What's working today?</label><textarea id="working" name="working"></textarea></div>
-          <div class="field full"><label for="not_working">What isn't working?</label><textarea id="not_working" name="not_working"></textarea></div>
-          <div class="field full"><label for="priorities">Most important changes</label><textarea id="priorities" name="priorities"></textarea></div>
+          <div class="field full"><label for="website_improvements">What would you most like to improve about the current website?</label><textarea id="website_improvements" name="website_improvements" placeholder="Design, mobile experience, course presentation, rates, booking flow, events, dining, speed, content, or anything else."></textarea></div>
           <div class="fgrid">
             <div class="field"><label for="host_provider">Existing hosting / website provider</label><input id="host_provider" name="host_provider" type="text"></div>
             <div class="field"><label for="domain_ownership">Current domain ownership</label>
               <select id="domain_ownership" name="domain_ownership"><option value="">Select…</option><option>We own it and can access the registrar</option><option>We own it, unsure of access</option><option>Managed by a third party</option><option>Not sure</option></select></div>
-            <div class="field full"><label for="analytics">Existing analytics, if known</label><input id="analytics" name="analytics" type="text" placeholder="e.g. Google Analytics — who manages it"></div>
           </div>
         </div>
 
@@ -267,8 +285,7 @@
               <select id="preferred_system" name="preferred_system"><option value="">Select…</option><option>Course System 01 — The Coastal</option><option>Not sure — recommend one</option></select></div>
             <div class="field"><label for="launch_timing">Target launch timing</label><input id="launch_timing" name="launch_timing" type="text" placeholder="e.g. before the spring season"></div>
           </div>
-          <div class="field full"><label for="required_pages">Required pages</label><textarea id="required_pages" name="required_pages" placeholder="e.g. Home, The Course, Rates & Tee Times, Events, Dining, Contact"></textarea></div>
-          <div class="field full"><label for="goals">Primary business goals</label><textarea id="goals" name="goals" placeholder="More tee times, more events, clearer rates, etc."></textarea></div>
+          <div class="field full"><label for="website_priority">What is the course's main priority for the new website?</label><textarea id="website_priority" name="website_priority" placeholder="Clearer rates and tee-time access, stronger course presentation, better mobile experience, more outing or event inquiries, improved dining presentation, or more accurate information."></textarea></div>
           <div class="field full"><label class="chk" for="opt_production" style="border:none;padding:0;display:inline-flex;gap:12px;align-items:center"><input type="checkbox" id="opt_production" name="opt_production" value="Yes"><span>I'm interested in optional photography or video (quoted separately)</span></label></div>
           <div class="field full"><label for="additional">Anything else</label><textarea id="additional" name="additional"></textarea></div>
         </div>

@@ -1,11 +1,11 @@
-<!-- DRAFT PRIVACY POLICY: obtain California attorney review before production use. Verify processors (form handler, host, fonts) match live configuration. -->
+<!-- DRAFT: ATTORNEY REVIEW REQUIRED BEFORE FINAL CLIENT USE -->
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0A0E11">
+<meta name="theme-color" content="#FFFFFF">
 <title>Privacy Policy — Credence</title>
-<meta name="description" content="How Credence handles the information you share through this website.">
+<meta name="description" content="How Credence collects, uses, and handles the information you share through this website.">
 <link rel="canonical" href="https://www.credencesites.com/privacy.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -15,71 +15,131 @@
 <meta property="og:site_name" content="Credence">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/credence.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/credence-v2.css">
+<style>
+  /* Legal pages — light Credence system. Scoped under body.page-legal. */
+  body.page-legal{background:#FFFFFF;color:#111413}
+  body.page-legal .head{background:rgba(255,255,255,.94);backdrop-filter:saturate(150%) blur(14px);box-shadow:0 1px 0 #D3D4CF;color:#111413}
+  .legal-hero{padding:128px 0 8px}
+  .legal-hero .eyebrow{color:#B9533D}
+  .legal-hero h1{font-family:var(--serif);font-weight:400;color:#111413;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.05;letter-spacing:-.015em;margin-top:14px;max-width:22ch}
+  .legal-doc{max-width:800px;margin:0 auto;padding:26px 0 96px}
+  .legal-doc .eff{color:#7B817C;font-size:.9rem;letter-spacing:.01em;margin-bottom:8px}
+  .legal-doc .lede{color:#515754;font-size:1.08rem;line-height:1.7;margin:18px 0 8px;padding-bottom:26px;border-bottom:1px solid #D3D4CF}
+  .legal-doc h2{font-family:var(--serif);font-weight:400;color:#111413;font-size:1.5rem;line-height:1.22;margin:40px 0 12px;padding-top:26px;border-top:1px solid #EAE9E4}
+  .legal-doc p{color:#3C423F;font-size:1.06rem;line-height:1.72;margin-bottom:14px}
+  .legal-doc ul{margin:0 0 16px;padding-left:1.15rem;color:#3C423F}
+  .legal-doc li{font-size:1.04rem;line-height:1.62;margin-bottom:7px}
+  .legal-doc a{color:#B9533D;text-decoration:underline;text-underline-offset:2px}
+  .legal-doc a:hover{color:#A6472F}
+  .legal-doc a:focus-visible{outline:2px solid #B9533D;outline-offset:2px;border-radius:2px}
+  @media(max-width:600px){.legal-hero{padding:104px 0 4px}.legal-doc{padding:22px 0 64px}}
+</style>
 </head>
-<body id="top">
+<body id="top" class="page-legal">
+<a href="#doc" class="skip-link">Skip to the privacy policy</a>
+
 <header class="head"><div class="wrap head-in">
-  <a href="index.html" class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</a>
+  <a href="index.html" class="brand" aria-label="Credence — home">Credence<span class="rule"></span></a>
   <nav class="nav" aria-label="Primary">
-    <a href="index.html#system">The System</a>
+    <a href="index.html#systems">Course Systems</a>
     <a href="index.html#included">What's Included</a>
-    <a href="index.html#investment">Investment</a>
-    <a href="index.html" class="cta">Overview</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html" class="navcta">Back to Credence</a>
   </nav>
   <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
-<section class="hero" style="padding:190px 0 20px"><div class="wrap">
-  <div class="label"><span class="n">&mdash;</span> Legal</div>
-  <h1 class="display" style="max-width:18ch;font-size:clamp(2.6rem,6vw,4.6rem)">Privacy Policy</h1>
+<section class="legal-hero"><div class="wrap">
+  <span class="eyebrow">Legal</span>
+  <h1>Privacy Policy</h1>
 </div></section>
 
-<section style="padding:40px 0 120px"><div class="wrap">
-  <div class="legal reveal">
-    <p class="eff">Effective 2026 · Credence · hello@credencesites.com</p>
-    <p>This Privacy Policy explains what information Credence collects through this website and how we use it.</p>
+<!-- DRAFT: ATTORNEY REVIEW REQUIRED BEFORE FINAL CLIENT USE -->
+<section><div class="wrap"><article class="legal-doc" id="doc">
+  <p class="eff">Effective July 9, 2026 · Version 2026-07-09 · Credence · hello@credencesites.com</p>
+  <p class="lede">This Privacy Policy explains what information Credence collects through this website, how we use it, and the providers involved in delivering the service.</p>
 
-    <h2>1. Information we collect</h2>
-    <p>When you submit our course intake or contact forms, we collect the details you choose to provide — such as your name, job title, business contact information, the course or property name, ownership or management details, and the course information, links, and content you share so we can build and service your website.</p>
+  <h2>1. Information we collect</h2>
+  <p>When you submit our course intake or contact forms, we collect the details you choose to provide. Depending on what you share, this may include:</p>
+  <ul>
+    <li>Name</li>
+    <li>Job title or role</li>
+    <li>Business email address</li>
+    <li>Business phone number</li>
+    <li>Course or property name</li>
+    <li>Location</li>
+    <li>Current website</li>
+    <li>Booking-provider information</li>
+    <li>Business operations details</li>
+    <li>Project goals and preferences</li>
+    <li>Links and content you voluntarily submit</li>
+    <li>Records of the agreement and privacy acknowledgements you accept</li>
+    <li>Routine technical information processed by our hosting and form providers (for example, IP address and browser type)</li>
+  </ul>
 
-    <h2>2. How we use it</h2>
-    <p>We use this information only to build, deliver, host, and service your website, and to communicate with you about your project. We do not sell your information.</p>
+  <h2>2. How we use information</h2>
+  <p>We use the information to:</p>
+  <ul>
+    <li>Respond to your inquiry</li>
+    <li>Evaluate the course and current website</li>
+    <li>Recommend a Credence course system</li>
+    <li>Prepare scope and pricing</li>
+    <li>Build and maintain your website</li>
+    <li>Communicate with you about the service</li>
+    <li>Maintain business and contract records</li>
+    <li>Protect the website and prevent abuse</li>
+    <li>Comply with legal obligations</li>
+  </ul>
+  <p>Credence does not sell personal information.</p>
 
-    <h2>3. How it is handled</h2>
-    <p>Form submissions are transmitted over an encrypted connection and delivered to Credence by email through our third-party form processor (Web3Forms). We retain submissions only as long as needed to provide the service and to maintain reasonable business records.</p>
+  <h2>3. How form submissions are processed</h2>
+  <p>Form submissions are processed through Web3Forms and delivered to Credence. Web3Forms and its security or infrastructure providers may process submission content and routine technical information in accordance with their own privacy practices. We retain submissions for as long as reasonably necessary to provide the service and maintain business records.</p>
 
-    <h2>4. What we do not collect</h2>
-    <p>Credence does not request payment-card numbers, passwords, or confidential access credentials through this website. Please do not submit that information, private employee records, or other sensitive data through our forms. If account access is ever needed to build or maintain your site, we will arrange a secure method separately.</p>
+  <h2>4. Hosting, fonts, and other providers</h2>
+  <p>This website is hosted on Vercel, which processes routine technical request information as part of delivering and securing the site. Web fonts are loaded from Google Fonts; when your browser requests them, Google may receive standard request information such as your IP address. Email correspondence with Credence is handled through our business email. We rely on these providers to deliver the service; they process data on our behalf or receive standard technical request data.</p>
 
-    <h2>5. Cookies &amp; analytics</h2>
-    <p>This website does not set advertising cookies and does not run third-party analytics or tracking scripts. Web fonts are loaded from Google Fonts, and when your browser requests them, Google may receive standard request information such as your IP address. Our hosting and form providers may log routine technical information (for example, IP address and browser type) as part of delivering and securing the site.</p>
+  <h2>5. What we do not collect</h2>
+  <p>Credence does not request payment-card numbers, passwords, or confidential access credentials through this website's forms. Please do not submit that information, private employee records, or other sensitive personal information through our forms. If account access is ever needed to build or maintain your site, we will arrange a secure method separately.</p>
 
-    <h2>6. Third-party services</h2>
-    <p>We rely on third-party providers for hosting, form processing, email, domain services, and web fonts. These providers process data on our behalf, or receive standard technical request data, in order to deliver the service.</p>
+  <h2>6. Cookies, analytics &amp; tracking</h2>
+  <p>This website does not set advertising cookies and does not run third-party analytics, tag managers, advertising pixels, or cross-site tracking scripts. Any floating browser tools you may see (for example, an assistant or note-taking button) come from browser extensions installed on your own device and are not part of this website. Our hosting and form providers may log routine technical information as part of delivering and securing the site.</p>
 
-    <h2>7. Your choices</h2>
-    <p>You may request access to, correction of, or deletion of the information you submitted by contacting us. We will respond to reasonable requests as required by applicable law.</p>
+  <h2>7. Browser privacy signals</h2>
+  <p>Because this website does not use targeted advertising or cross-site tracking, and does not sell or share personal information for cross-context behavioral advertising, there is nothing for a Do Not Track or Global Privacy Control signal to opt out of on this site. The site does not currently implement a separate programmatic response to those signals because it performs no such tracking.</p>
 
-    <h2>8. Children</h2>
-    <p>Our service is intended for golf-course operators and businesses and is not directed to children.</p>
+  <h2>8. Retention</h2>
+  <p>Credence retains inquiry, project, contract, and service records for as long as reasonably necessary to provide services, maintain business records, resolve disputes, enforce agreements, prevent fraud, and satisfy legal, accounting, or tax obligations. Deletion requests may be limited where records must be retained for contractual, legal, tax, security, or fraud-prevention purposes.</p>
 
-    <h2>9. Changes</h2>
-    <p>We may update this policy from time to time. The effective date above reflects the most recent version.</p>
+  <h2>9. Your requests</h2>
+  <p>You may request access to, correction of, or deletion of the information you submitted by contacting <a href="mailto:hello@credencesites.com">hello@credencesites.com</a>. We may need to verify your identity, and we may retain information where permitted or required by law. We cannot promise that every deletion request will result in immediate deletion of all records.</p>
 
-    <h2>10. Contact</h2>
-    <p>Questions about this policy may be directed to <a href="mailto:hello@credencesites.com">hello@credencesites.com</a>.</p>
+  <h2>10. Children</h2>
+  <p>Our service is intended for golf-course operators and businesses and is not directed to children.</p>
+
+  <h2>11. Changes</h2>
+  <p>We may update this policy from time to time. The version identifier and effective date above reflect the current version.</p>
+
+  <h2>12. Contact</h2>
+  <p>Questions about this policy may be directed to <a href="mailto:hello@credencesites.com">hello@credencesites.com</a>.</p>
+</article></div></section>
+
+<footer class="foot"><div class="wrap"><div class="foot-in">
+  <div>
+    <div class="brand d3">Credence</div>
+    <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div>
   </div>
-</div></section>
-
-<footer class="foot"><div class="wrap">
-  <div class="foot-in">
-    <div><div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</div>
-      <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div></div>
-    <div class="flinks"><a href="index.html#system">The System</a><a href="index.html#included">What's Included</a><a href="index.html#investment">Investment</a><a href="index.html#questions">Questions</a><a href="index.html">Overview</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>
+  <div>
+    <h5>Explore</h5>
+    <ul><li><a href="index.html#systems">Course Systems</a></li><li><a href="index.html#included">What's Included</a></li><li><a href="index.html#pricing">Pricing</a></li></ul>
   </div>
-  <p class="copy" style="margin-top:44px;max-width:76ch">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice.</p>
-  <p class="copy">© 2026 Credence · credencesites.com.</p>
-</div></footer>
-<script src="assets/credence.js"></script>
+  <div>
+    <h5>Start</h5>
+    <ul><li><a href="start.html">Start Your Site</a></li><li><a href="coastal/index.html" target="_blank" rel="noopener noreferrer">The Coastal demo <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li><li><a href="terms.html">Agreement</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+  </div>
+  <p class="legal">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice. Courses are responsible for the accuracy of their rates, policies, booking links, and operational information. Imagery on this preview is AI-generated demonstration reference of a fictional course, to be replaced with commissioned photography before production.</p>
+  <p class="cr">© 2026 Credence · credencesites.com · v2 preview — not for production.</p>
+</div></div></footer>
+<script src="assets/js/credence-v2.js"></script>
 </body></html>
