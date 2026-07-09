@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#F4F3EF">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="robots" content="noindex, nofollow">
 <title>Detailed Course Intake — Credence</title>
 <meta name="description" content="Second-stage course intake for courses that have already spoken with Credence.">
@@ -11,41 +11,124 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/credence-v2.css">
 <style>
-  /* Detailed intake — cleaner white / graphite / neutral balance.
-     All rules scoped under body.page-intake so start.html (page-start) and the
-     homepage are never affected. Content, layout, fields, and behavior unchanged. */
-  body.page-intake{background:#FFFFFF}
-  /* light header, always solid (hero is white, not a dark image) */
-  body.page-intake .head{background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(14px);box-shadow:0 1px 0 #D3D4CF;color:#111413}
-  body.page-intake .start-hero{background:#FFFFFF}
-  body.page-intake .start-hero .eyebrow{color:#B9533D}
-  body.page-intake .start-hero h1{color:#111413}
-  body.page-intake .start-hero .lead{color:#515754}
-  body.page-intake .fnote,body.page-intake .fnote.warn{color:#515754}
-  body.page-intake .fnote.warn{border-left:2px solid #D3D4CF}
-  /* form container: white with a fine neutral border, not a warm-gray box */
-  body.page-intake .form-shell{background:#FFFFFF;border:1px solid #D3D4CF;box-shadow:0 1px 2px rgba(17,20,19,.04)}
-  body.page-intake .fgroup{border-top-color:#D3D4CF}
-  body.page-intake .glabel .gn{color:#B9533D}
-  body.page-intake .glabel h3{color:#111413}
-  body.page-intake .field label{color:#111413}
+  /* ===== Detailed Course Intake — editorial redesign =====================
+     Graphite left rail + white underline form. Every rule is scoped under
+     body.page-intake, so start.html (page-start), the homepage, Terms,
+     Privacy, and Ocean Bluff are never affected. Approved white / graphite /
+     neutral-gray / clay color balance preserved. Fields, names, IDs, action,
+     hidden fields, validation, and submission behavior are unchanged. ===== */
+  body.page-intake{background:#FFFFFF;color:#111413}
+  /* Approved white header, always solid (charcoal type, neutral border) */
+  body.page-intake .head{background:rgba(255,255,255,.94);backdrop-filter:saturate(150%) blur(14px);box-shadow:0 1px 0 #D3D4CF;color:#111413}
+
+  /* ---- Two-column intake layout ---- */
+  .intake-layout{display:block}
+  .intake-rail{position:relative;background:#161A18;color:#ECEEEA;display:flex;flex-direction:column;overflow:hidden}
+  .rail-content{padding:94px 22px 26px}
+  .rail-eyebrow{display:inline-block;font:600 .7rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#B9533D}
+  .rail-title{font-family:var(--serif);font-weight:400;color:#F4F3EF;font-size:clamp(1.9rem,4.4vw,2.7rem);line-height:1.06;letter-spacing:-.01em;margin:16px 0 16px;max-width:15ch}
+  .rail-lead{color:#C7CBC7;font-size:1rem;line-height:1.62;max-width:44ch}
+  .rail-points{margin:28px 0 4px;display:grid;gap:20px}
+  .rail-point{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+  .rail-point .mk{width:8px;height:8px;background:#B9533D;margin-top:6px;flex:0 0 auto}
+  .rail-point h4{font:600 .8rem/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#ECEEEA;margin-bottom:5px}
+  .rail-point p{color:#9DA3A0;font-size:.9rem;line-height:1.5}
+  .rail-invest{margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14)}
+  .rail-invest .lab{font:600 .62rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#7f8682;margin-bottom:14px}
+  .rail-price{display:flex;gap:36px}
+  .rail-price .amt{font-family:var(--sans);font-weight:300;font-size:1.9rem;line-height:1;color:#F4F3EF;font-variant-numeric:tabular-nums}
+  .rail-price .sub{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:#8b918d;margin-top:8px;max-width:16ch}
+  .rail-image{position:relative;height:190px;flex:0 0 auto}
+  .rail-image img{width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block}
+  /* soft vertical gradient: solid graphite at top -> photograph below */
+  .rail-image::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,#161A18 0%,rgba(22,26,24,.72) 16%,rgba(22,26,24,.28) 40%,rgba(22,26,24,0) 66%)}
+  .rail-disclosure{position:absolute;left:18px;bottom:12px;z-index:2;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+
+  /* ---- Form area (white, editorial) ---- */
+  .intake-form-area{padding:30px 22px 60px;min-width:0}
+  .intake-form-inner{max-width:900px;margin:0 auto}
+  .intake-intro{color:#7B817C;font-size:.9rem;line-height:1.6;margin-bottom:30px}
+  /* strip the old outer container entirely */
+  body.page-intake .form-shell{background:transparent;border:none;border-radius:0;box-shadow:none;padding:0;max-width:none}
+  /* section = title + thin rule, no card, no number */
+  body.page-intake .fgroup{border-top:1px solid #D3D4CF;padding-top:24px;margin-top:46px}
+  body.page-intake .fgroup:first-of-type{border-top:none;margin-top:0;padding-top:0}
+  body.page-intake .glabel{display:block;margin-bottom:22px}
+  body.page-intake .glabel h3{font:600 .74rem/1 var(--sans);letter-spacing:.17em;text-transform:uppercase;color:#111413}
+  /* labels */
+  body.page-intake .field{gap:6px}
+  body.page-intake .field label{font-size:.9rem;font-weight:600;color:#111413}
   body.page-intake .field .req{color:#B9533D}
-  body.page-intake .field .hint{color:#7B817C}
-  /* inputs: white, distinguished from the white form by clear neutral borders */
-  body.page-intake .field input,
-  body.page-intake .field select,
-  body.page-intake .field textarea{background:#FFFFFF;border:1px solid #C8CBC7;color:#111413}
-  body.page-intake .field input::placeholder,
+  body.page-intake .field .hint{color:#7B817C;font-weight:400}
+  /* text inputs + selects: underline only, no box */
+  body.page-intake .field input[type=text],
+  body.page-intake .field input[type=email],
+  body.page-intake .field input[type=tel],
+  body.page-intake .field select{
+    background:transparent;border:0;border-bottom:1px solid #BFC2BE;border-radius:0;
+    padding:10px 0;color:#111413}
+  body.page-intake .field input::placeholder{color:#9A9E9A}
+  body.page-intake .field input[type=text]:focus,
+  body.page-intake .field input[type=email]:focus,
+  body.page-intake .field input[type=tel]:focus,
+  body.page-intake .field select:focus{
+    outline:none;border-bottom:2px solid #B9533D;box-shadow:none;
+    background:linear-gradient(to top,rgba(185,83,61,.06),transparent 42%)}
+  /* select: keep the arrow, pull it to the right edge of the underline */
+  body.page-intake .field select{background-position:right 1px center;padding-right:22px;cursor:pointer}
+  /* textareas: restrained thin outline, comfortable writing height */
+  body.page-intake .field textarea{
+    background:#FFFFFF;border:1px solid #D3D4CF;border-radius:4px;padding:12px 14px;color:#111413;min-height:92px}
   body.page-intake .field textarea::placeholder{color:#9A9E9A}
-  body.page-intake .field input:focus,
-  body.page-intake .field select:focus,
-  body.page-intake .field textarea:focus{border-color:#B9533D;box-shadow:0 0 0 3px rgba(185,83,61,.16)}
-  /* checkboxes: graphite selected state, native focus handled by browser + clay accent */
-  body.page-intake input[type=checkbox]{accent-color:#161A18}
-  body.page-intake .checks{border-top-color:#D3D4CF}
-  /* submit: graphite button, white text */
+  body.page-intake .field textarea:focus{outline:none;border-color:#B9533D;box-shadow:0 0 0 3px rgba(185,83,61,.12)}
+  body.page-intake #priorities,body.page-intake #goals,body.page-intake #required_pages,body.page-intake #working{min-height:120px}
+  /* checkbox groups: editorial columns, NO pills, no cards */
+  body.page-intake .taglist{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 24px;max-width:none}
+  body.page-intake .taglist .chk{border:0;padding:0;display:inline-flex;gap:11px;align-items:center;min-height:24px}
+  body.page-intake .taglist .chk span{border:0;border-radius:0;padding:0;background:none;color:#111413;font-size:.94rem;line-height:1.3}
+  body.page-intake input[type=checkbox]{accent-color:#161A18;width:16px;height:16px;flex:0 0 auto}
+  body.page-intake input[type=checkbox]:focus-visible{outline:2px solid #B9533D;outline-offset:2px}
+  /* notes / agreement */
+  body.page-intake .fnote{color:#515754}
+  body.page-intake .fnote.warn{border-left:0;padding-left:0;color:#7B817C}
+  body.page-intake .checks{border-top:1px solid #D3D4CF}
+  body.page-intake .checks a,body.page-intake .field a{color:#B9533D}
+  /* submit */
   body.page-intake .fsubmit{background:#161A18;color:#FFFFFF;border-color:#161A18}
   body.page-intake .fsubmit:hover{background:#111413}
+  body.page-intake .fsubmit:focus-visible{outline:2px solid #B9533D;outline-offset:3px}
+  /* success state */
+  body.page-intake .thanks{padding:60px 4px}
+  body.page-intake .thanks h2{color:#111413}
+  body.page-intake .thanks .eyebrow{color:#B9533D}
+
+  /* ---- Desktop: dark rail beside the form ---- */
+  @media(min-width:960px){
+    .intake-layout{display:grid;grid-template-columns:minmax(300px,28%) 1fr;align-items:start}
+    .intake-rail{position:sticky;top:0;height:100vh}
+    .rail-content{padding:104px 40px 22px;flex:0 1 auto;overflow:hidden}
+    .rail-image{margin-top:auto;height:auto;flex:1 1 32%;min-height:200px}
+    .intake-form-area{padding:104px 64px 92px}
+  }
+  @media(min-width:1440px){
+    .intake-form-area{padding:112px 80px 100px}
+  }
+  /* ---- Tablet / mobile: stack, compact intro ---- */
+  @media(max-width:959px){
+    .intake-rail{position:static;height:auto}
+    .rail-points{display:none}          /* keep the black intro block short on mobile */
+    .rail-lead{max-width:none}
+    .rail-image{height:170px}
+    .taglist{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .intake-form-area{padding:28px 22px 54px}
+  }
+  @media(max-width:520px){
+    body.page-intake .taglist{grid-template-columns:1fr 1fr}
+    .rail-price{gap:26px}
+  }
+  @media(max-width:400px){
+    body.page-intake .fgrid{grid-template-columns:1fr}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -63,131 +146,156 @@
   <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
-<!-- HERO -->
-<section class="start-hero" style="padding-bottom:40px">
-  <div class="wrap">
-    <span class="eyebrow">Detailed course intake</span>
-    <h1 style="max-width:20ch">Everything we need to tailor the course system.</h1>
-    <p class="lead" style="max-width:56ch">Complete this form after speaking with Credence. Share what you have available; we'll follow up on anything still needed.</p>
-    <p class="fnote warn" style="max-width:56ch">This form is intended for courses that have already spoken with Credence.</p>
-  </div>
-</section>
+<div class="intake-layout">
 
-<!-- DETAILED INTAKE FORM -->
-<section class="section" id="intake" style="padding-top:20px">
-  <div class="wrap">
-    <form id="intakeForm" class="form-shell" action="https://api.web3forms.com/submit" method="POST" novalidate>
-      <input type="hidden" name="access_key" value="4fee9395-e72a-4894-9417-6d4de237a5b3">
-      <input type="hidden" name="subject" value="New Credence course intake">
-      <input type="hidden" name="from_name" value="Credence — Detailed Intake">
-      <input type="hidden" id="accepted_at" name="accepted_at" value="">
-      <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-      <div class="fgroup">
-        <div class="glabel"><span class="gn">01</span><h3>Course details</h3></div>
-        <div class="fgrid">
-          <div class="field"><label for="course_name">Course name <span class="req" aria-hidden="true">*</span></label><input id="course_name" name="course_name" type="text" required></div>
-          <div class="field"><label for="location">Course location</label><input id="location" name="location" type="text" placeholder="City, State"></div>
-          <div class="field"><label for="current_website">Current website</label><input id="current_website" name="current_website" type="text" placeholder="https://"></div>
-          <div class="field"><label for="contact_name">Contact name <span class="req" aria-hidden="true">*</span></label><input id="contact_name" name="contact_name" type="text" required></div>
-          <div class="field"><label for="contact_role">Contact role</label><input id="contact_role" name="contact_role" type="text" placeholder="e.g. General Manager, Director of Golf"></div>
-          <div class="field"><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required></div>
-          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
+  <!-- LEFT EDITORIAL RAIL -->
+  <aside class="intake-rail">
+    <div class="rail-content">
+      <span class="rail-eyebrow">Detailed course intake</span>
+      <h1 class="rail-title">Everything we need to tailor the course system.</h1>
+      <p class="rail-lead">Complete this form after speaking with Credence. Share what you have available; we'll follow up on anything still needed.</p>
+      <div class="rail-points">
+        <div class="rail-point"><span class="mk" aria-hidden="true"></span><div><h4>Tailored to your course</h4><p>Your information helps us recommend the right system and scope.</p></div></div>
+        <div class="rail-point"><span class="mk" aria-hidden="true"></span><div><h4>Secure &amp; confidential</h4><p>Your information is used only to evaluate and prepare the project.</p></div></div>
+        <div class="rail-point"><span class="mk" aria-hidden="true"></span><div><h4>Scope before we begin</h4><p>The scope and investment are confirmed before any design or build work starts.</p></div></div>
+      </div>
+      <div class="rail-invest">
+        <div class="lab">Investment</div>
+        <div class="rail-price">
+          <div><div class="amt">$1,000</div><div class="sub">One-time setup</div></div>
+          <div><div class="amt">$250</div><div class="sub">Per month · Website Care &amp; Management</div></div>
         </div>
       </div>
-
-      <div class="fgroup">
-        <div class="glabel"><span class="gn">02</span><h3>Course operations</h3></div>
-        <div class="fgrid">
-          <div class="field"><label for="course_type">Course type</label>
-            <select id="course_type" name="course_type"><option value="">Select…</option><option>Public</option><option>Municipal</option><option>Resort</option><option>Semi-private</option><option>Private</option></select></div>
-          <div class="field"><label for="holes">Number of holes</label><input id="holes" name="holes" type="text" placeholder="e.g. 18"></div>
-          <div class="field"><label for="booking_provider">Current booking provider</label><input id="booking_provider" name="booking_provider" type="text" placeholder="GolfNow, foreUP, Lightspeed, etc."></div>
-          <div class="field"><label for="booking_url">Booking URL</label><input id="booking_url" name="booking_url" type="text" placeholder="https://"></div>
-          <div class="field"><label for="rates_page">Rates page</label><input id="rates_page" name="rates_page" type="text" placeholder="Link, if you have one"></div>
-          <div class="field"><label for="lodging">Lodging / resort connection</label><input id="lodging" name="lodging" type="text" placeholder="If applicable"></div>
-        </div>
-        <div class="field full"><label>Which does the course offer? <span class="hint">(check all that apply)</span></label>
-          <div class="taglist" role="group" aria-label="Course offerings" style="margin-top:6px">
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_golf_shop" value="Golf shop"><span>Golf shop</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_dining" value="Dining"><span>Dining</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_events" value="Events"><span>Events</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_weddings" value="Weddings"><span>Weddings</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_outings" value="Tournaments & outings"><span>Tournaments &amp; outings</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_instruction" value="Instruction"><span>Instruction</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_fitting" value="Club fitting"><span>Club fitting</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_membership" value="Membership"><span>Membership</span></label>
-          </div>
-        </div>
-      </div>
-
-      <div class="fgroup">
-        <div class="glabel"><span class="gn">03</span><h3>Current website</h3></div>
-        <div class="field full"><label for="working">What's working today?</label><textarea id="working" name="working"></textarea></div>
-        <div class="field full"><label for="not_working">What isn't working?</label><textarea id="not_working" name="not_working"></textarea></div>
-        <div class="field full"><label for="priorities">Most important changes</label><textarea id="priorities" name="priorities"></textarea></div>
-        <div class="fgrid">
-          <div class="field"><label for="host_provider">Existing hosting / website provider</label><input id="host_provider" name="host_provider" type="text"></div>
-          <div class="field"><label for="domain_ownership">Current domain ownership</label>
-            <select id="domain_ownership" name="domain_ownership"><option value="">Select…</option><option>We own it and can access the registrar</option><option>We own it, unsure of access</option><option>Managed by a third party</option><option>Not sure</option></select></div>
-          <div class="field full"><label for="analytics">Existing analytics, if known</label><input id="analytics" name="analytics" type="text" placeholder="e.g. Google Analytics — who manages it"></div>
-        </div>
-      </div>
-
-      <div class="fgroup">
-        <div class="glabel"><span class="gn">04</span><h3>Content &amp; photography</h3></div>
-        <p class="fnote">Only submit content and images the course owns or is authorized to use.</p>
-        <div class="field full"><label>What do you have available? <span class="hint">(check all that apply)</span></label>
-          <div class="taglist" role="group" aria-label="Available content" style="margin-top:6px">
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_logo" value="Logo"><span>Course logo</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_brandguide" value="Brand guide"><span>Brand guide</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_course_photo" value="Course photography"><span>Course photography</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_drone" value="Drone footage"><span>Drone footage</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_staff_photo" value="Staff photography"><span>Staff photography</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_dining_photo" value="Dining photography"><span>Dining photography</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_copy" value="Written copy"><span>Written copy</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_scorecard" value="Scorecard"><span>Scorecard</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_course_map" value="Course map"><span>Course map</span></label>
-            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_hole_desc" value="Hole descriptions"><span>Hole descriptions</span></label>
-          </div>
-        </div>
-        <div class="field full"><label for="assets_link">Link to any files you'd like to share</label><input id="assets_link" name="assets_link" type="text" placeholder="Drive, Dropbox, etc. — optional"></div>
-      </div>
-
-      <div class="fgroup">
-        <div class="glabel"><span class="gn">05</span><h3>Project</h3></div>
-        <div class="fgrid">
-          <div class="field"><label for="preferred_system">Preferred Credence course system</label>
-            <select id="preferred_system" name="preferred_system"><option value="">Select…</option><option>Course System 01 — The Coastal</option><option>Not sure — recommend one</option></select></div>
-          <div class="field"><label for="launch_timing">Target launch timing</label><input id="launch_timing" name="launch_timing" type="text" placeholder="e.g. before the spring season"></div>
-        </div>
-        <div class="field full"><label for="required_pages">Required pages</label><textarea id="required_pages" name="required_pages" placeholder="e.g. Home, The Course, Rates & Tee Times, Events, Dining, Contact"></textarea></div>
-        <div class="field full"><label for="goals">Primary business goals</label><textarea id="goals" name="goals" placeholder="More tee times, more events, clearer rates, etc."></textarea></div>
-        <div class="field full"><label class="chk" for="opt_production" style="border:none;padding:0;display:inline-flex;gap:12px;align-items:center"><input type="checkbox" id="opt_production" name="opt_production" value="Yes"><span>I'm interested in optional photography or video (quoted separately)</span></label></div>
-        <div class="field full"><label for="additional">Anything else</label><textarea id="additional" name="additional"></textarea></div>
-      </div>
-
-      <div class="fgroup">
-        <div class="glabel"><span class="gn">06</span><h3>Agreement</h3></div>
-        <p class="fnote warn">For your security, please don't submit passwords, payment-card data, or other confidential access credentials through this form.</p>
-        <div class="checks">
-          <label class="chk" for="ack_terms"><input type="checkbox" id="ack_terms" name="ack_terms" value="Yes" required><span>I have read and accept the Credence <a href="terms.html" target="_blank" rel="noopener noreferrer">Website Subscription &amp; Services Agreement<span class="sr-only"> (opens in a new tab)</span></a>.</span></label>
-          <label class="chk" for="ack_privacy"><input type="checkbox" id="ack_privacy" name="ack_privacy" value="Yes" required><span>I have read the Credence <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy<span class="sr-only"> (opens in a new tab)</span></a>, and I own or am authorized to share the information I submit.</span></label>
-        </div>
-        <div class="fsubmit-row">
-          <button type="submit" class="btn btn-solid fsubmit">Send course details <span class="ar">&rarr;</span></button>
-          <span class="muted" style="font-size:.92rem">We'll be in touch shortly to confirm your system and next steps.</span>
-        </div>
-      </div>
-    </form>
-
-    <div id="thanks" class="thanks" tabindex="-1">
-      <span class="eyebrow">Received</span>
-      <h2 class="d2" style="margin-top:12px">Thank you — we've got it.</h2>
-      <p>We'll review your course details and be in touch to confirm your system and outline next steps. Nothing is published until your site is built and you approve it.</p>
     </div>
-  </div>
-</section>
+    <div class="rail-image">
+      <picture>
+        <source type="image/avif" srcset="assets/images/credence-descent-2000.avif">
+        <source type="image/webp" srcset="assets/images/credence-descent-2000.webp">
+        <img src="assets/images/credence-descent-2000.jpg" alt="A golden-hour coastal golf landscape sweeping toward the Pacific. Demonstration image of a fictional course." width="1344" height="768" loading="lazy">
+      </picture>
+      <span class="rail-disclosure">Demonstration image</span>
+    </div>
+  </aside>
+
+  <!-- RIGHT FORM AREA -->
+  <main class="intake-form-area">
+    <div class="intake-form-inner">
+      <p class="intake-intro">This form is intended for courses that have already spoken with Credence.</p>
+
+      <form id="intakeForm" class="form-shell" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="4fee9395-e72a-4894-9417-6d4de237a5b3">
+        <input type="hidden" name="subject" value="New Credence course intake">
+        <input type="hidden" name="from_name" value="Credence — Detailed Intake">
+        <input type="hidden" id="accepted_at" name="accepted_at" value="">
+        <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="fgroup" id="intake">
+          <div class="glabel"><h3>Course details</h3></div>
+          <div class="fgrid">
+            <div class="field"><label for="course_name">Course name <span class="req" aria-hidden="true">*</span></label><input id="course_name" name="course_name" type="text" required></div>
+            <div class="field"><label for="location">Course location</label><input id="location" name="location" type="text" placeholder="City, State"></div>
+            <div class="field"><label for="current_website">Current website</label><input id="current_website" name="current_website" type="text" placeholder="https://"></div>
+            <div class="field"><label for="contact_name">Contact name <span class="req" aria-hidden="true">*</span></label><input id="contact_name" name="contact_name" type="text" required></div>
+            <div class="field"><label for="contact_role">Contact role</label><input id="contact_role" name="contact_role" type="text" placeholder="e.g. General Manager, Director of Golf"></div>
+            <div class="field"><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <div class="glabel"><h3>Course operations</h3></div>
+          <div class="fgrid">
+            <div class="field"><label for="course_type">Course type</label>
+              <select id="course_type" name="course_type"><option value="">Select…</option><option>Public</option><option>Municipal</option><option>Resort</option><option>Semi-private</option><option>Private</option></select></div>
+            <div class="field"><label for="holes">Number of holes</label><input id="holes" name="holes" type="text" placeholder="e.g. 18"></div>
+            <div class="field"><label for="booking_provider">Current booking provider</label><input id="booking_provider" name="booking_provider" type="text" placeholder="GolfNow, foreUP, Lightspeed, etc."></div>
+            <div class="field"><label for="booking_url">Booking URL</label><input id="booking_url" name="booking_url" type="text" placeholder="https://"></div>
+            <div class="field"><label for="rates_page">Rates page</label><input id="rates_page" name="rates_page" type="text" placeholder="Link, if you have one"></div>
+            <div class="field"><label for="lodging">Lodging / resort connection</label><input id="lodging" name="lodging" type="text" placeholder="If applicable"></div>
+          </div>
+          <div class="field full"><label>Which does the course offer? <span class="hint">(check all that apply)</span></label>
+            <div class="taglist" role="group" aria-label="Course offerings" style="margin-top:6px">
+              <label class="chk"><input type="checkbox" name="offers_golf_shop" value="Golf shop"><span>Golf shop</span></label>
+              <label class="chk"><input type="checkbox" name="offers_dining" value="Dining"><span>Dining</span></label>
+              <label class="chk"><input type="checkbox" name="offers_events" value="Events"><span>Events</span></label>
+              <label class="chk"><input type="checkbox" name="offers_weddings" value="Weddings"><span>Weddings</span></label>
+              <label class="chk"><input type="checkbox" name="offers_outings" value="Tournaments & outings"><span>Tournaments &amp; outings</span></label>
+              <label class="chk"><input type="checkbox" name="offers_instruction" value="Instruction"><span>Instruction</span></label>
+              <label class="chk"><input type="checkbox" name="offers_fitting" value="Club fitting"><span>Club fitting</span></label>
+              <label class="chk"><input type="checkbox" name="offers_membership" value="Membership"><span>Membership</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <div class="glabel"><h3>Current website</h3></div>
+          <div class="field full"><label for="working">What's working today?</label><textarea id="working" name="working"></textarea></div>
+          <div class="field full"><label for="not_working">What isn't working?</label><textarea id="not_working" name="not_working"></textarea></div>
+          <div class="field full"><label for="priorities">Most important changes</label><textarea id="priorities" name="priorities"></textarea></div>
+          <div class="fgrid">
+            <div class="field"><label for="host_provider">Existing hosting / website provider</label><input id="host_provider" name="host_provider" type="text"></div>
+            <div class="field"><label for="domain_ownership">Current domain ownership</label>
+              <select id="domain_ownership" name="domain_ownership"><option value="">Select…</option><option>We own it and can access the registrar</option><option>We own it, unsure of access</option><option>Managed by a third party</option><option>Not sure</option></select></div>
+            <div class="field full"><label for="analytics">Existing analytics, if known</label><input id="analytics" name="analytics" type="text" placeholder="e.g. Google Analytics — who manages it"></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <div class="glabel"><h3>Content &amp; photography</h3></div>
+          <p class="fnote">Only submit content and images the course owns or is authorized to use.</p>
+          <div class="field full"><label>What do you have available? <span class="hint">(check all that apply)</span></label>
+            <div class="taglist" role="group" aria-label="Available content" style="margin-top:6px">
+              <label class="chk"><input type="checkbox" name="have_logo" value="Logo"><span>Course logo</span></label>
+              <label class="chk"><input type="checkbox" name="have_brandguide" value="Brand guide"><span>Brand guide</span></label>
+              <label class="chk"><input type="checkbox" name="have_course_photo" value="Course photography"><span>Course photography</span></label>
+              <label class="chk"><input type="checkbox" name="have_drone" value="Drone footage"><span>Drone footage</span></label>
+              <label class="chk"><input type="checkbox" name="have_staff_photo" value="Staff photography"><span>Staff photography</span></label>
+              <label class="chk"><input type="checkbox" name="have_dining_photo" value="Dining photography"><span>Dining photography</span></label>
+              <label class="chk"><input type="checkbox" name="have_copy" value="Written copy"><span>Written copy</span></label>
+              <label class="chk"><input type="checkbox" name="have_scorecard" value="Scorecard"><span>Scorecard</span></label>
+              <label class="chk"><input type="checkbox" name="have_course_map" value="Course map"><span>Course map</span></label>
+              <label class="chk"><input type="checkbox" name="have_hole_desc" value="Hole descriptions"><span>Hole descriptions</span></label>
+            </div>
+          </div>
+          <div class="field full"><label for="assets_link">Link to any files you'd like to share</label><input id="assets_link" name="assets_link" type="text" placeholder="Drive, Dropbox, etc. — optional"></div>
+        </div>
+
+        <div class="fgroup">
+          <div class="glabel"><h3>Project</h3></div>
+          <div class="fgrid">
+            <div class="field"><label for="preferred_system">Preferred Credence course system</label>
+              <select id="preferred_system" name="preferred_system"><option value="">Select…</option><option>Course System 01 — The Coastal</option><option>Not sure — recommend one</option></select></div>
+            <div class="field"><label for="launch_timing">Target launch timing</label><input id="launch_timing" name="launch_timing" type="text" placeholder="e.g. before the spring season"></div>
+          </div>
+          <div class="field full"><label for="required_pages">Required pages</label><textarea id="required_pages" name="required_pages" placeholder="e.g. Home, The Course, Rates & Tee Times, Events, Dining, Contact"></textarea></div>
+          <div class="field full"><label for="goals">Primary business goals</label><textarea id="goals" name="goals" placeholder="More tee times, more events, clearer rates, etc."></textarea></div>
+          <div class="field full"><label class="chk" for="opt_production" style="border:none;padding:0;display:inline-flex;gap:12px;align-items:center"><input type="checkbox" id="opt_production" name="opt_production" value="Yes"><span>I'm interested in optional photography or video (quoted separately)</span></label></div>
+          <div class="field full"><label for="additional">Anything else</label><textarea id="additional" name="additional"></textarea></div>
+        </div>
+
+        <div class="fgroup">
+          <div class="glabel"><h3>Agreement</h3></div>
+          <p class="fnote warn">For your security, please don't submit passwords, payment-card data, or other confidential access credentials through this form.</p>
+          <div class="checks">
+            <label class="chk" for="ack_terms"><input type="checkbox" id="ack_terms" name="ack_terms" value="Yes" required><span>I have read and accept the Credence <a href="terms.html" target="_blank" rel="noopener noreferrer">Website Subscription &amp; Services Agreement<span class="sr-only"> (opens in a new tab)</span></a>.</span></label>
+            <label class="chk" for="ack_privacy"><input type="checkbox" id="ack_privacy" name="ack_privacy" value="Yes" required><span>I have read the Credence <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy<span class="sr-only"> (opens in a new tab)</span></a>, and I own or am authorized to share the information I submit.</span></label>
+          </div>
+          <div class="fsubmit-row">
+            <button type="submit" class="btn btn-solid fsubmit">Submit intake <span class="ar">&rarr;</span></button>
+            <span class="muted" style="font-size:.92rem">We'll be in touch shortly to confirm your system and next steps.</span>
+          </div>
+        </div>
+      </form>
+
+      <div id="thanks" class="thanks" tabindex="-1">
+        <span class="eyebrow">Received</span>
+        <h2 class="d2" style="margin-top:12px">Thank you — we've got it.</h2>
+        <p>We'll review your course details and be in touch to confirm your system and outline next steps. Nothing is published until your site is built and you approve it.</p>
+      </div>
+    </div>
+  </main>
+
+</div>
 
 <footer class="foot"><div class="wrap"><div class="foot-in">
   <div>
@@ -220,7 +328,7 @@
       .catch(function(){ fail(btn); });
   });
   function done(){ f.style.display='none'; var t=document.getElementById('thanks'); if(t){ t.classList.add('show'); t.focus(); t.scrollIntoView({behavior:'smooth',block:'start'}); } }
-  function fail(btn){ if(btn){btn.disabled=false; btn.innerHTML='Send course details <span class="ar">&rarr;</span>';} alert('Something went wrong — please email hello@credencesites.com and we\'ll take it from there.'); }
+  function fail(btn){ if(btn){btn.disabled=false; btn.innerHTML='Submit intake <span class="ar">&rarr;</span>';} alert('Something went wrong — please email hello@credencesites.com and we\'ll take it from there.'); }
 })();
 </script>
 </body></html>
