@@ -272,7 +272,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .fgroup .glabel h3{font-family:var(--serif);font-weight:400;font-size:1.55rem}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
 .field{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
-.field.full{grid-column:1/-1}
+.field.full{grid-column:1/-1;min-height:0;align-items:stretch;overflow:visible;color:var(--ink)}
 .field label{font-size:.95rem;font-weight:600;color:var(--ink)}
 .field .hint{font-weight:400;color:var(--stone);font-size:.85rem}
 .field .req{color:var(--accent)}
