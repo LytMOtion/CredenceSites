@@ -1,339 +1,225 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0B0E13">
-<title>Begin Your Site — Credence</title>
-<meta name="description" content="Share your details and approved content and we build your site. Nothing is charged until it is live and you approve it.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0A0E11">
+<title>Course Intake — Credence</title>
+<meta name="description" content="Share your course details and we build your website. Nothing is published until you approve it.">
+<link rel="canonical" href="https://www.credencesites.com/intake.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Course Intake — Credence">
+<meta property="og:description" content="Share your course details and approved content and we build your site.">
+<meta property="og:url" content="https://www.credencesites.com/intake.html">
+<meta property="og:site_name" content="Credence">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
-:root{
-  --bg:#0B0E13;--surface:#12161D;--ink:#ECEEF1;--ink-soft:#A6ADB6;--muted:#6B727C;
-  --line:rgba(255,255,255,.09);--line-strong:rgba(255,255,255,.16);--champagne:#9AA3AE;
-  --serif:"Fraunces","Georgia",serif;--sans:"Inter",system-ui,sans-serif;--container:1200px;
-}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:.005em}
-body::before{content:none}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--champagne);color:#0B0B0D}
-.wrap{max-width:var(--container);margin:0 auto;padding:0 48px;position:relative;z-index:1}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.02em;font-optical-sizing:auto;font-variation-settings:"SOFT" 0,"WONK" 0}
-.display{font-size:clamp(3.2rem,7.4vw,6.2rem);font-weight:340;letter-spacing:-.035em;line-height:.98}
-.h2{font-size:clamp(2.1rem,4.4vw,3.4rem);font-weight:360;letter-spacing:-.025em}
-.lead{font-size:clamp(1.12rem,1.5vw,1.4rem);line-height:1.6;color:var(--ink-soft);font-weight:300}
-p{color:var(--ink-soft);font-weight:300}
-.label{display:inline-flex;align-items:center;gap:16px;font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
-.label .n{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:1rem;letter-spacing:0;font-weight:400}
-.btn{display:inline-flex;align-items:center;gap:.7em;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1.15rem 2.1rem;border:1px solid transparent;border-radius:1px;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1)}
-.btn .ar{transition:transform .4s}
-.btn:hover .ar{transform:translateX(5px)}
-.btn--p{background:var(--ink);color:#0B0B0D;border-color:var(--ink)}
-.btn--p:hover{background:#fff;border-color:#fff;transform:translateY(-2px)}
-.btn--g{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-.btn--g:hover{border-color:var(--ink);transform:translateY(-2px)}
-.tlink{display:inline-flex;align-items:center;gap:.5em;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);position:relative;padding-bottom:5px}
-.tlink::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--champagne);transform:scaleX(0);transform-origin:left;transition:transform .45s ease}
-.tlink:hover{color:var(--ink)}.tlink:hover::after{transform:scaleX(1)}
-.head{position:fixed;top:0;left:0;right:0;z-index:100;padding:32px 0;transition:all .45s}
-.head.s{background:rgba(11,11,13,.7);backdrop-filter:saturate(160%) blur(16px);padding:18px 0;box-shadow:0 1px 0 var(--line)}
-.head-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{font-family:var(--serif);font-size:1.55rem;letter-spacing:.02em;font-weight:400}
-.nav{display:flex;align-items:center;gap:40px}
-.nav a{font-size:.78rem;font-weight:400;letter-spacing:.06em;color:var(--ink-soft);transition:color .3s}
-.nav a:hover{color:var(--ink)}
-.nav .cta{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:.78rem 1.5rem;border:1px solid var(--line-strong);border-radius:1px;color:var(--ink)}
-.nav .cta:hover{border-color:var(--ink)}
-.burger{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;padding:6px}
-.burger span{width:26px;height:1px;background:var(--ink)}
-.hero{padding:260px 0 180px;position:relative}
-.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(11,14,19,.28) 0%, rgba(11,14,19,.42) 44%, rgba(11,14,19,.82) 76%, var(--bg) 100%)}
-.hero .wrap{position:relative;z-index:1}
-.hero .label{margin-bottom:44px}
-.hero .display{max-width:15ch;margin-bottom:42px}
-.hero .lead{max-width:46ch;margin-bottom:56px;font-size:clamp(1.15rem,1.6vw,1.45rem)}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
-section{padding:170px 0;position:relative}
-.shead{max-width:760px;margin-bottom:96px}
-.shead .label{margin-bottom:30px}
-.shead .h2{margin-bottom:28px}
-.shead p{font-size:1.18rem;max-width:54ch}
-.idea .big{font-family:var(--serif);font-weight:340;font-size:clamp(2rem,3.6vw,3rem);line-height:1.22;letter-spacing:-.025em;color:var(--ink);max-width:20ch;margin-bottom:64px}
-.idea .big em{font-style:italic;color:var(--champagne)}
-.idea .cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;padding-top:60px;border-top:1px solid var(--line)}
-.idea .cols p{font-size:1.06rem;max-width:48ch}
-.idea .cols p+p{margin-top:20px}
-.tpl{display:grid;grid-template-columns:1fr;gap:48px;padding:120px 0;border-top:1px solid var(--line)}
-.tpl:first-of-type{border-top:0;padding-top:0}
-.tpl .meta{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:baseline}
-.tpl .meta .ix{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:1.5rem}
-.tpl .meta .nm h3{font-size:2.4rem;font-weight:360;letter-spacing:-.02em;margin-bottom:10px}
-.tpl .meta .nm .sub{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.tpl .meta .rt{text-align:right;max-width:30ch}
-.tpl .meta .rt p{font-size:1rem;margin-bottom:18px}
-.shot{border:1px solid var(--line);overflow:hidden;background:var(--surface);box-shadow:0 50px 100px -30px rgba(0,0,0,.7)}
-.shot img{width:100%;display:block}
-.incl{display:grid;grid-template-columns:1fr 1fr;gap:0 96px}
-.irow{display:grid;grid-template-columns:auto 1fr;gap:26px;padding:38px 0;border-bottom:1px solid var(--line)}
-.irow .in{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:1.1rem;line-height:1.4}
-.irow h3{font-size:1.4rem;font-weight:400;margin-bottom:8px}
-.irow p{font-size:.98rem;line-height:1.6;color:var(--muted);max-width:38ch}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:48px}
-.steps .st .sn{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:2.4rem;font-weight:300;line-height:1;margin-bottom:26px;display:block}
-.steps .st h3{font-size:1.4rem;font-weight:400;margin-bottom:12px}
-.steps .st p{font-size:.96rem;line-height:1.6;color:var(--muted)}
-.invest{display:grid;grid-template-columns:1fr 1fr;gap:90px;max-width:860px;border-top:1px solid var(--line-strong);padding-top:64px}
-.invest .pl{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--champagne);margin-bottom:28px}
-.invest .amt{font-family:var(--serif);font-size:clamp(3.4rem,6vw,4.6rem);font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em}
-.invest .amt .per{font-size:1.2rem;color:var(--muted)}
-.invest .per2{font-size:.92rem;color:var(--muted);margin-top:14px}
-.invest p{font-size:1rem;margin-top:26px;max-width:38ch;line-height:1.65}
-.inote{margin-top:40px;font-size:.92rem;color:var(--muted);font-style:italic;font-family:var(--serif)}
-.faq{max-width:840px}
-.fitem{border-top:1px solid var(--line);padding:40px 0;display:grid;grid-template-columns:.6fr 1fr;gap:40px}
-.fitem:last-child{border-bottom:1px solid var(--line)}
-.fitem h3{font-size:1.4rem;font-weight:400;letter-spacing:-.01em}
-.fitem p{font-size:1.02rem;max-width:52ch}
-.final{text-align:center;padding:200px 0}
-.final .label{justify-content:center;margin-bottom:34px}
-.final .h2{margin:0 auto 26px;max-width:16ch;font-size:clamp(2.6rem,5.5vw,4.4rem)}
-.final p{max-width:44ch;margin:0 auto 48px;font-size:1.16rem}
-.final-ctas{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap}
-.foot{border-top:1px solid var(--line);padding:80px 0 48px}
-.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;align-items:flex-start}
-.foot .brand{font-size:1.7rem;margin-bottom:16px;font-family:var(--serif)}
-.foot .fmeta{font-size:.9rem;color:var(--muted);line-height:1.9;font-weight:300}
-.foot .fmeta a{color:var(--ink-soft)}
-.foot .flinks{display:flex;gap:30px;flex-wrap:wrap}
-.foot .flinks a{font-size:.8rem;color:var(--ink-soft);letter-spacing:.04em}
-.foot .flinks a:hover{color:var(--ink)}
-.foot .copy{font-size:.74rem;color:var(--muted);margin-top:56px;letter-spacing:.04em}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1)}
-.reveal.in{opacity:1;transform:none}
-@media(max-width:920px){
-  .nav{position:fixed;top:0;left:0;right:0;flex-direction:column;align-items:flex-start;gap:20px;background:var(--bg);padding:102px 32px 36px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .35s ease,transform .4s cubic-bezier(.4,0,.2,1),visibility .35s;box-shadow:0 26px 50px rgba(0,0,0,.55);border-bottom:1px solid var(--line);z-index:90}
-  .nav.open{opacity:1;visibility:visible;transform:none}
-  .nav a{font-size:1.35rem;font-family:var(--serif);color:var(--ink)}
-  .nav .cta{font-size:.72rem;margin-top:6px}
-  .brand{position:relative;z-index:110}
-  .burger{display:flex;z-index:120;position:relative}
-  .burger span{transition:transform .4s ease, opacity .3s ease}
-  .nav.open ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .nav.open ~ .burger span:nth-child(2){opacity:0}
-  .nav.open ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .idea .cols{grid-template-columns:1fr;gap:30px}
-  .incl{grid-template-columns:1fr;gap:0}
-  .steps{grid-template-columns:1fr 1fr;gap:40px}
-  .invest{grid-template-columns:1fr;gap:56px}
-  .tpl .meta{grid-template-columns:auto 1fr;gap:20px}
-  .tpl .meta .rt{grid-column:1/-1;text-align:left;max-width:46ch}
-  .fitem{grid-template-columns:1fr;gap:14px}
-}
-@media(max-width:560px){
-  .wrap{padding:0 24px}
-  section{padding:100px 0}
-  .hero{padding:180px 0 110px}
-  .steps{grid-template-columns:1fr;gap:44px}
-  .shead{margin-bottom:60px}
-  .tpl{padding:80px 0}
-  .hero-ctas .btn{width:100%;justify-content:center}
-}
-/* ---------- immersive layer ---------- */
-.hero-bg img{transform:scale(1.18);will-change:transform}
-.hero .spot{position:absolute;left:50%;top:40%;width:640px;height:640px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(150,182,226,.12), transparent 62%);opacity:0;transition:opacity .9s ease;pointer-events:none;z-index:0;mix-blend-mode:screen}
-.hero:hover .spot{opacity:1}
-.shot{transition:transform .75s cubic-bezier(.2,.6,.2,1),box-shadow .75s cubic-bezier(.2,.6,.2,1)}
-.shot img{transition:transform .9s cubic-bezier(.2,.6,.2,1)}
-@media(hover:hover){.tpl:hover .shot{transform:translateY(-8px);box-shadow:0 70px 130px -40px rgba(0,0,0,.85)}.tpl:hover .shot img{transform:scale(1.03)}}
-.reveal{transition:opacity 1.1s cubic-bezier(.2,.6,.2,1),transform 1.1s cubic-bezier(.2,.6,.2,1),filter 1.1s cubic-bezier(.2,.6,.2,1);filter:blur(7px)}
-.reveal.in{filter:blur(0)}
-body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:140px 140px}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none;filter:none}.hero .spot{display:none}}
-
-.intro-form{max-width:720px}
-.field{display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
-.field.full{grid-column:1 / -1}
-.field label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.field .hint{text-transform:none;letter-spacing:0;font-size:.78rem}
-.field input,.field textarea{background:rgba(255,255,255,.02);border:1px solid var(--line);color:var(--ink);font-family:var(--sans);font-size:1rem;padding:13px 15px;border-radius:2px;transition:border-color .3s,background .3s;width:100%}
-.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.26)}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--champagne);background:rgba(255,255,255,.05)}
-.field textarea{resize:vertical;min-height:92px;line-height:1.6}
-.field input[type=file]{padding:11px 14px;color:var(--muted);font-size:.85rem;cursor:pointer}
-.designpick{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.dp{position:relative;border:1px solid var(--line);padding:22px 20px;cursor:pointer;transition:border-color .3s,background .3s;display:block}
-.dp:hover{border-color:rgba(255,255,255,.3)}
-.dp:has(input:checked){border-color:var(--champagne);background:rgba(255,255,255,.05)}
-.dp input{position:absolute;opacity:0;pointer-events:none}
-.dp h4{font-family:var(--serif);font-size:1.18rem;font-weight:400;margin:0 0 6px}
-.dp .dpm{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.fsubmit-row{display:flex;align-items:center;gap:26px;margin-top:18px;flex-wrap:wrap}
-.fnote{font-size:.82rem;color:var(--muted)}
-.thanks{display:none;text-align:center;padding:130px 0 150px}
-.thanks.show{display:block}
-.thanks p{max-width:48ch;margin:14px auto 0;color:var(--muted)}
-@media(max-width:720px){.fgrid{grid-template-columns:1fr}.designpick{grid-template-columns:1fr}}
-
-/* ---- accessibility & intake additions ---- */
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
-.dp:focus-within{outline:2px solid var(--champagne);outline-offset:3px}
-.fsec{margin-bottom:64px}
-.fnote-block{font-size:.92rem;color:var(--ink-soft);line-height:1.6;max-width:62ch;margin:-8px 0 26px;font-weight:300}
-.fnote-block.warn{border-left:2px solid var(--line-strong);padding-left:16px;color:var(--muted)}
-.req{color:var(--champagne)}
-.radiorow{display:flex;gap:26px;flex-wrap:wrap;margin-top:6px}
-.radiorow label{display:inline-flex;align-items:center;gap:9px;font-size:.95rem;color:var(--ink-soft);text-transform:none;letter-spacing:0;cursor:pointer}
-.radiorow input{width:16px;height:16px;accent-color:var(--champagne)}
-.checks{border-top:1px solid var(--line);margin-top:8px}
-.chk{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:19px 0;border-bottom:1px solid var(--line);cursor:pointer}
-.chk input{margin-top:4px;width:18px;height:18px;accent-color:var(--champagne);flex-shrink:0;cursor:pointer}
-.chk span{font-size:.96rem;color:var(--ink-soft);line-height:1.55;font-weight:300}
-.chk a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-</style></head>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/credence.css">
+</head>
 <body id="top">
 <header class="head"><div class="wrap head-in">
-  <a href="index.html" class="brand">Credence</a>
-  <nav class="nav">
-    <a href="index.html#collection">Collection</a><a href="index.html#work">Included</a><a href="index.html#pricing">Investment</a>
+  <a href="index.html" class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</a>
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html#system">The System</a>
+    <a href="index.html#included">What's Included</a>
+    <a href="index.html#investment">Investment</a>
     <a href="index.html" class="cta">Overview</a>
   </nav>
-  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
-<section class="hero" style="padding:200px 0 50px">
+<section class="hero" style="padding:190px 0 40px">
   <div class="wrap">
-    <div class="label"><span class="n">&mdash;</span> Get Started</div>
-    <h1 class="display" style="max-width:14ch">Tell us about you.</h1>
-    <p class="lead" style="max-width:50ch">A few details and we build your site — about ten minutes, and most of it you already have. Nothing is charged until your site is live and you've approved it.</p>
+    <div class="label"><span class="n">&mdash;</span> Course Intake</div>
+    <h1 class="display" style="max-width:15ch">Tell us about the course.</h1>
+    <p class="lead" style="max-width:54ch">The more you share, the more tailored the first build. Complete what you can now — we'll follow up on anything missing. Nothing is published until you give written approval.</p>
   </div>
 </section>
 
-<section style="padding-top:24px">
+<section style="padding-top:20px">
   <div class="wrap">
   <form id="intakeForm" class="intro-form reveal" action="https://api.web3forms.com/submit" method="POST" novalidate>
     <input type="hidden" name="access_key" value="4fee9395-e72a-4894-9417-6d4de237a5b3">
-    <input type="hidden" name="subject" value="New Credence intake">
-    <input type="hidden" name="terms_version" value="Services Agreement v1 (2026-06 draft)">
+    <input type="hidden" name="subject" value="New Credence course intake">
+    <input type="hidden" name="terms_version" value="Services Agreement v1 (2026 draft)">
     <input type="hidden" id="accepted_at" name="accepted_at" value="">
-    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
 
     <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">01</span>&nbsp;&nbsp;Your Design</div><h2 class="h2">Choose your look.</h2></div>
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">01</span>&nbsp;&nbsp;Course System</div><h2 class="h2">Choose a direction.</h2></div>
       <div class="designpick">
-        <label class="dp"><input type="radio" name="design" value="Editorial Luxury" required><h4>Editorial Luxury</h4><div class="dpm">Light · Navy · Classic</div></label>
-        <label class="dp"><input type="radio" name="design" value="Onyx"><h4>Onyx</h4><div class="dpm">Dark · Charcoal · Bold</div></label>
-        <label class="dp"><input type="radio" name="design" value="Atelier"><h4>Atelier</h4><div class="dpm">White · Minimal</div></label>
+        <label class="dp"><input type="radio" name="course_system" value="Course System 01 — The Coastal" required><h4>The Coastal</h4><div class="dpm">Editorial · Landscape · Destination</div></label>
+        <label class="dp"><input type="radio" name="course_system" value="Not sure — recommend one"><h4>Not sure yet</h4><div class="dpm">Recommend the right system for us</div></label>
       </div>
-      <p class="fnote" style="margin-top:12px">Not sure? Pick the closest — we'll advise.</p>
+      <p class="fnote" style="margin-top:12px">More systems are in development. If you're undecided, choose "Not sure yet" and we'll advise based on the course.</p>
     </div>
 
     <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">02</span>&nbsp;&nbsp;You &amp; Your Company</div><h2 class="h2">The essentials.</h2></div>
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">02</span>&nbsp;&nbsp;Decision-Maker</div><h2 class="h2">Who we're working with.</h2></div>
       <div class="fgrid">
-        <div class="field"><label for="name">Full legal name <span class="req" aria-hidden="true">*</span></label><input id="name" name="name" type="text" required></div>
-        <div class="field"><label for="title">Professional title</label><input id="title" name="title" type="text" placeholder="e.g. Senior Mortgage Advisor"></div>
-        <div class="field"><label for="nmls">Your NMLS #</label><input id="nmls" name="nmls" type="text"></div>
-        <div class="field"><label for="company">Legal mortgage company name</label><input id="company" name="company" type="text"></div>
-        <div class="field"><label for="co_nmls">Company NMLS #</label><input id="co_nmls" name="co_nmls" type="text"></div>
-        <div class="field"><label for="brand_name">Public-facing brand name</label><input id="brand_name" name="brand_name" type="text" placeholder="If different from the above"></div>
-        <div class="field"><label for="branch_name">Branch name</label><input id="branch_name" name="branch_name" type="text"></div>
-        <div class="field"><label for="company_website">Company website</label><input id="company_website" name="company_website" type="text"></div>
-      </div>
-      <div class="field full"><label for="licensed_states">Licensed states</label><input id="licensed_states" name="licensed_states" type="text" placeholder="e.g. California, Nevada, Arizona"></div>
-      <div class="field full"><label for="service_areas">Primary service areas</label><textarea id="service_areas" name="service_areas" placeholder="The cities and neighborhoods you serve — one per line is fine."></textarea></div>
-      <div class="fgrid">
-        <div class="field"><label for="licensing_url">Corporate licensing / NMLS Consumer Access URL</label><input id="licensing_url" name="licensing_url" type="text"></div>
-        <div class="field"><label for="equal_housing">Equal Housing designation</label><input id="equal_housing" name="equal_housing" type="text" placeholder="Text or a link to your approved logo"></div>
-      </div>
-    </div>
-
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">03</span>&nbsp;&nbsp;Contact &amp; Application</div><h2 class="h2">How clients reach you.</h2></div>
-      <div class="fgrid">
-        <div class="field"><label for="phone">Business phone <span class="req" aria-hidden="true">*</span></label><input id="phone" name="phone" type="tel" required></div>
-        <div class="field"><label for="email">Business email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required></div>
-      </div>
-      <div class="field full"><label for="branch_address">Branch address</label><input id="branch_address" name="branch_address" type="text" placeholder="Street, City, State ZIP"></div>
-      <div class="fgrid">
-        <div class="field"><label for="scheduling">Scheduling link</label><input id="scheduling" name="scheduling" type="text" placeholder="Calendly, etc."></div>
-        <div class="field"><label for="application">Secure loan-application URL</label><input id="application" name="application" type="text"></div>
-        <div class="field"><label for="prequal">Pre-qualification link</label><input id="prequal" name="prequal" type="text"></div>
-        <div class="field"><label for="social_links">Social links</label><input id="social_links" name="social_links" type="text" placeholder="Instagram, LinkedIn, etc."></div>
-      </div>
-    </div>
-
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">04</span>&nbsp;&nbsp;Company Approval</div><h2 class="h2">Your compliance path.</h2></div>
-      <p class="fnote-block warn">Credence does not create or approve legal, licensing, or mortgage-advertising disclosures. Please provide language approved by your mortgage company or compliance department.</p>
-      <div class="fgrid">
-        <div class="field"><label for="compliance_contact_name">Compliance contact name</label><input id="compliance_contact_name" name="compliance_contact_name" type="text"></div>
-        <div class="field"><label for="compliance_contact_email">Compliance contact email</label><input id="compliance_contact_email" name="compliance_contact_email" type="email"></div>
+        <div class="field"><label for="dm_name">Full name <span class="req" aria-hidden="true">*</span></label><input id="dm_name" name="dm_name" type="text" required></div>
+        <div class="field"><label for="dm_title">Job title <span class="req" aria-hidden="true">*</span></label><input id="dm_title" name="dm_title" type="text" placeholder="e.g. General Manager, Director of Golf" required></div>
+        <div class="field"><label for="course_name">Course or property name <span class="req" aria-hidden="true">*</span></label><input id="course_name" name="course_name" type="text" required></div>
+        <div class="field"><label for="dm_email">Business email <span class="req" aria-hidden="true">*</span></label><input id="dm_email" name="dm_email" type="email" required></div>
+        <div class="field"><label for="dm_phone">Direct phone <span class="req" aria-hidden="true">*</span></label><input id="dm_phone" name="dm_phone" type="tel" required></div>
+        <div class="field"><label for="mgmt_company">Ownership / management company</label><input id="mgmt_company" name="mgmt_company" type="text" placeholder="If applicable"></div>
       </div>
       <div class="field full">
-        <label id="prepub-label">Does your company require pre-publication approval?</label>
-        <div class="radiorow" role="radiogroup" aria-labelledby="prepub-label">
-          <label><input type="radio" name="prepublication_approval" value="Yes"> Yes</label>
-          <label><input type="radio" name="prepublication_approval" value="No"> No</label>
-          <label><input type="radio" name="prepublication_approval" value="Unsure"> Unsure</label>
+        <label id="auth-label">Do you have authority to approve this project? <span class="req" aria-hidden="true">*</span></label>
+        <div class="radiorow" role="radiogroup" aria-labelledby="auth-label">
+          <label><input type="radio" name="authority" value="Yes" required> Yes</label>
+          <label><input type="radio" name="authority" value="Shared — with others"> Shared</label>
+          <label><input type="radio" name="authority" value="No — I coordinate"> No, I coordinate</label>
         </div>
       </div>
+      <div class="field full"><label for="stakeholders">Other stakeholders</label><textarea id="stakeholders" name="stakeholders" placeholder="Anyone else involved in decisions or approvals — names and roles."></textarea></div>
     </div>
 
     <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">05</span>&nbsp;&nbsp;Your Content</div><h2 class="h2">In your words — and approved.</h2></div>
-      <div class="field full"><label for="bio">Approved professional biography</label><textarea id="bio" name="bio" placeholder="A short bio — or a few notes and we'll write a draft for your approval."></textarea></div>
-      <div class="field full"><label for="loan_programs">Approved loan-program descriptions</label><textarea id="loan_programs" name="loan_programs" placeholder="The programs you'd like featured."></textarea></div>
-      <p class="fnote-block warn">Provide only disclosures, footer language, and policy text approved by your company or compliance department. Credence places this content; we don't author or approve it.</p>
-      <div class="field full"><label for="disclosures">Approved disclosures</label><textarea id="disclosures" name="disclosures" placeholder="Company-approved disclosure language."></textarea></div>
-      <div class="field full"><label for="footer_language">Approved footer language</label><textarea id="footer_language" name="footer_language" placeholder="Any required footer / legal lines."></textarea></div>
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">03</span>&nbsp;&nbsp;Course Identity</div><h2 class="h2">The property.</h2></div>
       <div class="fgrid">
-        <div class="field"><label for="privacy_policy">Approved privacy-policy URL</label><input id="privacy_policy" name="privacy_policy" type="text"></div>
-        <div class="field"><label for="terms_content">Approved terms URL</label><input id="terms_content" name="terms_content" type="text"></div>
+        <div class="field"><label for="official_name">Official course name</label><input id="official_name" name="official_name" type="text"></div>
+        <div class="field"><label for="current_website">Current website</label><input id="current_website" name="current_website" type="text" placeholder="https://"></div>
+        <div class="field"><label for="established_year">Year established</label><input id="established_year" name="established_year" type="text"></div>
+        <div class="field"><label for="architect">Course architect</label><input id="architect" name="architect" type="text"></div>
+        <div class="field"><label for="course_type">Course type</label>
+          <select id="course_type" name="course_type">
+            <option value="">Select…</option>
+            <option>Public</option><option>Daily-fee</option><option>Independent club</option>
+            <option>Destination</option><option>Resort</option><option>Municipal</option>
+            <option>Semi-private</option><option>Private</option><option>Other</option>
+          </select></div>
+        <div class="field"><label for="holes">Number of holes</label><input id="holes" name="holes" type="text" placeholder="e.g. 18"></div>
+        <div class="field"><label for="par">Par</label><input id="par" name="par" type="text" placeholder="e.g. 72"></div>
+        <div class="field"><label for="location">Location</label><input id="location" name="location" type="text" placeholder="City, State"></div>
       </div>
-      <p class="fnote-block warn">Only submit authentic testimonials that you have permission to publish. Do not submit invented, altered, confidential, or unapproved customer statements.</p>
-      <div class="field full"><label for="testimonials">Testimonials</label><textarea id="testimonials" name="testimonials" placeholder="Two or three you have permission to share — include each client's name and a detail (e.g. First-Time Buyer · Santa Barbara)."></textarea></div>
-      <div class="field full"><label for="realtor_info">Realtor partner information</label><textarea id="realtor_info" name="realtor_info" placeholder="Partner agents, quotes, or details for your Realtor Partners page."></textarea></div>
-    </div>
-
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">06</span>&nbsp;&nbsp;Photos &amp; Brand</div><h2 class="h2">Your images.</h2></div>
-      <p class="fnote-block warn">Only submit images, logos, and materials that you own or are authorized to use.</p>
-      <p class="fnote-block">No need to attach files here — once we confirm your design, we'll send a simple, secure way to share full-resolution images. If they're already in a shared folder, drop the link below.</p>
+      <div class="field full"><label for="domain_status">Domain ownership / access status</label><input id="domain_status" name="domain_status" type="text" placeholder="Who owns the domain, and can you access the registrar?"></div>
       <div class="fgrid">
-        <div class="field"><label for="photo_link">Photo folder link</label><input id="photo_link" name="photo_link" type="text" placeholder="Google Drive, Dropbox, etc."></div>
-        <div class="field"><label for="brand_assets">Logo &amp; brand assets</label><input id="brand_assets" name="brand_assets" type="text" placeholder="Link to your logo / brand files"></div>
+        <div class="field"><label for="logo_link">Logo &amp; brand-asset link</label><input id="logo_link" name="logo_link" type="text" placeholder="Drive, Dropbox, etc."></div>
+        <div class="field"><label for="brand_guidelines">Brand guidelines link</label><input id="brand_guidelines" name="brand_guidelines" type="text" placeholder="If you have them"></div>
+      </div>
+      <div class="field full"><label for="positioning">Short positioning statement</label><textarea id="positioning" name="positioning" placeholder="In a sentence or two, what is the course and who is it for?"></textarea></div>
+      <div class="field full"><label for="history">Course history</label><textarea id="history" name="history" placeholder="Notable history, design, or milestones."></textarea></div>
+      <div class="field full"><label for="features">Distinguishing features</label><textarea id="features" name="features" placeholder="Signature holes, setting, conditioning, views — what makes it memorable."></textarea></div>
+    </div>
+
+    <div class="fsec">
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">04</span>&nbsp;&nbsp;Golf Operations</div><h2 class="h2">Tee times &amp; play.</h2></div>
+      <div class="fgrid">
+        <div class="field"><label for="tee_provider">Tee-time provider</label><input id="tee_provider" name="tee_provider" type="text" placeholder="GolfNow, foreUP, Lightspeed, Club Caddie, etc."></div>
+        <div class="field"><label for="booking_url">Booking URL</label><input id="booking_url" name="booking_url" type="text" placeholder="https://"></div>
+      </div>
+      <div class="field full"><label for="rates">Rates</label><textarea id="rates" name="rates" placeholder="Current rates — weekday, weekend, twilight, cart, etc."></textarea></div>
+      <div class="field full"><label for="rate_categories">Rate categories</label><input id="rate_categories" name="rate_categories" type="text" placeholder="e.g. Resident, junior, senior, replay, seasonal"></div>
+      <div class="fgrid">
+        <div class="field"><label for="cancellation_policy">Cancellation policy</label><input id="cancellation_policy" name="cancellation_policy" type="text"></div>
+        <div class="field"><label for="cart_policy">Cart policy</label><input id="cart_policy" name="cart_policy" type="text"></div>
+        <div class="field"><label for="walking_policy">Walking policy</label><input id="walking_policy" name="walking_policy" type="text"></div>
+        <div class="field"><label for="dress_code">Dress code</label><input id="dress_code" name="dress_code" type="text"></div>
+        <div class="field"><label for="scorecard">Scorecard link</label><input id="scorecard" name="scorecard" type="text" placeholder="PDF or link, if available"></div>
+        <div class="field"><label for="conditions_source">Course-conditions source</label><input id="conditions_source" name="conditions_source" type="text" placeholder="Where conditions/updates are posted"></div>
+      </div>
+      <div class="field full"><label for="programs">Membership, loyalty &amp; player programs</label><textarea id="programs" name="programs" placeholder="Membership tiers, loyalty cards, players club, etc."></textarea></div>
+      <div class="fgrid">
+        <div class="field"><label for="golf_shop">Golf shop</label><input id="golf_shop" name="golf_shop" type="text" placeholder="In-house / e-commerce / notes"></div>
+        <div class="field"><label for="club_fitting">Club fitting</label><input id="club_fitting" name="club_fitting" type="text"></div>
+        <div class="field"><label for="lessons">Lessons &amp; instruction</label><input id="lessons" name="lessons" type="text"></div>
+        <div class="field"><label for="practice">Practice facilities</label><input id="practice" name="practice" type="text" placeholder="Range, short game, putting"></div>
       </div>
     </div>
 
     <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">07</span>&nbsp;&nbsp;Anything Else</div><h2 class="h2">Optional.</h2></div>
-      <div class="field full"><label for="notes">Anything else</label><textarea id="notes" name="notes" placeholder="Brand colors, preferences, questions — anything that helps."></textarea></div>
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">05</span>&nbsp;&nbsp;Hospitality &amp; Revenue</div><h2 class="h2">Beyond the round.</h2></div>
+      <div class="fgrid">
+        <div class="field"><label for="restaurant">Restaurant, grill or bar</label><input id="restaurant" name="restaurant" type="text"></div>
+        <div class="field"><label for="menu_link">Current menu link</label><input id="menu_link" name="menu_link" type="text"></div>
+        <div class="field"><label for="catering">Catering</label><input id="catering" name="catering" type="text"></div>
+        <div class="field"><label for="hotel_relationship">Hotel or resort relationship</label><input id="hotel_relationship" name="hotel_relationship" type="text"></div>
+        <div class="field"><label for="ecommerce">Pro-shop e-commerce</label><input id="ecommerce" name="ecommerce" type="text"></div>
+        <div class="field"><label for="gift_cards">Gift cards</label><input id="gift_cards" name="gift_cards" type="text"></div>
+      </div>
+      <div class="field full"><label for="weddings_events">Weddings &amp; private events</label><textarea id="weddings_events" name="weddings_events" placeholder="Spaces, capacities, packages, or a link."></textarea></div>
+      <div class="field full"><label for="tournaments">Tournaments &amp; outings</label><textarea id="tournaments" name="tournaments" placeholder="Outing packages, group minimums, shotgun availability, etc."></textarea></div>
+      <div class="field full"><label for="amenities">Other amenities</label><textarea id="amenities" name="amenities" placeholder="Anything else guests should know about."></textarea></div>
     </div>
 
     <div class="fsec">
-      <div class="shead" style="margin-bottom:30px"><div class="label"><span class="n">08</span>&nbsp;&nbsp;Confirmations</div><h2 class="h2">Before you submit.</h2></div>
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">06</span>&nbsp;&nbsp;Website Content</div><h2 class="h2">What goes on the site.</h2></div>
+      <p class="fnote-block warn">Please submit only content, images, logos, and testimonials that the course owns or is authorized to use.</p>
+      <div class="field full"><label for="required_pages">Required pages</label><textarea id="required_pages" name="required_pages" placeholder="The pages you want — e.g. Home, The Course, Rates & Tee Times, Events, Dining, Contact."></textarea></div>
+      <div class="fgrid">
+        <div class="field"><label for="staff_list">Staff / leadership list</label><input id="staff_list" name="staff_list" type="text" placeholder="Link or notes"></div>
+        <div class="field"><label for="hours">Hours of operation</label><input id="hours" name="hours" type="text"></div>
+        <div class="field"><label for="contact_info">Public contact information</label><input id="contact_info" name="contact_info" type="text" placeholder="Phone, email, address"></div>
+        <div class="field"><label for="social_links">Social links</label><input id="social_links" name="social_links" type="text"></div>
+      </div>
+      <div class="field full"><label for="testimonials_press">Testimonials or press</label><textarea id="testimonials_press" name="testimonials_press" placeholder="Only authentic quotes or press you have permission to publish."></textarea></div>
+      <div class="field full"><label for="faqs">Frequently asked questions</label><textarea id="faqs" name="faqs" placeholder="Common questions from golfers, event planners, or visitors."></textarea></div>
+      <div class="fgrid">
+        <div class="field"><label for="photo_folder">Photo folder link</label><input id="photo_folder" name="photo_folder" type="text" placeholder="Drive, Dropbox, etc."></div>
+        <div class="field"><label for="video">Video link</label><input id="video" name="video" type="text"></div>
+        <div class="field"><label for="drone_footage">Drone footage link</label><input id="drone_footage" name="drone_footage" type="text"></div>
+        <div class="field"><label for="documents">Documents &amp; PDFs</label><input id="documents" name="documents" type="text" placeholder="Scorecard, menus, packages"></div>
+      </div>
+      <div class="fgrid">
+        <div class="field"><label for="launch_timing">Desired launch timing</label><input id="launch_timing" name="launch_timing" type="text" placeholder="e.g. before the spring season"></div>
+        <div class="field"><label for="existing_photography">Existing photography</label><input id="existing_photography" name="existing_photography" type="text" placeholder="What you have / its quality"></div>
+      </div>
+      <div class="field full"><label for="current_problems">Current website problems</label><textarea id="current_problems" name="current_problems" placeholder="What isn't working today."></textarea></div>
+      <div class="field full"><label for="primary_goals">Primary goals</label><textarea id="primary_goals" name="primary_goals" placeholder="What a better website should achieve — more tee times, more events, clearer rates, etc."></textarea></div>
+    </div>
+
+    <div class="fsec">
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">07</span>&nbsp;&nbsp;Approval &amp; Access</div><h2 class="h2">Sign-off &amp; logistics.</h2></div>
+      <div class="fgrid">
+        <div class="field"><label for="primary_approver">Primary approver</label><input id="primary_approver" name="primary_approver" type="text" placeholder="Name and role"></div>
+        <div class="field"><label for="secondary_approver">Secondary approver</label><input id="secondary_approver" name="secondary_approver" type="text"></div>
+        <div class="field"><label for="domain_registrar">Domain registrar</label><input id="domain_registrar" name="domain_registrar" type="text" placeholder="e.g. GoDaddy, Google Domains"></div>
+        <div class="field"><label for="current_host">Current website host</label><input id="current_host" name="current_host" type="text"></div>
+        <div class="field"><label for="analytics_access">Analytics access</label><input id="analytics_access" name="analytics_access" type="text" placeholder="Do you have it / who manages it"></div>
+        <div class="field"><label for="teesheet_contact">Tee-sheet provider contact</label><input id="teesheet_contact" name="teesheet_contact" type="text" placeholder="If we may need to coordinate"></div>
+      </div>
+      <div class="field full"><label for="approval_required">Ownership, municipal, management, or legal review required?</label><textarea id="approval_required" name="approval_required" placeholder="Which approvals are required before publication, and by whom."></textarea></div>
+      <div class="field full"><label for="procurement">Procurement requirements</label><input id="procurement" name="procurement" type="text" placeholder="Any vendor, PO, or contract process we should know about"></div>
+    </div>
+
+    <div class="fsec">
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">08</span>&nbsp;&nbsp;Optional Production</div><h2 class="h2">By separate quote.</h2></div>
+      <p class="fnote-block">Photography, film, and content production sit outside the standard package. Select anything you may want, and we'll quote it separately.</p>
+      <div class="checks" style="border-top:none">
+        <label class="chk" for="opt_photography"><input type="checkbox" id="opt_photography" name="opt_photography" value="Yes"><span>Course photography</span></label>
+        <label class="chk" for="opt_drone"><input type="checkbox" id="opt_drone" name="opt_drone" value="Yes"><span>Drone imagery</span></label>
+        <label class="chk" for="opt_video"><input type="checkbox" id="opt_video" name="opt_video" value="Yes"><span>Video</span></label>
+        <label class="chk" for="opt_portraits"><input type="checkbox" id="opt_portraits" name="opt_portraits" value="Yes"><span>Staff portraits</span></label>
+        <label class="chk" for="opt_restaurant"><input type="checkbox" id="opt_restaurant" name="opt_restaurant" value="Yes"><span>Restaurant &amp; clubhouse photography</span></label>
+        <label class="chk" for="opt_social"><input type="checkbox" id="opt_social" name="opt_social" value="Yes"><span>Social media content</span></label>
+        <label class="chk" for="opt_copywriting"><input type="checkbox" id="opt_copywriting" name="opt_copywriting" value="Yes"><span>Copywriting</span></label>
+        <label class="chk" for="opt_course_map"><input type="checkbox" id="opt_course_map" name="opt_course_map" value="Yes"><span>Course map</span></label>
+      </div>
+      <div class="field full" style="margin-top:22px"><label for="opt_other">Other production needs</label><textarea id="opt_other" name="opt_other" placeholder="Anything else you have in mind."></textarea></div>
+    </div>
+
+    <div class="fsec">
+      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">09</span>&nbsp;&nbsp;Confirmations</div><h2 class="h2">Before you submit.</h2></div>
       <p class="fnote-block">Please confirm each of the following. Each is required.</p>
       <div class="checks">
-      <label class="chk" for="confirm1"><input type="checkbox" id="confirm1" name="confirm1" value="Yes" required><span>I confirm that I have the authority to request and approve this website.</span></label>
-      <label class="chk" for="confirm2"><input type="checkbox" id="confirm2" name="confirm2" value="Yes" required><span>I confirm that the company, licensing, NMLS, service-area, and contact information I have provided is accurate.</span></label>
-      <label class="chk" for="confirm3"><input type="checkbox" id="confirm3" name="confirm3" value="Yes" required><span>I confirm that I own or have permission to use all photographs, logos, testimonials, written content, and other materials I submit to Credence.</span></label>
-      <label class="chk" for="confirm4"><input type="checkbox" id="confirm4" name="confirm4" value="Yes" required><span>I understand that Credence provides website design and technical implementation, not legal, lending, or regulatory compliance advice.</span></label>
-      <label class="chk" for="confirm5"><input type="checkbox" id="confirm5" name="confirm5" value="Yes" required><span>I understand that I am responsible for obtaining any required approval from my mortgage company, branch, legal department, or compliance department before publication.</span></label>
-      <label class="chk" for="confirm6"><input type="checkbox" id="confirm6" name="confirm6" value="Yes" required><span>I understand that the website will not be published until I provide written final approval.</span></label>
-      <label class="chk" for="confirm7"><input type="checkbox" id="confirm7" name="confirm7" value="Yes" required><span>I have read and agree to the Credence <a href="terms.html" target="_blank" rel="noopener">Website Subscription &amp; Services Agreement</a>.</span></label>
+      <label class="chk" for="confirm1"><input type="checkbox" id="confirm1" name="confirm1" value="Yes" required><span>I have the authority to request this website project on behalf of the course.</span></label>
+      <label class="chk" for="confirm2"><input type="checkbox" id="confirm2" name="confirm2" value="Yes" required><span>The information I have provided is accurate to the best of my knowledge.</span></label>
+      <label class="chk" for="confirm3"><input type="checkbox" id="confirm3" name="confirm3" value="Yes" required><span>The course owns or has permission to use all logos, photography, video, testimonials, and written material I supply.</span></label>
+      <label class="chk" for="confirm4"><input type="checkbox" id="confirm4" name="confirm4" value="Yes" required><span>I understand that Credence provides website design and technical implementation, not legal advice.</span></label>
+      <label class="chk" for="confirm5"><input type="checkbox" id="confirm5" name="confirm5" value="Yes" required><span>I am responsible for reviewing rates, policies, booking links, claims, and operational information on the site.</span></label>
+      <label class="chk" for="confirm6"><input type="checkbox" id="confirm6" name="confirm6" value="Yes" required><span>I am responsible for obtaining any required internal, ownership, municipal, management, or legal approvals.</span></label>
+      <label class="chk" for="confirm7"><input type="checkbox" id="confirm7" name="confirm7" value="Yes" required><span>I understand the website will not be published until I provide written final approval.</span></label>
+      <label class="chk" for="confirm8"><input type="checkbox" id="confirm8" name="confirm8" value="Yes" required><span>I have read and accept the Credence <a href="terms.html" target="_blank" rel="noopener">Website Subscription &amp; Services Agreement</a>.</span></label>
       </div>
     </div>
 
     <div>
-      <p class="fnote-block">Your details are sent securely to Credence (hello@credencesites.com). We collect only what's needed to build and service your website — please don't include Social Security numbers, bank or account details, tax returns, credit reports, or borrower documents.</p>
+      <p class="fnote-block warn">Your details are sent securely to Credence (hello@credencesites.com). For your security, please do not submit passwords, payment-card data, private employee records, or other confidential access credentials through this form. If we need account access later, we'll arrange a secure method.</p>
       <div class="fsubmit-row">
-        <button type="submit" class="btn btn--p fsubmit">Send my details <span class="ar">&rarr;</span></button>
-        <span class="fnote">We'll reply within a day to confirm your design and next steps.</span>
+        <button type="submit" class="btn btn--p fsubmit">Send course details <span class="ar">&rarr;</span></button>
+        <span class="fnote">We'll reply within a day to confirm your system and next steps.</span>
       </div>
     </div>
   </form>
@@ -341,32 +227,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   <div id="thanks" class="thanks">
     <div class="label" style="justify-content:center"><span class="n">&mdash;</span> Received</div>
     <h2 class="h2">Thank you — we've got it.</h2>
-    <p>We'll review your details and be in touch within a day to confirm your design and set up your card on file. Nothing is charged until your site is live and you've approved it.</p>
+    <p>We'll review your course details and be in touch within a day to confirm your system and outline next steps. Nothing is published until your site is built and you approve it.</p>
   </div>
   </div>
 </section>
 
 <footer class="foot"><div class="wrap">
   <div class="foot-in">
-    <div><div class="brand">Credence</div>
-      <div class="fmeta">Premium websites for mortgage professionals.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div></div>
-    <div class="flinks"><a href="index.html#collection">Collection</a><a href="index.html#work">Included</a><a href="index.html#pricing">Investment</a><a href="index.html#faq">Questions</a><a href="index.html">Overview</a></div>
+    <div><div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</div>
+      <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div></div>
+    <div class="flinks"><a href="index.html#system">The System</a><a href="index.html#included">What's Included</a><a href="index.html#investment">Investment</a><a href="index.html#questions">Questions</a><a href="index.html">Overview</a></div>
   </div>
-  <p class="copy">© 2026 Credence · credencesites.com — A FoundryState venture.</p>
+  <p class="copy">© 2026 Credence · credencesites.com.</p>
 </div></footer>
-<script>
-var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-var h=document.querySelector('.head');addEventListener('scroll',function(){h.classList.toggle('s',scrollY>40)},{passive:true});
-var bg=document.querySelector('.burger'),nv=document.querySelector('.nav');
-bg.addEventListener('click',function(){nv.classList.toggle('open')});
-nv.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nv.classList.remove('open')})});
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});
-var hero=document.querySelector('.hero'),spot=document.querySelector('.spot');
-if(spot&&matchMedia('(hover:hover)').matches){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();spot.style.left=(e.clientX-r.left)+'px';spot.style.top=(e.clientY-r.top)+'px';});}
-var bgimg=document.querySelector('.hero-bg img');
-if(bgimg&&!rm){var t=false;addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){var y=Math.min(scrollY*0.18,90);bgimg.style.transform='scale(1.18) translate3d(0,'+y+'px,0)';t=false;});t=true;}},{passive:true});}
-</script>
+<script src="assets/credence.js"></script>
 <script>
 (function(){
   var f=document.getElementById('intakeForm'); if(!f) return;
@@ -380,7 +254,7 @@ if(bgimg&&!rm){var t=false;addEventListener('scroll',function(){if(!t){requestAn
       .catch(function(){ fail(btn); });
   });
   function done(){ f.style.display='none'; var t=document.getElementById('thanks'); if(t) t.classList.add('show'); window.scrollTo({top:0,behavior:'smooth'}); }
-  function fail(btn){ if(btn){btn.disabled=false; btn.innerHTML='Send my details <span class=\"ar\">&rarr;</span>';} alert('Something went wrong — please email hello@credencesites.com and we\'ll take it from there.'); }
+  function fail(btn){ if(btn){btn.disabled=false; btn.innerHTML='Send course details <span class="ar">&rarr;</span>';} alert('Something went wrong — please email hello@credencesites.com and we\'ll take it from there.'); }
 })();
 </script>
 </body></html>

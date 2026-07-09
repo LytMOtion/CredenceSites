@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Architectural aerial plan of a coastal golf routing — fairways, bunkers, greens and contour lines meeting the shoreline">
+  <defs>
+    <linearGradient id="ap-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1116"/>
+      <stop offset="1" stop-color="#0A0E11"/>
+    </linearGradient>
+    <linearGradient id="ap-sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#132029"/>
+      <stop offset="1" stop-color="#0E181F"/>
+    </linearGradient>
+    <radialGradient id="ap-glow" cx="0.3" cy="0.24" r="0.7">
+      <stop offset="0" stop-color="#C2A15B" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#C2A15B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="1250" fill="url(#ap-bg)"/>
+  <rect width="1000" height="1250" fill="url(#ap-glow)"/>
+
+  <!-- shoreline: ocean on the right/upper edge -->
+  <path d="M1000 0 L1000 1250 L640 1250 C 720 1080 640 940 720 780 C 800 620 700 470 800 320 C 866 214 820 96 1000 0 Z" fill="url(#ap-sea)"/>
+  <path d="M640 1250 C 720 1080 640 940 720 780 C 800 620 700 470 800 320 C 866 214 820 96 1000 0" fill="none" stroke="#C2A15B" stroke-width="1" opacity="0.35"/>
+  <!-- breaking-water hatch -->
+  <g stroke="#26414E" stroke-width="1" opacity="0.5" fill="none">
+    <path d="M700 200 C 760 190 800 210 850 196"/>
+    <path d="M690 470 C 750 458 792 480 842 464"/>
+    <path d="M672 760 C 732 748 774 770 824 754"/>
+    <path d="M650 1040 C 710 1028 752 1050 802 1034"/>
+  </g>
+
+  <!-- land contour lines -->
+  <g fill="none" stroke="#2C3A44" stroke-width="1.2" opacity="0.55">
+    <path d="M0 150 C 180 120 320 176 470 150 C 600 128 660 150 720 132"/>
+    <path d="M0 320 C 170 292 300 344 452 320 C 560 302 640 320 700 300"/>
+    <path d="M0 500 C 160 472 300 520 448 498 C 560 482 636 496 700 476"/>
+    <path d="M0 700 C 160 672 300 720 452 700 C 560 686 640 700 700 680"/>
+    <path d="M0 900 C 160 872 300 918 452 900 C 560 888 636 900 700 884"/>
+    <path d="M0 1090 C 160 1064 300 1108 452 1092 C 560 1080 636 1090 700 1076"/>
+  </g>
+
+  <!-- fairway corridors (soft fill) -->
+  <g opacity="0.14" fill="none" stroke="#7E8B79" stroke-linecap="round">
+    <path d="M150 1170 C 230 1050 210 980 300 900 C 380 828 340 760 300 690" stroke-width="70"/>
+    <path d="M300 690 C 260 610 320 560 430 520 C 540 480 520 420 470 360" stroke-width="64"/>
+    <path d="M470 360 C 430 300 470 250 560 210 C 630 178 610 130 560 90" stroke-width="58"/>
+  </g>
+
+  <!-- routing centreline (tee -> green, dashed notation) -->
+  <g fill="none" stroke="#C2A15B" stroke-width="1.6" stroke-dasharray="2 11" stroke-linecap="round" opacity="0.9">
+    <path d="M150 1170 C 230 1050 210 980 300 900 C 380 828 340 760 300 690"/>
+    <path d="M300 690 C 260 610 320 560 430 520 C 540 480 520 420 470 360"/>
+    <path d="M470 360 C 430 300 470 250 560 210 C 630 178 610 130 560 90"/>
+  </g>
+
+  <!-- tees -->
+  <g fill="#9AA3AB">
+    <rect x="140" y="1160" width="26" height="15" rx="2" transform="rotate(-32 153 1167)"/>
+    <rect x="292" y="682" width="22" height="13" rx="2" transform="rotate(-46 303 688)"/>
+    <rect x="462" y="352" width="22" height="13" rx="2" transform="rotate(-46 473 358)"/>
+  </g>
+
+  <!-- greens with pins -->
+  <g>
+    <ellipse cx="300" cy="690" rx="34" ry="26" fill="#7E8B79" fill-opacity="0.22" stroke="#7E8B79" stroke-width="1.2"/>
+    <g transform="translate(300 690)"><line x1="0" y1="0" x2="0" y2="-30" stroke="#8B939A" stroke-width="1.4"/><path d="M0 -30 L16 -25 L0 -20 Z" fill="#C2A15B"/></g>
+    <ellipse cx="470" cy="360" rx="32" ry="25" fill="#7E8B79" fill-opacity="0.22" stroke="#7E8B79" stroke-width="1.2"/>
+    <g transform="translate(470 360)"><line x1="0" y1="0" x2="0" y2="-30" stroke="#8B939A" stroke-width="1.4"/><path d="M0 -30 L16 -25 L0 -20 Z" fill="#C2A15B"/></g>
+    <ellipse cx="560" cy="90" rx="30" ry="24" fill="#7E8B79" fill-opacity="0.22" stroke="#7E8B79" stroke-width="1.2"/>
+    <g transform="translate(560 90)"><line x1="0" y1="0" x2="0" y2="-28" stroke="#8B939A" stroke-width="1.4"/><path d="M0 -28 L16 -23 L0 -18 Z" fill="#C2A15B"/></g>
+  </g>
+
+  <!-- bunkers -->
+  <g fill="#C9B79A" fill-opacity="0.32" stroke="#8A7C5F" stroke-width="1" stroke-opacity="0.5">
+    <path d="M250 900 q 46 -28 92 -4 q -6 30 -52 28 q -46 -2 -40 -24 Z"/>
+    <path d="M392 560 q 40 -24 78 -2 q -6 26 -46 24 q -38 -2 -32 -22 Z"/>
+    <path d="M520 250 q 34 -22 66 -2 q -6 24 -40 22 q -32 -2 -26 -20 Z"/>
+    <path d="M360 780 q 30 -18 58 -2 q -4 20 -34 18 q -28 -2 -24 -16 Z"/>
+  </g>
+
+  <!-- hole numerals -->
+  <g fill="#5A6670" font-family="Georgia, serif" font-style="italic" font-size="26">
+    <text x="176" y="1140">1</text>
+    <text x="330" y="660">2</text>
+    <text x="500" y="330">3</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Close study of a putting-green contour with surrounding bunkering and the pin">
+  <defs>
+    <radialGradient id="gr-bg" cx="0.5" cy="0.46" r="0.7">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset="1" stop-color="#0A0E11"/>
+    </radialGradient>
+    <radialGradient id="gr-green" cx="0.52" cy="0.46" r="0.6">
+      <stop offset="0" stop-color="#8B9A80" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#8B9A80" stop-opacity="0.05"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#gr-bg)"/>
+
+  <!-- outer contour rings (elevation) -->
+  <g fill="none" stroke="#2E3C45" stroke-width="1.2" opacity="0.7">
+    <path d="M120 400 C 140 250 320 150 470 180 C 640 214 720 340 700 470 C 682 600 520 690 370 668 C 210 644 100 540 120 400 Z"/>
+    <path d="M180 402 C 196 288 336 214 462 240 C 600 268 664 366 650 466 C 636 566 508 636 388 618 C 262 598 166 512 180 402 Z"/>
+    <path d="M240 404 C 252 322 356 270 456 292 C 560 314 610 386 600 460 C 590 532 500 584 408 570 C 314 556 230 490 240 404 Z"/>
+  </g>
+
+  <!-- green surface -->
+  <path d="M300 404 C 308 348 380 314 452 332 C 520 348 556 396 548 452 C 540 508 476 542 408 530 C 344 520 292 468 300 404 Z" fill="url(#gr-green)" stroke="#8B9A80" stroke-width="1.4" stroke-opacity="0.7"/>
+
+  <!-- fall-line arrows (slope) -->
+  <g stroke="#4A5A64" stroke-width="1.2" opacity="0.7" fill="none">
+    <path d="M430 360 L430 470"/><path d="M424 458 L430 472 L436 458"/>
+    <path d="M360 410 L500 440"/><path d="M488 432 L502 441 L488 448"/>
+  </g>
+
+  <!-- bunkers -->
+  <g fill="#C9B79A" fill-opacity="0.34" stroke="#8A7C5F" stroke-width="1" stroke-opacity="0.55">
+    <path d="M250 300 q 70 -44 140 -8 q -10 46 -80 42 q -70 -4 -60 -34 Z"/>
+    <path d="M470 560 q 60 -36 116 -6 q -8 40 -66 36 q -58 -2 -50 -30 Z"/>
+  </g>
+
+  <!-- pin -->
+  <g transform="translate(430 430)">
+    <circle cx="0" cy="0" r="4" fill="#0A0E11" stroke="#8B939A" stroke-width="1.4"/>
+    <line x1="0" y1="0" x2="0" y2="-72" stroke="#8B939A" stroke-width="2"/>
+    <path d="M0 -72 L34 -63 L0 -54 Z" fill="#C2A15B"/>
+  </g>
+</svg>

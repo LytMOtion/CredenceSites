@@ -1,213 +1,94 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0B0E13">
-<title>Begin Your Site — Credence</title>
-<meta name="description" content="Start your Credence website. Choose a design, share your details, and approve before anything is charged.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0A0E11">
+<title>Start Your Course Website — Credence</title>
+<meta name="description" content="How to begin a Credence golf-course website. What the service is for, what to prepare, the $1,000 setup and $150 monthly care plan, and the review-and-approval process.">
 <link rel="canonical" href="https://www.credencesites.com/start.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Begin Your Site — Credence">
-<meta property="og:description" content="Choose a design, share your details, and approve before anything is charged.">
+<meta property="og:title" content="Start Your Course Website — Credence">
+<meta property="og:description" content="Choose a course system, share your details, and approve before your site goes live.">
 <meta property="og:url" content="https://www.credencesites.com/start.html">
 <meta property="og:site_name" content="Credence">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
-:root{
-  --bg:#0B0E13;--surface:#12161D;--ink:#ECEEF1;--ink-soft:#A6ADB6;--muted:#6B727C;
-  --line:rgba(255,255,255,.09);--line-strong:rgba(255,255,255,.16);--champagne:#9AA3AE;
-  --serif:"Fraunces","Georgia",serif;--sans:"Inter",system-ui,sans-serif;--container:1200px;
-}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:.005em}
-body::before{content:none}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--champagne);color:#0B0B0D}
-.wrap{max-width:var(--container);margin:0 auto;padding:0 48px;position:relative;z-index:1}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.02em;font-optical-sizing:auto;font-variation-settings:"SOFT" 0,"WONK" 0}
-.display{font-size:clamp(3.2rem,7.4vw,6.2rem);font-weight:340;letter-spacing:-.035em;line-height:.98}
-.h2{font-size:clamp(2.1rem,4.4vw,3.4rem);font-weight:360;letter-spacing:-.025em}
-.lead{font-size:clamp(1.12rem,1.5vw,1.4rem);line-height:1.6;color:var(--ink-soft);font-weight:300}
-p{color:var(--ink-soft);font-weight:300}
-.label{display:inline-flex;align-items:center;gap:16px;font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
-.label .n{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:1rem;letter-spacing:0;font-weight:400}
-.btn{display:inline-flex;align-items:center;gap:.7em;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:1.15rem 2.1rem;border:1px solid transparent;border-radius:1px;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1)}
-.btn .ar{transition:transform .4s}
-.btn:hover .ar{transform:translateX(5px)}
-.btn--p{background:var(--ink);color:#0B0B0D;border-color:var(--ink)}
-.btn--p:hover{background:#fff;border-color:#fff;transform:translateY(-2px)}
-.btn--g{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-.btn--g:hover{border-color:var(--ink);transform:translateY(-2px)}
-.tlink{display:inline-flex;align-items:center;gap:.5em;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);position:relative;padding-bottom:5px}
-.tlink::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--champagne);transform:scaleX(0);transform-origin:left;transition:transform .45s ease}
-.tlink:hover{color:var(--ink)}.tlink:hover::after{transform:scaleX(1)}
-.head{position:fixed;top:0;left:0;right:0;z-index:100;padding:32px 0;transition:all .45s}
-.head.s{background:rgba(11,11,13,.7);backdrop-filter:saturate(160%) blur(16px);padding:18px 0;box-shadow:0 1px 0 var(--line)}
-.head-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{font-family:var(--serif);font-size:1.55rem;letter-spacing:.02em;font-weight:400}
-.nav{display:flex;align-items:center;gap:40px}
-.nav a{font-size:.78rem;font-weight:400;letter-spacing:.06em;color:var(--ink-soft);transition:color .3s}
-.nav a:hover{color:var(--ink)}
-.nav .cta{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:.78rem 1.5rem;border:1px solid var(--line-strong);border-radius:1px;color:var(--ink)}
-.nav .cta:hover{border-color:var(--ink)}
-.burger{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;padding:6px}
-.burger span{width:26px;height:1px;background:var(--ink)}
-.hero{padding:260px 0 180px;position:relative}
-.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(11,14,19,.28) 0%, rgba(11,14,19,.42) 44%, rgba(11,14,19,.82) 76%, var(--bg) 100%)}
-.hero .wrap{position:relative;z-index:1}
-.hero .label{margin-bottom:44px}
-.hero .display{max-width:15ch;margin-bottom:42px}
-.hero .lead{max-width:46ch;margin-bottom:56px;font-size:clamp(1.15rem,1.6vw,1.45rem)}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
-section{padding:170px 0;position:relative}
-.shead{max-width:760px;margin-bottom:96px}
-.shead .label{margin-bottom:30px}
-.shead .h2{margin-bottom:28px}
-.shead p{font-size:1.18rem;max-width:54ch}
-.idea .big{font-family:var(--serif);font-weight:340;font-size:clamp(2rem,3.6vw,3rem);line-height:1.22;letter-spacing:-.025em;color:var(--ink);max-width:20ch;margin-bottom:64px}
-.idea .big em{font-style:italic;color:var(--champagne)}
-.idea .cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;padding-top:60px;border-top:1px solid var(--line)}
-.idea .cols p{font-size:1.06rem;max-width:48ch}
-.idea .cols p+p{margin-top:20px}
-.tpl{display:grid;grid-template-columns:1fr;gap:48px;padding:120px 0;border-top:1px solid var(--line)}
-.tpl:first-of-type{border-top:0;padding-top:0}
-.tpl .meta{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:baseline}
-.tpl .meta .ix{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:1.5rem}
-.tpl .meta .nm h3{font-size:2.4rem;font-weight:360;letter-spacing:-.02em;margin-bottom:10px}
-.tpl .meta .nm .sub{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.tpl .meta .rt{text-align:right;max-width:30ch}
-.tpl .meta .rt p{font-size:1rem;margin-bottom:18px}
-.shot{border:1px solid var(--line);overflow:hidden;background:var(--surface);box-shadow:0 50px 100px -30px rgba(0,0,0,.7)}
-.shot img{width:100%;display:block}
-.incl{display:grid;grid-template-columns:1fr 1fr;gap:0 96px}
-.irow{display:grid;grid-template-columns:auto 1fr;gap:26px;padding:38px 0;border-bottom:1px solid var(--line)}
-.irow .in{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:1.1rem;line-height:1.4}
-.irow h3{font-size:1.4rem;font-weight:400;margin-bottom:8px}
-.irow p{font-size:.98rem;line-height:1.6;color:var(--muted);max-width:38ch}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:48px}
-.steps .st .sn{font-family:var(--serif);font-style:italic;color:var(--champagne);font-size:2.4rem;font-weight:300;line-height:1;margin-bottom:26px;display:block}
-.steps .st h3{font-size:1.4rem;font-weight:400;margin-bottom:12px}
-.steps .st p{font-size:.96rem;line-height:1.6;color:var(--muted)}
-.invest{display:grid;grid-template-columns:1fr 1fr;gap:90px;max-width:860px;border-top:1px solid var(--line-strong);padding-top:64px}
-.invest .pl{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--champagne);margin-bottom:28px}
-.invest .amt{font-family:var(--serif);font-size:clamp(3.4rem,6vw,4.6rem);font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em}
-.invest .amt .per{font-size:1.2rem;color:var(--muted)}
-.invest .per2{font-size:.92rem;color:var(--muted);margin-top:14px}
-.invest p{font-size:1rem;margin-top:26px;max-width:38ch;line-height:1.65}
-.inote{margin-top:40px;font-size:.92rem;color:var(--muted);font-style:italic;font-family:var(--serif)}
-.faq{max-width:840px}
-.fitem{border-top:1px solid var(--line);padding:40px 0;display:grid;grid-template-columns:.6fr 1fr;gap:40px}
-.fitem:last-child{border-bottom:1px solid var(--line)}
-.fitem h3{font-size:1.4rem;font-weight:400;letter-spacing:-.01em}
-.fitem p{font-size:1.02rem;max-width:52ch}
-.final{text-align:center;padding:200px 0}
-.final .label{justify-content:center;margin-bottom:34px}
-.final .h2{margin:0 auto 26px;max-width:16ch;font-size:clamp(2.6rem,5.5vw,4.4rem)}
-.final p{max-width:44ch;margin:0 auto 48px;font-size:1.16rem}
-.final-ctas{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap}
-.foot{border-top:1px solid var(--line);padding:80px 0 48px}
-.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;align-items:flex-start}
-.foot .brand{font-size:1.7rem;margin-bottom:16px;font-family:var(--serif)}
-.foot .fmeta{font-size:.9rem;color:var(--muted);line-height:1.9;font-weight:300}
-.foot .fmeta a{color:var(--ink-soft)}
-.foot .flinks{display:flex;gap:30px;flex-wrap:wrap}
-.foot .flinks a{font-size:.8rem;color:var(--ink-soft);letter-spacing:.04em}
-.foot .flinks a:hover{color:var(--ink)}
-.foot .copy{font-size:.74rem;color:var(--muted);margin-top:56px;letter-spacing:.04em}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1)}
-.reveal.in{opacity:1;transform:none}
-@media(max-width:920px){
-  .nav{position:fixed;top:0;left:0;right:0;flex-direction:column;align-items:flex-start;gap:20px;background:var(--bg);padding:102px 32px 36px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .35s ease,transform .4s cubic-bezier(.4,0,.2,1),visibility .35s;box-shadow:0 26px 50px rgba(0,0,0,.55);border-bottom:1px solid var(--line);z-index:90}
-  .nav.open{opacity:1;visibility:visible;transform:none}
-  .nav a{font-size:1.35rem;font-family:var(--serif);color:var(--ink)}
-  .nav .cta{font-size:.72rem;margin-top:6px}
-  .brand{position:relative;z-index:110}
-  .burger{display:flex;z-index:120;position:relative}
-  .burger span{transition:transform .4s ease, opacity .3s ease}
-  .nav.open ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .nav.open ~ .burger span:nth-child(2){opacity:0}
-  .nav.open ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .idea .cols{grid-template-columns:1fr;gap:30px}
-  .incl{grid-template-columns:1fr;gap:0}
-  .steps{grid-template-columns:1fr 1fr;gap:40px}
-  .invest{grid-template-columns:1fr;gap:56px}
-  .tpl .meta{grid-template-columns:auto 1fr;gap:20px}
-  .tpl .meta .rt{grid-column:1/-1;text-align:left;max-width:46ch}
-  .fitem{grid-template-columns:1fr;gap:14px}
-}
-@media(max-width:560px){
-  .wrap{padding:0 24px}
-  section{padding:100px 0}
-  .hero{padding:180px 0 110px}
-  .steps{grid-template-columns:1fr;gap:44px}
-  .shead{margin-bottom:60px}
-  .tpl{padding:80px 0}
-  .hero-ctas .btn{width:100%;justify-content:center}
-}
-/* ---------- immersive layer ---------- */
-.hero-bg img{transform:scale(1.18);will-change:transform}
-.hero .spot{position:absolute;left:50%;top:40%;width:640px;height:640px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(150,182,226,.12), transparent 62%);opacity:0;transition:opacity .9s ease;pointer-events:none;z-index:0;mix-blend-mode:screen}
-.hero:hover .spot{opacity:1}
-.shot{transition:transform .75s cubic-bezier(.2,.6,.2,1),box-shadow .75s cubic-bezier(.2,.6,.2,1)}
-.shot img{transition:transform .9s cubic-bezier(.2,.6,.2,1)}
-@media(hover:hover){.tpl:hover .shot{transform:translateY(-8px);box-shadow:0 70px 130px -40px rgba(0,0,0,.85)}.tpl:hover .shot img{transform:scale(1.03)}}
-.reveal{transition:opacity 1.1s cubic-bezier(.2,.6,.2,1),transform 1.1s cubic-bezier(.2,.6,.2,1),filter 1.1s cubic-bezier(.2,.6,.2,1);filter:blur(7px)}
-.reveal.in{filter:blur(0)}
-body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:140px 140px}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none;filter:none}.hero .spot{display:none}}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
-</style></head>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/credence.css">
+</head>
 <body id="top">
 <header class="head"><div class="wrap head-in">
-  <a href="index.html" class="brand">Credence</a>
-  <nav class="nav">
-    <a href="index.html#collection">Collection</a><a href="index.html#work">Included</a><a href="index.html#pricing">Investment</a>
+  <a href="index.html" class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</a>
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html#system">The System</a>
+    <a href="index.html#included">What's Included</a>
+    <a href="index.html#investment">Investment</a>
     <a href="index.html" class="cta">Overview</a>
   </nav>
-  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
-<section class="hero" style="padding:210px 0 110px">
+<section class="hero" style="padding:200px 0 100px">
   <div class="wrap">
     <div class="label"><span class="n">&mdash;</span> Get Started</div>
-    <h1 class="display" style="max-width:16ch">Begin your site.</h1>
-    <p class="lead" style="max-width:48ch">A clear path — and nothing is charged until your site is live and you've approved it.</p>
+    <h1 class="display" style="max-width:17ch">Start your course website.</h1>
+    <p class="lead" style="max-width:52ch">A clear path from first conversation to launch — with your written approval before anything goes live.</p>
     <div class="hero-ctas">
-      <a href="intake.html" class="btn btn--p">Begin your site <span class="ar">&rarr;</span></a>
+      <a href="intake.html" class="btn btn--p">Begin the course intake <span class="ar">&rarr;</span></a>
       <a href="mailto:hello@credencesites.com" class="tlink">Have a question first?</a>
     </div>
   </div>
 </section>
 
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="shead reveal"><div class="label"><span class="n">01</span>&nbsp;&nbsp;Who It's For</div>
+      <h2 class="h2">Built for the way courses operate.</h2>
+      <p>Credence is a specialized studio for golf-course websites. If you run or market one of these, the system is built for you.</p></div>
+    <div class="chips reveal">
+      <span class="chip">Public courses</span>
+      <span class="chip">Daily-fee courses</span>
+      <span class="chip">Independent clubs</span>
+      <span class="chip">Destination courses</span>
+      <span class="chip">Resort golf properties</span>
+      <span class="chip">Municipal courses</span>
+      <span class="chip">Courses in renovation or repositioning</span>
+      <span class="chip">Courses under new ownership</span>
+    </div>
+    <p class="inote reveal">Typically requested by a general manager, owner, director of golf, head professional, or marketing director with authority to approve the project.</p>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
-    <div class="shead reveal"><div class="label"><span class="n">01</span>&nbsp;&nbsp;How It Works</div>
-      <h2 class="h2">From here to live.</h2></div>
-    <div class="steps reveal">
-      <div class="st"><span class="sn">01</span><h3>Choose your design</h3><p>Select the Credence design direction that best reflects your market, audience, and style.</p></div>
-      <div class="st"><span class="sn">02</span><h3>Complete your intake</h3><p>Your bio, company and NMLS details, service areas, approved disclosures, photos, testimonials, and application links.</p></div>
-      <div class="st"><span class="sn">03</span><h3>Review your website</h3><p>We build and tailor your site, then send it for your review and any required company or compliance approval.</p></div>
-      <div class="st"><span class="sn">04</span><h3>Approve and launch</h3><p>After your written approval, we connect your domain, publish the site, and begin hosting and care. Only then is your $1,200 charged and your $99/mo begins.</p></div>
+    <div class="shead reveal"><div class="label"><span class="n">02</span>&nbsp;&nbsp;What To Prepare</div>
+      <h2 class="h2">Most of it, you already have.</h2>
+      <p>Nothing needs to be perfect to start. Gather what you can, and we'll guide the rest during intake.</p></div>
+    <div class="incl reveal">
+      <div class="irow"><div class="in">i.</div><div><h3>Course basics</h3><p>Official name, location, type, holes, par, and a short sense of what makes the course distinct.</p></div></div>
+      <div class="irow"><div class="in">ii.</div><div><h3>Golf operations</h3><p>Your tee-time provider and booking link, rates and rate categories, and key policies.</p></div></div>
+      <div class="irow"><div class="in">iii.</div><div><h3>Beyond the round</h3><p>Dining, events, outings, lessons, fitting, membership, and the golf shop, where they apply.</p></div></div>
+      <div class="irow"><div class="in">iv.</div><div><h3>Brand &amp; imagery</h3><p>Logo and brand assets, plus any photography or video you already own or are licensed to use.</p></div></div>
+      <div class="irow"><div class="in">v.</div><div><h3>Access &amp; approvals</h3><p>Domain registrar access and who signs off — ownership, municipality, management company, or legal.</p></div></div>
+      <div class="irow"><div class="in">vi.</div><div><h3>Your goals</h3><p>What's wrong with the current site, and what a better one should do for the course.</p></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="shead reveal"><div class="label"><span class="n">02</span>&nbsp;&nbsp;The Terms, Plainly</div>
-      <h2 class="h2">No surprises. Ever.</h2></div>
+    <div class="shead reveal"><div class="label"><span class="n">03</span>&nbsp;&nbsp;The Terms, Plainly</div>
+      <h2 class="h2">No surprises.</h2></div>
     <div class="incl reveal">
-      <div class="irow"><div class="in">i.</div><div><h3>Nothing charged until you approve</h3><p>Your card is saved securely before we build. The $1,200 is charged only after your site is delivered and you approve it. Your approval confirms you've reviewed your content, licensing, disclosures, links, and company details.</p></div></div>
-      <div class="irow"><div class="in">ii.</div><div><h3>What $99/month covers</h3><p>Hosting, security, and maintenance, plus up to three image replacements and reasonable text edits to existing sections each month. Larger changes and new functionality are available by separate quote, and unused monthly updates do not roll over.</p></div></div>
-      <div class="irow"><div class="in">iii.</div><div><h3>A defined review period</h3><p>Your build includes an initial review period for revisions within your selected design and scope. A redesign or a new design direction is a separate project. If a project goes quiet for an extended time, we may archive it.</p></div></div>
-      <div class="irow"><div class="in">iv.</div><div><h3>Published only on your approval</h3><p>We don't publish until you approve in writing. The setup fee is charged just before launch, and your monthly care plan begins when the site goes live.</p></div></div>
-      <div class="irow"><div class="in">v.</div><div><h3>What stays yours</h3><p>Your domain, logo, photography, and written content remain yours. Credence keeps its templates, design system, reusable components, and source code.</p></div></div>
-      <div class="irow"><div class="in">vi.</div><div><h3>Cancel anytime</h3><p>Your site stays live while you're subscribed. If you cancel, the hosted site is taken offline at the end of the paid period; source code and templates aren't transferred unless separately agreed.</p></div></div>
+      <div class="irow"><div class="in">i.</div><div><h3>$1,000 setup, $150 per month</h3><p>A one-time setup fee to tailor and launch your site, and a monthly care plan for hosting, maintenance, and defined updates. No long-term contract.</p></div></div>
+      <div class="irow"><div class="in">ii.</div><div><h3>What the monthly plan covers</h3><p>Hosting and SSL, technical maintenance, backups and monitoring, form and link checks, reasonable text edits to existing sections, and up to three image replacements per calendar month. Unused updates don't roll over.</p></div></div>
+      <div class="irow"><div class="in">iii.</div><div><h3>What's outside standard scope</h3><p>New pages, new functionality, redesigns, extensive content work, and photography, drone, or video production are quoted separately.</p></div></div>
+      <div class="irow"><div class="in">iv.</div><div><h3>Review &amp; approval</h3><p>We build from your intake and send a private review link. The site is published only after your written final approval and any ownership, municipal, management, or legal sign-off you require.</p></div></div>
+      <div class="irow"><div class="in">v.</div><div><h3>After launch</h3><p>We connect your domain, publish the site, and begin ongoing care. Your care plan runs while the site is live and hosted by Credence.</p></div></div>
+      <div class="irow"><div class="in">vi.</div><div><h3>If you cancel</h3><p>Cancel at any time. The hosted site is taken offline at the end of the paid period. Your domain, logo, photography, and written content remain yours; source code isn't transferred unless separately agreed.</p></div></div>
+      <div class="irow"><div class="in">vii.</div><div><h3>What stays yours</h3><p>You keep ownership of your domain, logo, photography, and written content.</p></div></div>
+      <div class="irow"><div class="in">viii.</div><div><h3>What stays ours</h3><p>Credence keeps its templates, code, components, and reusable design systems.</p></div></div>
     </div>
     <p class="inote reveal">Full details are in the <a href="terms.html">Website Subscription &amp; Services Agreement</a>.</p>
   </div>
@@ -215,36 +96,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <section class="final" style="padding:140px 0 180px">
   <div class="wrap reveal">
-    <div class="label"><span class="n">03</span>&nbsp;&nbsp;Begin</div>
+    <div class="label"><span class="n">04</span>&nbsp;&nbsp;Begin</div>
     <h2 class="h2">Ready when you are.</h2>
-    <p>Start now and we'll send a short form for your details and photos. Secure checkout via Stripe — your card isn't charged until your site is live and approved.</p>
+    <p>Start the course intake and we'll recommend the right Credence system and scope for the property.</p>
     <div class="final-ctas">
-      <a href="intake.html" class="btn btn--p">Begin your site <span class="ar">&rarr;</span></a>
-      <a href="intake.html" class="tlink">See what we'll need</a>
+      <a href="intake.html" class="btn btn--p">Begin the course intake <span class="ar">&rarr;</span></a>
+      <a href="index.html#design" class="tlink">See The Coastal system</a>
     </div>
   </div>
 </section>
 
 <footer class="foot"><div class="wrap">
   <div class="foot-in">
-    <div><div class="brand">Credence</div>
-      <div class="fmeta">Premium websites for mortgage professionals.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div></div>
-    <div class="flinks"><a href="index.html#collection">Collection</a><a href="index.html#work">Included</a><a href="index.html#pricing">Investment</a><a href="index.html#faq">Questions</a><a href="index.html">Overview</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>
+    <div><div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</div>
+      <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div></div>
+    <div class="flinks"><a href="index.html#system">The System</a><a href="index.html#included">What's Included</a><a href="index.html#investment">Investment</a><a href="index.html#questions">Questions</a><a href="index.html">Overview</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>
   </div>
-  <p class="copy" style="margin-top:44px;max-width:74ch">Credence provides website design and technical implementation, not legal, lending, or regulatory compliance advice.</p>
-  <p class="copy">© 2026 Credence · credencesites.com — A FoundryState venture.</p>
+  <p class="copy" style="margin-top:44px;max-width:76ch">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice.</p>
+  <p class="copy">© 2026 Credence · credencesites.com.</p>
 </div></footer>
-<script>
-var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-var h=document.querySelector('.head');addEventListener('scroll',function(){h.classList.toggle('s',scrollY>40)},{passive:true});
-var bg=document.querySelector('.burger'),nv=document.querySelector('.nav');
-bg.addEventListener('click',function(){nv.classList.toggle('open')});
-nv.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nv.classList.remove('open')})});
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});
-var hero=document.querySelector('.hero'),spot=document.querySelector('.spot');
-if(spot&&matchMedia('(hover:hover)').matches){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();spot.style.left=(e.clientX-r.left)+'px';spot.style.top=(e.clientY-r.top)+'px';});}
-var bgimg=document.querySelector('.hero-bg img');
-if(bgimg&&!rm){var t=false;addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){var y=Math.min(scrollY*0.18,90);bgimg.style.transform='scale(1.18) translate3d(0,'+y+'px,0)';t=false;});t=true;}},{passive:true});}
-</script>
+<script src="assets/credence.js"></script>
 </body></html>

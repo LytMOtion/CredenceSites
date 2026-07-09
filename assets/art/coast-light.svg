@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract editorial illustration of a coastal golf landscape in morning light">
+  <defs>
+    <linearGradient id="skyL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9ECEA"/>
+      <stop offset="0.6" stop-color="#DDE3E2"/>
+      <stop offset="1" stop-color="#CFD8D7"/>
+    </linearGradient>
+    <linearGradient id="oceanL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#AFC0C1"/>
+      <stop offset="1" stop-color="#93A8A9"/>
+    </linearGradient>
+    <linearGradient id="ridgeL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FA089"/>
+      <stop offset="1" stop-color="#6E8270"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#skyL)"/>
+
+  <!-- distant headlands -->
+  <path d="M0 452 C 240 438 380 452 540 444 C 720 434 840 452 1000 444 C 1200 434 1380 450 1600 440 L1600 520 L0 520 Z" fill="#B7C3C0" opacity="0.8"/>
+  <path d="M0 480 C 260 470 430 484 640 476 C 900 466 1080 486 1320 478 C 1440 474 1520 480 1600 477 L1600 560 L0 560 Z" fill="#9FAEAB" opacity="0.9"/>
+
+  <!-- ocean -->
+  <rect x="0" y="498" width="1600" height="150" fill="url(#oceanL)"/>
+  <rect x="0" y="498" width="1600" height="1.5" fill="#FBFBF8" opacity="0.7"/>
+  <g stroke="#C7D3D2" stroke-width="1" opacity="0.7">
+    <line x1="120" y1="542" x2="470" y2="542"/>
+    <line x1="640" y1="558" x2="1010" y2="558"/>
+    <line x1="1120" y1="534" x2="1420" y2="534"/>
+  </g>
+
+  <!-- foreground fairway -->
+  <path d="M0 636 C 260 596 480 656 760 628 C 1040 600 1280 668 1600 632 L1600 900 L0 900 Z" fill="url(#ridgeL)"/>
+
+  <!-- topographic contours -->
+  <g fill="none" stroke="#5E7264" stroke-width="1.4" opacity="0.5">
+    <path d="M0 668 C 260 632 480 688 760 662 C 1040 636 1280 698 1600 664"/>
+    <path d="M0 708 C 260 674 500 726 780 702 C 1060 678 1300 736 1600 704"/>
+    <path d="M0 750 C 280 720 520 766 800 744 C 1080 722 1320 774 1600 746"/>
+    <path d="M0 794 C 300 768 540 808 820 788 C 1100 768 1340 812 1600 790"/>
+  </g>
+
+  <!-- routing line -->
+  <path d="M210 858 C 380 796 560 808 700 756 C 840 704 980 722 1160 672" fill="none" stroke="#4C5F52" stroke-width="1.6" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="210" cy="858" r="4.5" fill="#4C5F52"/>
+
+  <!-- course marker -->
+  <g transform="translate(1160 672)">
+    <line x1="0" y1="0" x2="0" y2="-92" stroke="#42504A" stroke-width="2"/>
+    <path d="M0 -92 L 46 -80 L 0 -66 Z" fill="#BC7A48"/>
+    <circle cx="0" cy="0" r="3.4" fill="#BC7A48"/>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+# Ocean Bluff National Golf Club — a FICTIONAL demonstration property
+# presenting Credence Course System 01 — The Coastal.
+# Every page is served with <meta name="robots" content="noindex, nofollow">.
+# This demonstration must not be indexed. If it is ever hosted under another
+# domain, rely on the per-page noindex tags and do NOT place this root
+# "Disallow: /" at that domain's root (it would block the whole site).
+User-agent: *
+Disallow: /

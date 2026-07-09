@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" role="img" aria-label="Abstract course routing and topographic contour diagram">
+  <g fill="none" stroke="#55636D" stroke-width="1.3" opacity="0.5">
+    <path d="M0 120 C 240 96 460 150 720 122 C 960 96 1080 150 1200 120"/>
+    <path d="M0 200 C 240 176 460 230 720 202 C 960 176 1080 230 1200 200"/>
+    <path d="M0 300 C 220 270 470 322 740 300 C 1000 278 1090 320 1200 300"/>
+    <path d="M0 420 C 240 392 470 448 740 420 C 1010 392 1100 446 1200 420"/>
+    <path d="M0 540 C 260 510 500 560 780 538 C 1040 516 1110 556 1200 538"/>
+  </g>
+  <!-- routing corridor -->
+  <path d="M120 620 C 300 560 520 572 700 500 C 880 428 1010 452 1120 360" fill="none" stroke="#7E8B79" stroke-width="26" stroke-linecap="round" opacity="0.16"/>
+  <path d="M120 620 C 300 560 520 572 700 500 C 880 428 1010 452 1120 360" fill="none" stroke="#C2A15B" stroke-width="1.6" stroke-dasharray="2 10" stroke-linecap="round" opacity="0.85"/>
+  <!-- tee and green -->
+  <rect x="106" y="612" width="26" height="16" rx="2" fill="#7E8B79" opacity="0.6"/>
+  <ellipse cx="1120" cy="360" rx="30" ry="22" fill="#7E8B79" opacity="0.22"/>
+  <ellipse cx="1120" cy="360" rx="30" ry="22" fill="none" stroke="#7E8B79" stroke-width="1.3" opacity="0.7"/>
+  <g transform="translate(1120 360)">
+    <line x1="0" y1="0" x2="0" y2="-40" stroke="#8B939A" stroke-width="1.6"/>
+    <path d="M0 -40 L 22 -34 L 0 -28 Z" fill="#C2A15B"/>
+  </g>
+  <!-- bunkers -->
+  <path d="M560 540 q 40 -26 80 -4 q -6 26 -44 24 q -40 -2 -36 -20 Z" fill="#C9B79A" opacity="0.35"/>
+  <path d="M900 430 q 34 -22 66 -2 q -6 22 -38 20 q -32 -2 -28 -18 Z" fill="#C9B79A" opacity="0.35"/>
+</svg>
