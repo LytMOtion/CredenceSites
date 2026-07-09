@@ -2,245 +2,178 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0A0E11">
-<title>Course Intake — Credence</title>
-<meta name="description" content="Share your course details and we build your website. Nothing is published until you approve it.">
-<link rel="canonical" href="https://www.credencesites.com/intake.html">
+<meta name="theme-color" content="#F4F3EF">
+<meta name="robots" content="noindex, nofollow">
+<title>Detailed Course Intake — Credence</title>
+<meta name="description" content="Second-stage course intake for courses that have already spoken with Credence.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Course Intake — Credence">
-<meta property="og:description" content="Share your course details and approved content and we build your site.">
-<meta property="og:url" content="https://www.credencesites.com/intake.html">
-<meta property="og:site_name" content="Credence">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/credence.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/credence-v2.css">
+<style>
+  body.page-start .head{background:rgba(244,243,239,.92);backdrop-filter:saturate(150%) blur(14px);box-shadow:0 1px 0 var(--line);color:var(--ink)}
+  body.page-start{background:var(--paper)}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body id="top">
+<body id="top" class="page-start">
+<a href="#intake" class="skip-link">Skip to the intake form</a>
+
 <header class="head"><div class="wrap head-in">
-  <a href="index.html" class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</a>
+  <a href="index.html" class="brand" aria-label="Credence — home">Credence<span class="rule"></span></a>
   <nav class="nav" aria-label="Primary">
-    <a href="index.html#system">The System</a>
+    <a href="index.html#systems">Course Systems</a>
     <a href="index.html#included">What's Included</a>
-    <a href="index.html#investment">Investment</a>
-    <a href="index.html" class="cta">Overview</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html" class="navcta">Back to Credence</a>
   </nav>
   <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
-<section class="hero" style="padding:190px 0 40px">
+<!-- HERO -->
+<section class="start-hero" style="padding-bottom:40px">
   <div class="wrap">
-    <div class="label"><span class="n">&mdash;</span> Course Intake</div>
-    <h1 class="display" style="max-width:15ch">Tell us about the course.</h1>
-    <p class="lead" style="max-width:54ch">The more you share, the more tailored the first build. Complete what you can now — we'll follow up on anything missing. Nothing is published until you give written approval.</p>
+    <span class="eyebrow">Detailed course intake</span>
+    <h1 style="max-width:20ch">Everything we need to tailor the course system.</h1>
+    <p class="lead" style="max-width:56ch">Complete this form after speaking with Credence. Share what you have available; we'll follow up on anything still needed.</p>
+    <p class="fnote warn" style="max-width:56ch">This form is intended for courses that have already spoken with Credence.</p>
   </div>
 </section>
 
-<section style="padding-top:20px">
+<!-- DETAILED INTAKE FORM -->
+<section class="section" id="intake" style="padding-top:20px">
   <div class="wrap">
-  <form id="intakeForm" class="intro-form reveal" action="https://api.web3forms.com/submit" method="POST" novalidate>
-    <input type="hidden" name="access_key" value="4fee9395-e72a-4894-9417-6d4de237a5b3">
-    <input type="hidden" name="subject" value="New Credence course intake">
-    <input type="hidden" name="terms_version" value="Services Agreement v1 (2026 draft)">
-    <input type="hidden" id="accepted_at" name="accepted_at" value="">
-    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <form id="intakeForm" class="form-shell" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="4fee9395-e72a-4894-9417-6d4de237a5b3">
+      <input type="hidden" name="subject" value="New Credence course intake">
+      <input type="hidden" name="from_name" value="Credence — Detailed Intake">
+      <input type="hidden" id="accepted_at" name="accepted_at" value="">
+      <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">01</span>&nbsp;&nbsp;Course System</div><h2 class="h2">Choose a direction.</h2></div>
-      <div class="designpick">
-        <label class="dp"><input type="radio" name="course_system" value="Course System 01 — The Coastal" required><h4>The Coastal</h4><div class="dpm">Editorial · Landscape · Destination</div></label>
-        <label class="dp"><input type="radio" name="course_system" value="Not sure — recommend one"><h4>Not sure yet</h4><div class="dpm">Recommend the right system for us</div></label>
-      </div>
-      <p class="fnote" style="margin-top:12px">More systems are in development. If you're undecided, choose "Not sure yet" and we'll advise based on the course.</p>
-    </div>
-
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">02</span>&nbsp;&nbsp;Decision-Maker</div><h2 class="h2">Who we're working with.</h2></div>
-      <div class="fgrid">
-        <div class="field"><label for="dm_name">Full name <span class="req" aria-hidden="true">*</span></label><input id="dm_name" name="dm_name" type="text" required></div>
-        <div class="field"><label for="dm_title">Job title <span class="req" aria-hidden="true">*</span></label><input id="dm_title" name="dm_title" type="text" placeholder="e.g. General Manager, Director of Golf" required></div>
-        <div class="field"><label for="course_name">Course or property name <span class="req" aria-hidden="true">*</span></label><input id="course_name" name="course_name" type="text" required></div>
-        <div class="field"><label for="dm_email">Business email <span class="req" aria-hidden="true">*</span></label><input id="dm_email" name="dm_email" type="email" required></div>
-        <div class="field"><label for="dm_phone">Direct phone <span class="req" aria-hidden="true">*</span></label><input id="dm_phone" name="dm_phone" type="tel" required></div>
-        <div class="field"><label for="mgmt_company">Ownership / management company</label><input id="mgmt_company" name="mgmt_company" type="text" placeholder="If applicable"></div>
-      </div>
-      <div class="field full">
-        <label id="auth-label">Do you have authority to approve this project? <span class="req" aria-hidden="true">*</span></label>
-        <div class="radiorow" role="radiogroup" aria-labelledby="auth-label">
-          <label><input type="radio" name="authority" value="Yes" required> Yes</label>
-          <label><input type="radio" name="authority" value="Shared — with others"> Shared</label>
-          <label><input type="radio" name="authority" value="No — I coordinate"> No, I coordinate</label>
+      <div class="fgroup">
+        <div class="glabel"><span class="gn">01</span><h3>Course details</h3></div>
+        <div class="fgrid">
+          <div class="field"><label for="course_name">Course name <span class="req" aria-hidden="true">*</span></label><input id="course_name" name="course_name" type="text" required></div>
+          <div class="field"><label for="location">Course location</label><input id="location" name="location" type="text" placeholder="City, State"></div>
+          <div class="field"><label for="current_website">Current website</label><input id="current_website" name="current_website" type="text" placeholder="https://"></div>
+          <div class="field"><label for="contact_name">Contact name <span class="req" aria-hidden="true">*</span></label><input id="contact_name" name="contact_name" type="text" required></div>
+          <div class="field"><label for="contact_role">Contact role</label><input id="contact_role" name="contact_role" type="text" placeholder="e.g. General Manager, Director of Golf"></div>
+          <div class="field"><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
         </div>
       </div>
-      <div class="field full"><label for="stakeholders">Other stakeholders</label><textarea id="stakeholders" name="stakeholders" placeholder="Anyone else involved in decisions or approvals — names and roles."></textarea></div>
-    </div>
 
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">03</span>&nbsp;&nbsp;Course Identity</div><h2 class="h2">The property.</h2></div>
-      <div class="fgrid">
-        <div class="field"><label for="official_name">Official course name</label><input id="official_name" name="official_name" type="text"></div>
-        <div class="field"><label for="current_website">Current website</label><input id="current_website" name="current_website" type="text" placeholder="https://"></div>
-        <div class="field"><label for="established_year">Year established</label><input id="established_year" name="established_year" type="text"></div>
-        <div class="field"><label for="architect">Course architect</label><input id="architect" name="architect" type="text"></div>
-        <div class="field"><label for="course_type">Course type</label>
-          <select id="course_type" name="course_type">
-            <option value="">Select…</option>
-            <option>Public</option><option>Daily-fee</option><option>Independent club</option>
-            <option>Destination</option><option>Resort</option><option>Municipal</option>
-            <option>Semi-private</option><option>Private</option><option>Other</option>
-          </select></div>
-        <div class="field"><label for="holes">Number of holes</label><input id="holes" name="holes" type="text" placeholder="e.g. 18"></div>
-        <div class="field"><label for="par">Par</label><input id="par" name="par" type="text" placeholder="e.g. 72"></div>
-        <div class="field"><label for="location">Location</label><input id="location" name="location" type="text" placeholder="City, State"></div>
+      <div class="fgroup">
+        <div class="glabel"><span class="gn">02</span><h3>Course operations</h3></div>
+        <div class="fgrid">
+          <div class="field"><label for="course_type">Course type</label>
+            <select id="course_type" name="course_type"><option value="">Select…</option><option>Public</option><option>Municipal</option><option>Resort</option><option>Semi-private</option><option>Private</option></select></div>
+          <div class="field"><label for="holes">Number of holes</label><input id="holes" name="holes" type="text" placeholder="e.g. 18"></div>
+          <div class="field"><label for="booking_provider">Current booking provider</label><input id="booking_provider" name="booking_provider" type="text" placeholder="GolfNow, foreUP, Lightspeed, etc."></div>
+          <div class="field"><label for="booking_url">Booking URL</label><input id="booking_url" name="booking_url" type="text" placeholder="https://"></div>
+          <div class="field"><label for="rates_page">Rates page</label><input id="rates_page" name="rates_page" type="text" placeholder="Link, if you have one"></div>
+          <div class="field"><label for="lodging">Lodging / resort connection</label><input id="lodging" name="lodging" type="text" placeholder="If applicable"></div>
+        </div>
+        <div class="field full"><label>Which does the course offer? <span class="hint">(check all that apply)</span></label>
+          <div class="taglist" role="group" aria-label="Course offerings" style="margin-top:6px">
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_golf_shop" value="Golf shop"><span>Golf shop</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_dining" value="Dining"><span>Dining</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_events" value="Events"><span>Events</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_weddings" value="Weddings"><span>Weddings</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_outings" value="Tournaments & outings"><span>Tournaments &amp; outings</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_instruction" value="Instruction"><span>Instruction</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_fitting" value="Club fitting"><span>Club fitting</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="offers_membership" value="Membership"><span>Membership</span></label>
+          </div>
+        </div>
       </div>
-      <div class="field full"><label for="domain_status">Domain ownership / access status</label><input id="domain_status" name="domain_status" type="text" placeholder="Who owns the domain, and can you access the registrar?"></div>
-      <div class="fgrid">
-        <div class="field"><label for="logo_link">Logo &amp; brand-asset link</label><input id="logo_link" name="logo_link" type="text" placeholder="Drive, Dropbox, etc."></div>
-        <div class="field"><label for="brand_guidelines">Brand guidelines link</label><input id="brand_guidelines" name="brand_guidelines" type="text" placeholder="If you have them"></div>
-      </div>
-      <div class="field full"><label for="positioning">Short positioning statement</label><textarea id="positioning" name="positioning" placeholder="In a sentence or two, what is the course and who is it for?"></textarea></div>
-      <div class="field full"><label for="history">Course history</label><textarea id="history" name="history" placeholder="Notable history, design, or milestones."></textarea></div>
-      <div class="field full"><label for="features">Distinguishing features</label><textarea id="features" name="features" placeholder="Signature holes, setting, conditioning, views — what makes it memorable."></textarea></div>
-    </div>
 
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">04</span>&nbsp;&nbsp;Golf Operations</div><h2 class="h2">Tee times &amp; play.</h2></div>
-      <div class="fgrid">
-        <div class="field"><label for="tee_provider">Tee-time provider</label><input id="tee_provider" name="tee_provider" type="text" placeholder="GolfNow, foreUP, Lightspeed, Club Caddie, etc."></div>
-        <div class="field"><label for="booking_url">Booking URL</label><input id="booking_url" name="booking_url" type="text" placeholder="https://"></div>
+      <div class="fgroup">
+        <div class="glabel"><span class="gn">03</span><h3>Current website</h3></div>
+        <div class="field full"><label for="working">What's working today?</label><textarea id="working" name="working"></textarea></div>
+        <div class="field full"><label for="not_working">What isn't working?</label><textarea id="not_working" name="not_working"></textarea></div>
+        <div class="field full"><label for="priorities">Most important changes</label><textarea id="priorities" name="priorities"></textarea></div>
+        <div class="fgrid">
+          <div class="field"><label for="host_provider">Existing hosting / website provider</label><input id="host_provider" name="host_provider" type="text"></div>
+          <div class="field"><label for="domain_ownership">Current domain ownership</label>
+            <select id="domain_ownership" name="domain_ownership"><option value="">Select…</option><option>We own it and can access the registrar</option><option>We own it, unsure of access</option><option>Managed by a third party</option><option>Not sure</option></select></div>
+          <div class="field full"><label for="analytics">Existing analytics, if known</label><input id="analytics" name="analytics" type="text" placeholder="e.g. Google Analytics — who manages it"></div>
+        </div>
       </div>
-      <div class="field full"><label for="rates">Rates</label><textarea id="rates" name="rates" placeholder="Current rates — weekday, weekend, twilight, cart, etc."></textarea></div>
-      <div class="field full"><label for="rate_categories">Rate categories</label><input id="rate_categories" name="rate_categories" type="text" placeholder="e.g. Resident, junior, senior, replay, seasonal"></div>
-      <div class="fgrid">
-        <div class="field"><label for="cancellation_policy">Cancellation policy</label><input id="cancellation_policy" name="cancellation_policy" type="text"></div>
-        <div class="field"><label for="cart_policy">Cart policy</label><input id="cart_policy" name="cart_policy" type="text"></div>
-        <div class="field"><label for="walking_policy">Walking policy</label><input id="walking_policy" name="walking_policy" type="text"></div>
-        <div class="field"><label for="dress_code">Dress code</label><input id="dress_code" name="dress_code" type="text"></div>
-        <div class="field"><label for="scorecard">Scorecard link</label><input id="scorecard" name="scorecard" type="text" placeholder="PDF or link, if available"></div>
-        <div class="field"><label for="conditions_source">Course-conditions source</label><input id="conditions_source" name="conditions_source" type="text" placeholder="Where conditions/updates are posted"></div>
-      </div>
-      <div class="field full"><label for="programs">Membership, loyalty &amp; player programs</label><textarea id="programs" name="programs" placeholder="Membership tiers, loyalty cards, players club, etc."></textarea></div>
-      <div class="fgrid">
-        <div class="field"><label for="golf_shop">Golf shop</label><input id="golf_shop" name="golf_shop" type="text" placeholder="In-house / e-commerce / notes"></div>
-        <div class="field"><label for="club_fitting">Club fitting</label><input id="club_fitting" name="club_fitting" type="text"></div>
-        <div class="field"><label for="lessons">Lessons &amp; instruction</label><input id="lessons" name="lessons" type="text"></div>
-        <div class="field"><label for="practice">Practice facilities</label><input id="practice" name="practice" type="text" placeholder="Range, short game, putting"></div>
-      </div>
-    </div>
 
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">05</span>&nbsp;&nbsp;Hospitality &amp; Revenue</div><h2 class="h2">Beyond the round.</h2></div>
-      <div class="fgrid">
-        <div class="field"><label for="restaurant">Restaurant, grill or bar</label><input id="restaurant" name="restaurant" type="text"></div>
-        <div class="field"><label for="menu_link">Current menu link</label><input id="menu_link" name="menu_link" type="text"></div>
-        <div class="field"><label for="catering">Catering</label><input id="catering" name="catering" type="text"></div>
-        <div class="field"><label for="hotel_relationship">Hotel or resort relationship</label><input id="hotel_relationship" name="hotel_relationship" type="text"></div>
-        <div class="field"><label for="ecommerce">Pro-shop e-commerce</label><input id="ecommerce" name="ecommerce" type="text"></div>
-        <div class="field"><label for="gift_cards">Gift cards</label><input id="gift_cards" name="gift_cards" type="text"></div>
+      <div class="fgroup">
+        <div class="glabel"><span class="gn">04</span><h3>Content &amp; photography</h3></div>
+        <p class="fnote">Only submit content and images the course owns or is authorized to use.</p>
+        <div class="field full"><label>What do you have available? <span class="hint">(check all that apply)</span></label>
+          <div class="taglist" role="group" aria-label="Available content" style="margin-top:6px">
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_logo" value="Logo"><span>Course logo</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_brandguide" value="Brand guide"><span>Brand guide</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_course_photo" value="Course photography"><span>Course photography</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_drone" value="Drone footage"><span>Drone footage</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_staff_photo" value="Staff photography"><span>Staff photography</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_dining_photo" value="Dining photography"><span>Dining photography</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_copy" value="Written copy"><span>Written copy</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_scorecard" value="Scorecard"><span>Scorecard</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_course_map" value="Course map"><span>Course map</span></label>
+            <label class="chk" style="border:none;padding:0;display:inline-flex;gap:9px;align-items:center"><input type="checkbox" name="have_hole_desc" value="Hole descriptions"><span>Hole descriptions</span></label>
+          </div>
+        </div>
+        <div class="field full"><label for="assets_link">Link to any files you'd like to share</label><input id="assets_link" name="assets_link" type="text" placeholder="Drive, Dropbox, etc. — optional"></div>
       </div>
-      <div class="field full"><label for="weddings_events">Weddings &amp; private events</label><textarea id="weddings_events" name="weddings_events" placeholder="Spaces, capacities, packages, or a link."></textarea></div>
-      <div class="field full"><label for="tournaments">Tournaments &amp; outings</label><textarea id="tournaments" name="tournaments" placeholder="Outing packages, group minimums, shotgun availability, etc."></textarea></div>
-      <div class="field full"><label for="amenities">Other amenities</label><textarea id="amenities" name="amenities" placeholder="Anything else guests should know about."></textarea></div>
-    </div>
 
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">06</span>&nbsp;&nbsp;Website Content</div><h2 class="h2">What goes on the site.</h2></div>
-      <p class="fnote-block warn">Please submit only content, images, logos, and testimonials that the course owns or is authorized to use.</p>
-      <div class="field full"><label for="required_pages">Required pages</label><textarea id="required_pages" name="required_pages" placeholder="The pages you want — e.g. Home, The Course, Rates & Tee Times, Events, Dining, Contact."></textarea></div>
-      <div class="fgrid">
-        <div class="field"><label for="staff_list">Staff / leadership list</label><input id="staff_list" name="staff_list" type="text" placeholder="Link or notes"></div>
-        <div class="field"><label for="hours">Hours of operation</label><input id="hours" name="hours" type="text"></div>
-        <div class="field"><label for="contact_info">Public contact information</label><input id="contact_info" name="contact_info" type="text" placeholder="Phone, email, address"></div>
-        <div class="field"><label for="social_links">Social links</label><input id="social_links" name="social_links" type="text"></div>
+      <div class="fgroup">
+        <div class="glabel"><span class="gn">05</span><h3>Project</h3></div>
+        <div class="fgrid">
+          <div class="field"><label for="preferred_system">Preferred Credence course system</label>
+            <select id="preferred_system" name="preferred_system"><option value="">Select…</option><option>Course System 01 — The Coastal</option><option>Not sure — recommend one</option></select></div>
+          <div class="field"><label for="launch_timing">Target launch timing</label><input id="launch_timing" name="launch_timing" type="text" placeholder="e.g. before the spring season"></div>
+        </div>
+        <div class="field full"><label for="required_pages">Required pages</label><textarea id="required_pages" name="required_pages" placeholder="e.g. Home, The Course, Rates & Tee Times, Events, Dining, Contact"></textarea></div>
+        <div class="field full"><label for="goals">Primary business goals</label><textarea id="goals" name="goals" placeholder="More tee times, more events, clearer rates, etc."></textarea></div>
+        <div class="field full"><label class="chk" for="opt_production" style="border:none;padding:0;display:inline-flex;gap:12px;align-items:center"><input type="checkbox" id="opt_production" name="opt_production" value="Yes"><span>I'm interested in optional photography or video (quoted separately)</span></label></div>
+        <div class="field full"><label for="additional">Anything else</label><textarea id="additional" name="additional"></textarea></div>
       </div>
-      <div class="field full"><label for="testimonials_press">Testimonials or press</label><textarea id="testimonials_press" name="testimonials_press" placeholder="Only authentic quotes or press you have permission to publish."></textarea></div>
-      <div class="field full"><label for="faqs">Frequently asked questions</label><textarea id="faqs" name="faqs" placeholder="Common questions from golfers, event planners, or visitors."></textarea></div>
-      <div class="fgrid">
-        <div class="field"><label for="photo_folder">Photo folder link</label><input id="photo_folder" name="photo_folder" type="text" placeholder="Drive, Dropbox, etc."></div>
-        <div class="field"><label for="video">Video link</label><input id="video" name="video" type="text"></div>
-        <div class="field"><label for="drone_footage">Drone footage link</label><input id="drone_footage" name="drone_footage" type="text"></div>
-        <div class="field"><label for="documents">Documents &amp; PDFs</label><input id="documents" name="documents" type="text" placeholder="Scorecard, menus, packages"></div>
-      </div>
-      <div class="fgrid">
-        <div class="field"><label for="launch_timing">Desired launch timing</label><input id="launch_timing" name="launch_timing" type="text" placeholder="e.g. before the spring season"></div>
-        <div class="field"><label for="existing_photography">Existing photography</label><input id="existing_photography" name="existing_photography" type="text" placeholder="What you have / its quality"></div>
-      </div>
-      <div class="field full"><label for="current_problems">Current website problems</label><textarea id="current_problems" name="current_problems" placeholder="What isn't working today."></textarea></div>
-      <div class="field full"><label for="primary_goals">Primary goals</label><textarea id="primary_goals" name="primary_goals" placeholder="What a better website should achieve — more tee times, more events, clearer rates, etc."></textarea></div>
-    </div>
 
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">07</span>&nbsp;&nbsp;Approval &amp; Access</div><h2 class="h2">Sign-off &amp; logistics.</h2></div>
-      <div class="fgrid">
-        <div class="field"><label for="primary_approver">Primary approver</label><input id="primary_approver" name="primary_approver" type="text" placeholder="Name and role"></div>
-        <div class="field"><label for="secondary_approver">Secondary approver</label><input id="secondary_approver" name="secondary_approver" type="text"></div>
-        <div class="field"><label for="domain_registrar">Domain registrar</label><input id="domain_registrar" name="domain_registrar" type="text" placeholder="e.g. GoDaddy, Google Domains"></div>
-        <div class="field"><label for="current_host">Current website host</label><input id="current_host" name="current_host" type="text"></div>
-        <div class="field"><label for="analytics_access">Analytics access</label><input id="analytics_access" name="analytics_access" type="text" placeholder="Do you have it / who manages it"></div>
-        <div class="field"><label for="teesheet_contact">Tee-sheet provider contact</label><input id="teesheet_contact" name="teesheet_contact" type="text" placeholder="If we may need to coordinate"></div>
+      <div class="fgroup">
+        <div class="glabel"><span class="gn">06</span><h3>Agreement</h3></div>
+        <p class="fnote warn">For your security, please don't submit passwords, payment-card data, or other confidential access credentials through this form.</p>
+        <div class="checks">
+          <label class="chk" for="ack_terms"><input type="checkbox" id="ack_terms" name="ack_terms" value="Yes" required><span>I have read and accept the Credence <a href="terms.html" target="_blank" rel="noopener noreferrer">Website Subscription &amp; Services Agreement<span class="sr-only"> (opens in a new tab)</span></a>.</span></label>
+          <label class="chk" for="ack_privacy"><input type="checkbox" id="ack_privacy" name="ack_privacy" value="Yes" required><span>I have read the Credence <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy<span class="sr-only"> (opens in a new tab)</span></a>, and I own or am authorized to share the information I submit.</span></label>
+        </div>
+        <div class="fsubmit-row">
+          <button type="submit" class="btn btn-solid fsubmit">Send course details <span class="ar">&rarr;</span></button>
+          <span class="muted" style="font-size:.92rem">We'll be in touch shortly to confirm your system and next steps.</span>
+        </div>
       </div>
-      <div class="field full"><label for="approval_required">Ownership, municipal, management, or legal review required?</label><textarea id="approval_required" name="approval_required" placeholder="Which approvals are required before publication, and by whom."></textarea></div>
-      <div class="field full"><label for="procurement">Procurement requirements</label><input id="procurement" name="procurement" type="text" placeholder="Any vendor, PO, or contract process we should know about"></div>
-    </div>
+    </form>
 
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">08</span>&nbsp;&nbsp;Optional Production</div><h2 class="h2">By separate quote.</h2></div>
-      <p class="fnote-block">Photography, film, and content production sit outside the standard package. Select anything you may want, and we'll quote it separately.</p>
-      <div class="checks" style="border-top:none">
-        <label class="chk" for="opt_photography"><input type="checkbox" id="opt_photography" name="opt_photography" value="Yes"><span>Course photography</span></label>
-        <label class="chk" for="opt_drone"><input type="checkbox" id="opt_drone" name="opt_drone" value="Yes"><span>Drone imagery</span></label>
-        <label class="chk" for="opt_video"><input type="checkbox" id="opt_video" name="opt_video" value="Yes"><span>Video</span></label>
-        <label class="chk" for="opt_portraits"><input type="checkbox" id="opt_portraits" name="opt_portraits" value="Yes"><span>Staff portraits</span></label>
-        <label class="chk" for="opt_restaurant"><input type="checkbox" id="opt_restaurant" name="opt_restaurant" value="Yes"><span>Restaurant &amp; clubhouse photography</span></label>
-        <label class="chk" for="opt_social"><input type="checkbox" id="opt_social" name="opt_social" value="Yes"><span>Social media content</span></label>
-        <label class="chk" for="opt_copywriting"><input type="checkbox" id="opt_copywriting" name="opt_copywriting" value="Yes"><span>Copywriting</span></label>
-        <label class="chk" for="opt_course_map"><input type="checkbox" id="opt_course_map" name="opt_course_map" value="Yes"><span>Course map</span></label>
-      </div>
-      <div class="field full" style="margin-top:22px"><label for="opt_other">Other production needs</label><textarea id="opt_other" name="opt_other" placeholder="Anything else you have in mind."></textarea></div>
+    <div id="thanks" class="thanks" tabindex="-1">
+      <span class="eyebrow">Received</span>
+      <h2 class="d2" style="margin-top:12px">Thank you — we've got it.</h2>
+      <p>We'll review your course details and be in touch to confirm your system and outline next steps. Nothing is published until your site is built and you approve it.</p>
     </div>
-
-    <div class="fsec">
-      <div class="shead" style="margin-bottom:26px"><div class="label"><span class="n">09</span>&nbsp;&nbsp;Confirmations</div><h2 class="h2">Before you submit.</h2></div>
-      <p class="fnote-block">Please confirm each of the following. Each is required.</p>
-      <div class="checks">
-      <label class="chk" for="confirm1"><input type="checkbox" id="confirm1" name="confirm1" value="Yes" required><span>I have the authority to request this website project on behalf of the course.</span></label>
-      <label class="chk" for="confirm2"><input type="checkbox" id="confirm2" name="confirm2" value="Yes" required><span>The information I have provided is accurate to the best of my knowledge.</span></label>
-      <label class="chk" for="confirm3"><input type="checkbox" id="confirm3" name="confirm3" value="Yes" required><span>The course owns or has permission to use all logos, photography, video, testimonials, and written material I supply.</span></label>
-      <label class="chk" for="confirm4"><input type="checkbox" id="confirm4" name="confirm4" value="Yes" required><span>I understand that Credence provides website design and technical implementation, not legal advice.</span></label>
-      <label class="chk" for="confirm5"><input type="checkbox" id="confirm5" name="confirm5" value="Yes" required><span>I am responsible for reviewing rates, policies, booking links, claims, and operational information on the site.</span></label>
-      <label class="chk" for="confirm6"><input type="checkbox" id="confirm6" name="confirm6" value="Yes" required><span>I am responsible for obtaining any required internal, ownership, municipal, management, or legal approvals.</span></label>
-      <label class="chk" for="confirm7"><input type="checkbox" id="confirm7" name="confirm7" value="Yes" required><span>I understand the website will not be published until I provide written final approval.</span></label>
-      <label class="chk" for="confirm8"><input type="checkbox" id="confirm8" name="confirm8" value="Yes" required><span>I have read and accept the Credence <a href="terms.html" target="_blank" rel="noopener">Website Subscription &amp; Services Agreement</a>.</span></label>
-      </div>
-    </div>
-
-    <div>
-      <p class="fnote-block warn">Your details are sent securely to Credence (hello@credencesites.com). For your security, please do not submit passwords, payment-card data, private employee records, or other confidential access credentials through this form. If we need account access later, we'll arrange a secure method.</p>
-      <div class="fsubmit-row">
-        <button type="submit" class="btn btn--p fsubmit">Send course details <span class="ar">&rarr;</span></button>
-        <span class="fnote">We'll reply within a day to confirm your system and next steps.</span>
-      </div>
-    </div>
-  </form>
-
-  <div id="thanks" class="thanks">
-    <div class="label" style="justify-content:center"><span class="n">&mdash;</span> Received</div>
-    <h2 class="h2">Thank you — we've got it.</h2>
-    <p>We'll review your course details and be in touch within a day to confirm your system and outline next steps. Nothing is published until your site is built and you approve it.</p>
-  </div>
   </div>
 </section>
 
-<footer class="foot"><div class="wrap">
-  <div class="foot-in">
-    <div><div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><line x1="12" y1="7" x2="12" y2="25" stroke="#8B939A" stroke-width="2"/><path d="M12 7 L23 10 L12 13 Z" fill="#C2A15B"/><circle cx="12" cy="25" r="2" fill="#C2A15B"/></svg>Credence</div>
-      <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div></div>
-    <div class="flinks"><a href="index.html#system">The System</a><a href="index.html#included">What's Included</a><a href="index.html#investment">Investment</a><a href="index.html#questions">Questions</a><a href="index.html">Overview</a></div>
+<footer class="foot"><div class="wrap"><div class="foot-in">
+  <div>
+    <div class="brand d3">Credence</div>
+    <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div>
   </div>
-  <p class="copy">© 2026 Credence · credencesites.com.</p>
-</div></footer>
-<script src="assets/credence.js"></script>
+  <div>
+    <h5>Explore</h5>
+    <ul><li><a href="index.html#systems">Course Systems</a></li><li><a href="index.html#included">What's Included</a></li><li><a href="index.html#pricing">Pricing</a></li></ul>
+  </div>
+  <div>
+    <h5>Start</h5>
+    <ul><li><a href="start.html">Start Your Site</a></li><li><a href="coastal/index.html" target="_blank" rel="noopener noreferrer">The Coastal demo <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+  </div>
+  <p class="legal">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice. Courses are responsible for the accuracy of their rates, policies, booking links, and operational information. Imagery on this preview is AI-generated demonstration reference of a fictional course, to be replaced with commissioned photography before production.</p>
+  <p class="cr">© 2026 Credence · credencesites.com · v2 preview — not for production.</p>
+</div></div></footer>
+
+<script src="assets/js/credence-v2.js"></script>
 <script>
 (function(){
   var f=document.getElementById('intakeForm'); if(!f) return;
@@ -248,12 +181,12 @@
     e.preventDefault();
     if(!f.checkValidity()){ f.reportValidity(); return; }
     var at=document.getElementById('accepted_at'); if(at) at.value=new Date().toISOString();
-    var btn=f.querySelector('.fsubmit'); if(btn){btn.disabled=true; btn.innerHTML='Sending…';}
+    var btn=f.querySelector('.fsubmit'); if(btn){btn.disabled=true; btn.textContent='Sending…';}
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
       .then(function(r){ if(r.ok){ done(); } else { fail(btn); } })
       .catch(function(){ fail(btn); });
   });
-  function done(){ f.style.display='none'; var t=document.getElementById('thanks'); if(t) t.classList.add('show'); window.scrollTo({top:0,behavior:'smooth'}); }
+  function done(){ f.style.display='none'; var t=document.getElementById('thanks'); if(t){ t.classList.add('show'); t.focus(); t.scrollIntoView({behavior:'smooth',block:'start'}); } }
   function fail(btn){ if(btn){btn.disabled=false; btn.innerHTML='Send course details <span class="ar">&rarr;</span>';} alert('Something went wrong — please email hello@credencesites.com and we\'ll take it from there.'); }
 })();
 </script>
