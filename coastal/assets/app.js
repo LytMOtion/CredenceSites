@@ -75,22 +75,22 @@
   // Resolve only when the image is actually ready to paint (fetch + decode).
   // Forces a hidden/lazy image to load; a safety timeout guarantees we never hang.
   function ready(img) {
+    // Resolve once the image bytes are available (complete, load, error) or a safety
+    // timeout. We intentionally do NOT call img.decode(): decode() never settles for a
+    // complete image inside a hidden (display:none) panel, which stalls the hole swap
+    // (deep-links / taps to preloaded holes). The show transition's opacity fade covers
+    // any brief decode-on-paint, so there is no white flash.
     return new Promise(function (res) {
       if (!img) return res();
-      var finish = function () { if (img.decode) { img.decode().then(res, res); } else { res(); } };
-      // Already-loaded image: resolve immediately. Do NOT call decode() here — decode()
-      // never settles for a complete image inside a hidden (display:none) panel, which
-      // would stall the hole swap (deep-links / taps to preloaded holes). No flash risk.
       if (img.complete && img.naturalWidth > 0) return res();
       var safety = setTimeout(res, 2500);
       var done = function () {
         clearTimeout(safety);
         img.removeEventListener('load', done); img.removeEventListener('error', done);
-        finish();
+        res();
       };
       img.addEventListener('load', done); img.addEventListener('error', done);
       img.loading = 'eager';                    // kick a lazy/hidden image into loading
-      if (img.decode) img.decode().then(function () { clearTimeout(safety); done(); }, function () {});
     });
   }
   function setActive(n) {                        // sole visual driver + a11y
