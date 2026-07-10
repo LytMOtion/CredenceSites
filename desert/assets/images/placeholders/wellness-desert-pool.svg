@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder for wellness-desert-pool">
+<rect width="1920" height="1080" fill="#F4F2ED"/>
+<rect x="0" y="0" width="1920" height="1080" fill="#F4F2ED" opacity="1"/>
+<rect x="0" y="0" width="1920" height="496" fill="#768993" opacity="0.18"/>
+<polygon points="0,496 422,324 844,453 1305,291 1920,432 1920,496" fill="#292825" opacity="0.16"/>
+<rect x="0" y="496" width="1920" height="1080" fill="#DED6CA" opacity="1"/>
+<rect x="268" y="604" width="1382" height="324" fill="#768993" opacity="0.5"/>
+<rect x="57" y="999" width="960" height="48" fill="#171716" opacity="0.82"/>
+<text x="86" y="1049" font-family="Archivo, Arial, sans-serif" font-size="28" letter-spacing="2" fill="#F4F2ED">DEMONSTRATION IMAGE &#183; WELLNESS DESERT POOL</text>
+<rect x="0" y="0" width="1920" height="1080" fill="none" stroke="#CDC8BF" stroke-width="2"/>
+</svg>
