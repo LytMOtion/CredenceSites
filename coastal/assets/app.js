@@ -78,7 +78,10 @@
     return new Promise(function (res) {
       if (!img) return res();
       var finish = function () { if (img.decode) { img.decode().then(res, res); } else { res(); } };
-      if (img.complete && img.naturalWidth > 0) return finish();
+      // Already-loaded image: resolve immediately. Do NOT call decode() here — decode()
+      // never settles for a complete image inside a hidden (display:none) panel, which
+      // would stall the hole swap (deep-links / taps to preloaded holes). No flash risk.
+      if (img.complete && img.naturalWidth > 0) return res();
       var safety = setTimeout(res, 2500);
       var done = function () {
         clearTimeout(safety);
