@@ -81,12 +81,15 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spa
 .nav a:hover{color:var(--ink)}
 .nav a[aria-current="page"]{color:var(--ink)}
 .nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--oxblood)}
-.nav .navbtn{margin-left:.4rem}
+.nav .navbtn{margin-left:.4rem;color:#fff}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:1px solid var(--border);border-radius:2px;padding:9px 10px;cursor:pointer}
 .burger span{width:22px;height:1.6px;background:var(--ink);display:block;transition:transform .3s,opacity .3s}
 
 /* Mobile sheet */
 @media(max-width:1040px){
+  /* Remove backdrop-filter on mobile: it would make .mast the containing block
+     for the fixed .nav sheet, clamping the menu to the header height. */
+  .mast{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper)}
   .nav{position:fixed;inset:calc(var(--bar-h) + 74px) 0 0 0;background:var(--paper);flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:8px 0 40px;overflow-y:auto;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .28s,transform .28s;z-index:105}
   .nav[data-open="true"]{opacity:1;transform:none;pointer-events:auto}
   .nav a{padding:1.05rem 40px;border-bottom:1px solid var(--border-2);font-size:1rem;min-height:44px;display:flex;align-items:center}
