@@ -86,7 +86,7 @@
       <input type="hidden" name="access_key" value="4fee9395-e72a-4894-9417-6d4de237a5b3">
       <input type="hidden" name="subject" value="New Credence website inquiry">
       <input type="hidden" name="from_name" value="Credence — Start Your Site">
-      <input type="hidden" id="accepted_at" name="accepted_at" value="">
+      <input type="hidden" id="submitted_at" name="submitted_at" value="">
       <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div class="fgrid">
@@ -103,8 +103,7 @@
 
       <p class="fnote warn">Please don't include passwords, payment-card data, or other confidential credentials in this form.</p>
       <div class="checks">
-        <label class="chk" for="ack_terms"><input type="checkbox" id="ack_terms" name="ack_terms" value="Yes" required><span>I have read and accept the Credence <a href="terms.html" target="_blank" rel="noopener noreferrer">Website Subscription &amp; Services Agreement<span class="sr-only"> (opens in a new tab)</span></a>.</span></label>
-        <label class="chk" for="ack_privacy"><input type="checkbox" id="ack_privacy" name="ack_privacy" value="Yes" required><span>I have read the Credence <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy<span class="sr-only"> (opens in a new tab)</span></a>.</span></label>
+        <label class="chk" for="ack_privacy"><input type="checkbox" id="ack_privacy" name="ack_privacy" value="Yes" required><span>I have read the Credence <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy<span class="sr-only"> (opens in a new tab)</span></a> and authorize Credence to use this information to respond to my inquiry.</span></label>
       </div>
       <div class="fsubmit-row">
         <button type="submit" class="btn btn-solid fsubmit">Send course inquiry <span class="ar">&rarr;</span></button>
@@ -146,8 +145,8 @@
     <h5>Start</h5>
     <ul><li><a href="start.html">Start Your Site</a></li><li><a href="coastal/index.html" target="_blank" rel="noopener noreferrer">The Coastal demo <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul>
   </div>
-  <p class="legal">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice. Courses are responsible for the accuracy of their rates, policies, booking links, and operational information. Imagery on this preview is AI-generated demonstration reference of a fictional course, to be replaced with commissioned photography before production.</p>
-  <p class="cr">© 2026 Credence · credencesites.com · v2 preview — not for production.</p>
+  <p class="legal">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice. Courses are responsible for the accuracy of their rates, policies, booking links, and operational information. Imagery shown is AI-generated demonstration reference of a fictional course, to be replaced with commissioned or licensed photography in production.</p>
+  <p class="cr">© 2026 Credence · credencesites.com</p>
 </div></div></footer>
 
 <script src="assets/js/credence-v2.js"></script>
@@ -157,7 +156,7 @@
   f.addEventListener('submit',function(e){
     e.preventDefault();
     if(!f.checkValidity()){ f.reportValidity(); return; }
-    var at=document.getElementById('accepted_at'); if(at) at.value=new Date().toISOString();
+    var at=document.getElementById('submitted_at'); if(at) at.value=new Date().toISOString();
     var btn=f.querySelector('.fsubmit'); if(btn){btn.disabled=true; btn.textContent='Sending…';}
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
       .then(function(r){ if(r.ok){ done(); } else { fail(btn); } })
