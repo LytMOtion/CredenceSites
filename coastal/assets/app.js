@@ -1,4 +1,4 @@
-/* OCEANBLUFF — Creative Proof · shared behavior (progressive enhancement).
+/* OCEAN BLUFF NATIONAL — shared behavior (progressive enhancement).
    All content is present in HTML without JS; JS only enhances. */
 (function () {
   'use strict';
@@ -156,10 +156,49 @@
       el.setAttribute('aria-disabled', 'true');
       if (!el.hasAttribute('role')) el.setAttribute('role', 'link');
       if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
-      el.setAttribute('title', 'Booking destination pending verification (proof stage).');
+      el.setAttribute('title', 'This destination is not available in the demonstration.');
       var stop = function (e) { e.preventDefault(); };
       el.addEventListener('click', stop);
       el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') e.preventDefault(); });
     }
+  });
+
+  /* --- Course tour: Previous / Next hole + "All holes" ---
+     These reuse the same showHole engine (hash + deep-link stay intact). We use a
+     separate [data-goto] attribute so these controls are NOT treated as hole
+     selectors (no false aria-current/active state on Prev/Next). */
+  if (holeButtons.length) {
+    document.querySelectorAll('[data-goto]').forEach(function (b) {
+      b.addEventListener('click', function () { showHole(b.getAttribute('data-goto'), true); });
+    });
+    var holesNav = document.querySelector('.holes');
+    document.querySelectorAll('[data-allholes]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (!holesNav) return;
+        holesNav.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        var cur = holesNav.querySelector('.hbtn.is-active') || holesNav.querySelector('.hbtn');
+        if (cur) cur.focus();
+      });
+    });
+  }
+
+  /* --- Demonstration modals (event / tournament / lesson / shop inquiries) ---
+     A control with [data-demo="modalId"] opens the matching <dialog>. The native
+     dialog provides the focus trap, Escape-to-close, and focus return to the
+     invoker. Nothing is submitted: no inquiry, appointment, order, or payment. */
+  document.querySelectorAll('[data-demo]').forEach(function (btn) {
+    var dlg = document.getElementById(btn.getAttribute('data-demo'));
+    if (!dlg) return;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (dlg.showModal) { dlg.showModal(); }
+      else { dlg.setAttribute('open', ''); }        // very old browsers: inline fallback
+    });
+  });
+  document.querySelectorAll('[data-demo-close]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var d = b.closest('dialog'); if (!d) return;
+      if (d.close) { d.close(); } else { d.removeAttribute('open'); }
+    });
   });
 })();

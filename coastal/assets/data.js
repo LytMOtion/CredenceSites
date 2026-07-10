@@ -75,3 +75,13 @@ window.OCEANBLUFF.destinations = {
   book_reciprocal:  'booking-demo.html',
   scorecard:        null
 };
+
+/* SHOP CONFIG — future client configuration only. No store, cart, or payment is built.
+   A future generator can populate these to point the demonstration shop at a real provider. */
+window.OCEANBLUFF.shop = {
+  shop_url: null,
+  shop_provider: null,
+  gift_card_url: null,
+  shop_link_label: 'Visit the Online Shop',
+  shop_integration_type: null
+};
