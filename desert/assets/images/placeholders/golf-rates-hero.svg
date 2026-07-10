@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder for golf-rates-hero">
+<rect width="1920" height="1000" fill="#F4F2ED"/>
+<rect x="0" y="0" width="1920" height="1000" fill="#F4F2ED" opacity="1"/>
+<rect x="0" y="0" width="1920" height="460" fill="#768993" opacity="0.18"/>
+<polygon points="0,460 422,300 844,420 1305,270 1920,400 1920,460" fill="#292825" opacity="0.16"/>
+<rect x="0" y="460" width="1920" height="1000" fill="#DED6CA" opacity="1"/>
+<polygon points="192,1000 768,500 1190,500 1766,1000" fill="#747C6A" opacity="0.65"/>
+<polygon points="844,500 1113,500 1056,440 902,440" fill="#747C6A" opacity="0.85"/>
+<circle cx="979" cy="470" r="6" fill="#A65038"/>
+<line x1="979" y1="470" x2="979" y2="400" stroke="#171716" stroke-width="2" opacity="0.7"/>
+<ellipse cx="672" cy="620" rx="134" ry="30" fill="#F4F2ED" opacity="0.9"/>
+<ellipse cx="1267" cy="580" rx="96" ry="22" fill="#F4F2ED" opacity="0.9"/>
+<rect x="57" y="925" width="960" height="45" fill="#171716" opacity="0.82"/>
+<text x="86" y="972" font-family="Archivo, Arial, sans-serif" font-size="26" letter-spacing="2" fill="#F4F2ED">DEMONSTRATION IMAGE &#183; GOLF RATES HERO</text>
+<rect x="0" y="0" width="1920" height="1000" fill="none" stroke="#CDC8BF" stroke-width="2"/>
+</svg>

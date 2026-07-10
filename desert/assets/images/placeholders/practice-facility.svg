@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder for practice-facility">
+<rect width="1600" height="1067" fill="#F4F2ED"/>
+<rect x="0" y="0" width="1600" height="1067" fill="#F4F2ED" opacity="1"/>
+<rect x="0" y="0" width="1600" height="490" fill="#768993" opacity="0.18"/>
+<polygon points="0,490 352,320 704,448 1088,288 1600,426 1600,490" fill="#292825" opacity="0.16"/>
+<rect x="0" y="490" width="1600" height="1067" fill="#DED6CA" opacity="1"/>
+<polygon points="160,1067 640,533 992,533 1472,1067" fill="#747C6A" opacity="0.65"/>
+<polygon points="704,533 927,533 880,469 752,469" fill="#747C6A" opacity="0.85"/>
+<circle cx="816" cy="501" r="6" fill="#A65038"/>
+<line x1="816" y1="501" x2="816" y2="426" stroke="#171716" stroke-width="2" opacity="0.7"/>
+<ellipse cx="560" cy="661" rx="112" ry="32" fill="#F4F2ED" opacity="0.9"/>
+<ellipse cx="1056" cy="618" rx="80" ry="23" fill="#F4F2ED" opacity="0.9"/>
+<rect x="48" y="986" width="800" height="48" fill="#171716" opacity="0.82"/>
+<text x="72" y="1037" font-family="Archivo, Arial, sans-serif" font-size="27" letter-spacing="2" fill="#F4F2ED">DEMONSTRATION IMAGE &#183; PRACTICE FACILITY</text>
+<rect x="0" y="0" width="1600" height="1067" fill="none" stroke="#CDC8BF" stroke-width="2"/>
+</svg>

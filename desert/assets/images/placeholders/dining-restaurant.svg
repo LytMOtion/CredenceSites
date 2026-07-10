@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder for dining-restaurant">
+<rect width="1600" height="1067" fill="#F4F2ED"/>
+<rect x="0" y="0" width="1600" height="1067" fill="#DED6CA" opacity="1"/>
+<rect x="0" y="0" width="800" height="1067" fill="#F4F2ED" opacity="1"/>
+<rect x="800" y="0" width="800" height="1067" fill="#292825" opacity="0.9"/>
+<rect x="160" y="661" width="480" height="106" fill="#747C6A" opacity="0.5"/>
+<line x1="800" y1="0" x2="800" y2="1067" stroke="#A65038" stroke-width="3" opacity="0.8"/>
+<rect x="48" y="986" width="800" height="48" fill="#171716" opacity="0.82"/>
+<text x="72" y="1037" font-family="Archivo, Arial, sans-serif" font-size="27" letter-spacing="2" fill="#F4F2ED">DEMONSTRATION IMAGE &#183; DINING RESTAURANT</text>
+<rect x="0" y="0" width="1600" height="1067" fill="none" stroke="#CDC8BF" stroke-width="2"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder for stay-casitas-exterior">
+<rect width="1600" height="1067" fill="#F4F2ED"/>
+<rect x="0" y="0" width="1600" height="1067" fill="#DED6CA" opacity="1"/>
+<rect x="0" y="0" width="1600" height="426" fill="#768993" opacity="0.16"/>
+<rect x="96" y="362" width="1408" height="426" fill="#F4F2ED" opacity="1"/>
+<rect x="96" y="362" width="1408" height="53" fill="#292825" opacity="0.6"/>
+<rect x="160" y="448" width="96" height="298" fill="#171716" opacity="0.14"/>
+<rect x="344" y="448" width="96" height="298" fill="#171716" opacity="0.14"/>
+<rect x="528" y="448" width="96" height="298" fill="#171716" opacity="0.14"/>
+<rect x="712" y="448" width="96" height="298" fill="#171716" opacity="0.14"/>
+<rect x="896" y="448" width="96" height="298" fill="#171716" opacity="0.14"/>
+<rect x="1080" y="448" width="96" height="298" fill="#171716" opacity="0.14"/>
+<rect x="1264" y="448" width="96" height="298" fill="#171716" opacity="0.14"/>
+<rect x="96" y="768" width="1408" height="21" fill="#A65038" opacity="0.8"/>
+<rect x="48" y="986" width="800" height="48" fill="#171716" opacity="0.82"/>
+<text x="72" y="1037" font-family="Archivo, Arial, sans-serif" font-size="27" letter-spacing="2" fill="#F4F2ED">DEMONSTRATION IMAGE &#183; STAY CASITAS EXTERIOR</text>
+<rect x="0" y="0" width="1600" height="1067" fill="none" stroke="#CDC8BF" stroke-width="2"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder for home-hero-desert-course">
+<rect width="1200" height="1500" fill="#F4F2ED"/>
+<rect x="0" y="0" width="1200" height="1500" fill="#F4F2ED" opacity="1"/>
+<rect x="0" y="0" width="1200" height="690" fill="#768993" opacity="0.18"/>
+<polygon points="0,690 264,450 528,630 816,405 1200,600 1200,690" fill="#292825" opacity="0.16"/>
+<rect x="0" y="690" width="1200" height="1500" fill="#DED6CA" opacity="1"/>
+<polygon points="120,1500 480,750 744,750 1104,1500" fill="#747C6A" opacity="0.65"/>
+<polygon points="528,750 696,750 660,660 564,660" fill="#747C6A" opacity="0.85"/>
+<circle cx="612" cy="705" r="9" fill="#A65038"/>
+<line x1="612" y1="705" x2="612" y2="600" stroke="#171716" stroke-width="2" opacity="0.7"/>
+<ellipse cx="420" cy="930" rx="84" ry="45" fill="#F4F2ED" opacity="0.9"/>
+<ellipse cx="792" cy="869" rx="60" ry="33" fill="#F4F2ED" opacity="0.9"/>
+<rect x="36" y="1387" width="600" height="67" fill="#171716" opacity="0.82"/>
+<text x="54" y="1458" font-family="Archivo, Arial, sans-serif" font-size="39" letter-spacing="2" fill="#F4F2ED">DEMONSTRATION IMAGE &#183; HOME HERO DESERT COURSE</text>
+<rect x="0" y="0" width="1200" height="1500" fill="none" stroke="#CDC8BF" stroke-width="2"/>
+</svg>
