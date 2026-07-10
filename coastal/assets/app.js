@@ -108,6 +108,7 @@
       if (my !== seq) return;                    // superseded by a newer tap — abort
       holePanels.forEach(function (p) { p.hidden = (p !== panel); });
       setActive(n);                              // aria-current now matches DISPLAYED hole
+      panel.querySelectorAll('.reveal,.swell').forEach(function (el) { el.classList.add('in'); }); // ensure shown panel is visible
       if (push) history.replaceState(null, '', '#hole-' + n);
       if (announce !== false) { var live = document.getElementById('hole-live'); if (live) live.textContent = 'Showing hole ' + n; }
       if (!reduce) {                             // subtle fade of the already-decoded image (never white)
@@ -128,6 +129,9 @@
     var visN = visible ? visible.getAttribute('data-hole-panel') : '13';
     var initial = (m && panelOf(m)) ? m : visN;
     setActive(initial);
+    // ensure the initially-visible hole panel is shown even if it loads below the reveal trigger
+    var ip0 = panelOf(initial);
+    if (ip0) ip0.querySelectorAll('.reveal,.swell').forEach(function (el) { el.classList.add('in'); });
     if (initial !== visN) { showHole(initial, false, false); }   // deep-link to a different hole
     else { preload(initial); preload(+initial + 1); preload(+initial - 1); }
     // progressively warm the rest of the 18 during idle time (no upfront bandwidth spike)
