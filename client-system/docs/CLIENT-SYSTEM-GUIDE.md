@@ -144,4 +144,61 @@ npm run client:validate -- --client <slug> [--production]
 npm run client:build    -- --client <slug> [--production] [--output <dir>] [--overwrite]
 npm run client:preview  -- --client <slug> [--port 4321]
 npm run client:package  -- --client <slug> --output <dir> [--production]
+npm run template:compare -- --system <coastal|parkland|desert>   (read-only drift report)
 ```
+
+---
+
+## UPDATING A PROTECTED TEMPLATE
+
+The generator builds client sites from **frozen copies** of the three Course
+Systems that live in `client-system/templates/`. These template copies are
+*deliberately independent* from the public master demonstrations at `/coastal`,
+`/parkland`, and `/desert`.
+
+**Improving a public master does NOT update the generator.** If you polish
+`/desert` — fix a bug, refine the type, adjust a layout — that change lands only
+in the public demo. `client-system/templates/desert/` is untouched, and every
+future client build still uses the old template. This is intentional: it keeps
+approved client work stable and prevents a demo edit from silently changing (or
+breaking) the generator or an existing client's site.
+
+There is **no automatic sync**, and there will not be one. An "apply changes from
+the master" button could overwrite protected template work or quietly alter sites
+that have already shipped to clients. Folding an improvement in is always a
+deliberate, reviewed act.
+
+### See what has drifted (read-only)
+```
+npm run template:compare -- --system desert
+```
+This prints which files differ between `client-system/templates/desert` and the
+public `/desert` master. It **never writes, copies, or syncs anything** — it is a
+review aid only. (Expect the Course-Tour file to always show as "changed": the
+template carries the generator's data-injection markers, which the master does
+not.)
+
+### If an approved improvement *should* become part of the generator
+Do it intentionally, in this order:
+
+1. **Confirm the change is approved** on the public master and is the version you
+   want every future client to inherit.
+2. **Record the source commit.** Note the git commit of `/<system>` you are
+   copying from, in your commit message and in `templates/_meta.json`
+   (add/update a `sourceCommit` field for that system).
+3. **Copy the specific files intentionally** into
+   `client-system/templates/<system>/` — never a blanket folder copy, and never
+   over the data-injection markers in the Course-Tour file (re-insert them if you
+   replace that file).
+4. **Increment the template version** for that system in
+   `client-system/templates/_meta.json` (`templateVersion`, e.g. `1.0.0` → `1.1.0`).
+   The version is written into every future build's `build-manifest.json`, so you
+   can always tell which template a client site was built from.
+5. **Rebuild all three test clients** and **re-run the visual QA**
+   (320 / 375 / 390 / 430 / 768 / 1024 / 1440 — every route, the Course Tour,
+   dialogs, footer, mobile menu, direct hashes, Back/Forward): a template change
+   can affect any system, so all three are re-verified, not just the one you touched.
+6. **Existing client sites are NOT auto-updated.** They keep the template version
+   they were built with. To move an existing client onto the new template, rebuild
+   that client from its `client-work/<slug>/` inputs into a temporary folder,
+   compare, and only then replace the files in the client's own repository.
