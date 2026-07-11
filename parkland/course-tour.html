@@ -18,6 +18,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/parkland.css">
 <style>
+  /* ---- Course Tour: compact selector + selected hole (interaction modelled on the
+         Ocean Bluff / Coastal tour; Alderwick identity, type, colour, and data kept) ---- */
+  .ctour{display:grid;grid-template-columns:212px 1fr;gap:clamp(1.6rem,3vw,2.8rem);align-items:start}
+
+  /* Compact 1–18 selector (sticky sidebar on desktop, sticky top bar on mobile) */
+  .holesel{position:sticky;top:calc(var(--bar-h) + 78px);align-self:start;background:var(--paper);border:1px solid var(--border);padding:1rem 1rem 1.1rem;z-index:60}
+  .holesel__label{font:700 .62rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--moss);margin:0 0 .7rem}
+  .holesel__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+  .hbtn{appearance:none;-webkit-appearance:none;border:1px solid var(--border);background:var(--white);color:var(--ink-2);font:600 .92rem/1 var(--sans);font-variant-numeric:tabular-nums;min-height:40px;border-radius:2px;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s}
+  .hbtn:hover{border-color:var(--moss);color:var(--ink)}
+  .hbtn[aria-current="true"]{background:var(--oxblood);border-color:var(--oxblood);color:#fff;box-shadow:inset 0 -3px 0 rgba(255,255,255,.28)}
+  .hbtn:focus-visible{outline:2px solid var(--oxblood);outline-offset:2px}
+
+  /* Selected-hole figure (reuses .holedetail__fig from parkland.css for ratio + border) */
+  .holedetail__fig{position:relative}
+  .holedetail__ref{position:absolute;left:10px;bottom:10px;margin:0;font:700 .56rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#EDEDE8;background:rgba(21,23,20,.52);padding:.34rem .55rem;border-radius:2px}
+  .hnum .hnum__nine{color:var(--moss)}
+  .hnum .hnum__sep{color:var(--border)}
+  .hpar{font-family:var(--serif);font-size:1.15rem;color:var(--moss);white-space:nowrap;line-height:1.1}
+
+  /* Previous / All Holes / Next */
+  .holemove{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;border-top:1px solid var(--border);margin-top:1.5rem;padding-top:1.2rem}
+  .holemove__btn{display:flex;flex-direction:column;gap:.2rem;background:none;border:0;cursor:pointer;text-align:left;padding:.3rem 0;min-height:44px;color:var(--ink)}
+  .holemove__btn--next{text-align:right;align-items:flex-end}
+  .holemove__dir{font:700 .9rem/1 var(--sans);color:var(--oxblood)}
+  .holemove__hint{font:500 .74rem/1.25 var(--sans);color:var(--muted)}
+  .holemove__btn[aria-disabled="true"]{opacity:.38;cursor:not-allowed}
+  .holemove__all{justify-self:center;background:none;border:0;border-bottom:1px solid var(--oxblood);color:var(--oxblood);font:600 .76rem/1 var(--sans);letter-spacing:.05em;text-transform:uppercase;padding:.35rem 0 .4rem;cursor:pointer;min-height:44px}
+  .holemove__btn:focus-visible,.holemove__all:focus-visible{outline:2px solid var(--oxblood);outline-offset:2px}
+
+  .holemeta{margin-top:1rem}
+  .tlink-ox{background:none;border:0;border-bottom:1px solid var(--border);color:var(--ink-2);font:600 .8rem/1 var(--sans);padding:.35rem 0 .4rem;cursor:pointer;min-height:44px}
+  .tlink-ox:hover{color:var(--oxblood);border-color:var(--oxblood)}
+  .tlink-ox:focus-visible{outline:2px solid var(--oxblood);outline-offset:2px}
+
+  /* Optional Course Overview (routing map) — collapsed, secondary */
+  .overview{border:1px solid var(--border);background:var(--white);margin-top:1.9rem}
+  .overview__summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;font:700 .72rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);min-height:44px}
+  .overview__summary::-webkit-details-marker{display:none}
+  .overview__summary:focus-visible{outline:2px solid var(--oxblood);outline-offset:-2px}
+  .overview__cue{flex:none;width:9px;height:9px;border-right:2px solid var(--moss);border-bottom:2px solid var(--moss);transform:rotate(45deg);transition:transform .2s}
+  .overview[open] .overview__cue{transform:rotate(-135deg)}
+  .overview:not([open]) .overview__body{display:none}
+  .overview__body{padding:0 1.2rem 1.5rem}
+  .overview__note{font-size:.82rem;color:var(--muted);margin:.2rem 0 1rem}
+  .overview .tour__map{max-width:460px;border:1px solid var(--border);background:var(--white);padding:1rem}
+  .overview .tour__map svg{width:100%;height:auto;display:block}
+
+  /* routing-map schematic */
   .rmap-fw{fill:#DCE2D8;stroke:#C6CEC2;stroke-width:1}
   .rmap-green{fill:#B9C9AE}
   .rmap-bunk{fill:#EDE7D6;stroke:#D8CFB6;stroke-width:.6}
@@ -29,6 +78,22 @@
   .rmap-mk.is-active circle{fill:#793D38;r:9}
   .rmap-mk:focus-visible{outline:2px solid #793D38;outline-offset:2px}
   .rmap-cap{font:700 7px/1 "Manrope",sans-serif;letter-spacing:.12em;text-transform:uppercase;fill:#667064}
+
+  @media (max-width:900px){
+    .ctour{grid-template-columns:1fr;gap:1.05rem}
+    .holesel{top:calc(var(--bar-h) + 74px);padding:.7rem .8rem .8rem;box-shadow:0 8px 16px -14px rgba(21,23,20,.55)}
+    .holesel__label{margin-bottom:.5rem}
+    .holesel__grid{grid-template-columns:repeat(9,1fr);gap:.3rem}
+    .hbtn{min-height:38px;font-size:.82rem}
+    .overview .tour__map{max-width:none}
+  }
+  @media (max-width:360px){
+    .holesel__grid{gap:.24rem}
+    .hbtn{min-height:34px;font-size:.76rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hbtn,.overview__cue,.holedetail__fig img{transition:none}
+  }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -73,81 +138,115 @@
 </div></section>
 
 <section class="section band-stone" id="tour"><div class="wrap">
-  <div class="nineswitch" role="tablist" aria-label="Select nine">
-    <button type="button" role="tab" data-nine="front" aria-selected="true">Front Nine</button>
-    <button type="button" role="tab" data-nine="back" aria-selected="false">Back Nine</button>
-  </div>
+  <div class="ctour">
 
-  <div class="tour">
-    <!-- Routing map -->
-    <div class="tour__map">
-      <svg viewBox="0 0 320 420" role="img" aria-label="Simplified routing plan of the eighteen holes at Alderwick. Select a numbered marker to view the hole.">
-        <rect x="1" y="1" width="318" height="418" fill="#F7F7F4" stroke="#D2D3CD"/>
-        <!-- fairway ribbons (schematic) -->
-        <path class="rmap-fw" d="M40 40 q30 20 20 60 q-8 34 24 52"/>
-        <path class="rmap-fw" d="M96 44 q40 10 44 60 q4 40 -18 66"/>
-        <path class="rmap-fw" d="M170 40 q34 24 24 74 q-8 40 28 60"/>
-        <path class="rmap-fw" d="M236 48 q28 34 8 80 q-16 36 12 66"/>
-        <path class="rmap-fw" d="M60 250 q40 8 60 46 q18 34 -6 74"/>
-        <path class="rmap-fw" d="M150 244 q44 16 44 70 q0 40 -20 72"/>
-        <path class="rmap-fw" d="M232 250 q26 30 10 74 q-14 40 16 68"/>
-        <!-- greens -->
-        <circle class="rmap-green" cx="86" cy="150" r="7"/><circle class="rmap-green" cx="120" cy="166" r="7"/>
-        <circle class="rmap-green" cx="198" cy="172" r="7"/><circle class="rmap-green" cx="256" cy="192" r="7"/>
-        <circle class="rmap-green" cx="112" cy="366" r="7"/><circle class="rmap-green" cx="176" cy="380" r="7"/><circle class="rmap-green" cx="256" cy="378" r="7"/>
-        <!-- bunkers -->
-        <ellipse class="rmap-bunk" cx="70" cy="120" rx="6" ry="3.4"/><ellipse class="rmap-bunk" cx="210" cy="120" rx="6" ry="3.4"/>
-        <ellipse class="rmap-bunk" cx="150" cy="320" rx="6" ry="3.4"/><ellipse class="rmap-bunk" cx="248" cy="300" rx="6" ry="3.4"/>
-        <text class="rmap-cap" x="16" y="24">Out · 1–9</text>
-        <text class="rmap-cap" x="16" y="234">In · 10–18</text>
-        <!-- Front nine markers -->
-        <g class="rmap-mk" data-map-hole="1" tabindex="0" role="button" aria-label="Hole 1"><circle cx="40" cy="40" r="8"/><text x="40" y="40">1</text></g>
-        <g class="rmap-mk" data-map-hole="2" tabindex="0" role="button" aria-label="Hole 2"><circle cx="96" cy="44" r="8"/><text x="96" y="44">2</text></g>
-        <g class="rmap-mk" data-map-hole="3" tabindex="0" role="button" aria-label="Hole 3"><circle cx="170" cy="40" r="8"/><text x="170" y="40">3</text></g>
-        <g class="rmap-mk" data-map-hole="4" tabindex="0" role="button" aria-label="Hole 4"><circle cx="236" cy="48" r="8"/><text x="236" y="48">4</text></g>
-        <g class="rmap-mk" data-map-hole="5" tabindex="0" role="button" aria-label="Hole 5"><circle cx="286" cy="96" r="8"/><text x="286" y="96">5</text></g>
-        <g class="rmap-mk" data-map-hole="6" tabindex="0" role="button" aria-label="Hole 6"><circle cx="256" cy="150" r="8"/><text x="256" y="150">6</text></g>
-        <g class="rmap-mk" data-map-hole="7" tabindex="0" role="button" aria-label="Hole 7"><circle cx="196" cy="150" r="8"/><text x="196" y="150">7</text></g>
-        <g class="rmap-mk" data-map-hole="8" tabindex="0" role="button" aria-label="Hole 8"><circle cx="120" cy="140" r="8"/><text x="120" y="140">8</text></g>
-        <g class="rmap-mk" data-map-hole="9" tabindex="0" role="button" aria-label="Hole 9"><circle cx="58" cy="180" r="8"/><text x="58" y="180">9</text></g>
-        <!-- Back nine markers -->
-        <g class="rmap-mk" data-map-hole="10" tabindex="0" role="button" aria-label="Hole 10"><circle cx="60" cy="250" r="8"/><text x="60" y="250">10</text></g>
-        <g class="rmap-mk" data-map-hole="11" tabindex="0" role="button" aria-label="Hole 11"><circle cx="118" cy="262" r="8"/><text x="118" y="262">11</text></g>
-        <g class="rmap-mk" data-map-hole="12" tabindex="0" role="button" aria-label="Hole 12"><circle cx="150" cy="244" r="8"/><text x="150" y="244">12</text></g>
-        <g class="rmap-mk" data-map-hole="13" tabindex="0" role="button" aria-label="Hole 13"><circle cx="232" cy="250" r="8"/><text x="232" y="250">13</text></g>
-        <g class="rmap-mk" data-map-hole="14" tabindex="0" role="button" aria-label="Hole 14"><circle cx="284" cy="300" r="8"/><text x="284" y="300">14</text></g>
-        <g class="rmap-mk" data-map-hole="15" tabindex="0" role="button" aria-label="Hole 15"><circle cx="256" cy="340" r="8"/><text x="256" y="340">15</text></g>
-        <g class="rmap-mk" data-map-hole="16" tabindex="0" role="button" aria-label="Hole 16"><circle cx="192" cy="340" r="8"/><text x="192" y="340">16</text></g>
-        <g class="rmap-mk" data-map-hole="17" tabindex="0" role="button" aria-label="Hole 17"><circle cx="124" cy="330" r="8"/><text x="124" y="330">17</text></g>
-        <g class="rmap-mk" data-map-hole="18" tabindex="0" role="button" aria-label="Hole 18"><circle cx="70" cy="360" r="8"/><text x="70" y="360">18</text></g>
-      </svg>
-    </div>
+    <!-- Compact hole selector: all eighteen numbers, always visible; sticky while touring -->
+    <nav class="holesel" aria-label="Select a hole">
+      <p class="holesel__label">Holes</p>
+      <div class="holesel__grid">
+        <button class="hbtn" type="button" data-hole="1">1</button>
+        <button class="hbtn" type="button" data-hole="2">2</button>
+        <button class="hbtn" type="button" data-hole="3">3</button>
+        <button class="hbtn" type="button" data-hole="4">4</button>
+        <button class="hbtn" type="button" data-hole="5">5</button>
+        <button class="hbtn" type="button" data-hole="6">6</button>
+        <button class="hbtn" type="button" data-hole="7">7</button>
+        <button class="hbtn" type="button" data-hole="8">8</button>
+        <button class="hbtn" type="button" data-hole="9">9</button>
+        <button class="hbtn" type="button" data-hole="10">10</button>
+        <button class="hbtn" type="button" data-hole="11">11</button>
+        <button class="hbtn" type="button" data-hole="12">12</button>
+        <button class="hbtn" type="button" data-hole="13">13</button>
+        <button class="hbtn" type="button" data-hole="14">14</button>
+        <button class="hbtn" type="button" data-hole="15">15</button>
+        <button class="hbtn" type="button" data-hole="16">16</button>
+        <button class="hbtn" type="button" data-hole="17">17</button>
+        <button class="hbtn" type="button" data-hole="18">18</button>
+      </div>
+      <p class="sr-only" id="hole-live" role="status" aria-live="polite"></p>
+    </nav>
 
-    <!-- Hole detail -->
-    <div class="holedetail">
-      <div class="holedetail__fig" data-hole-fig><img src="assets/images/tour-hole-07.jpg" alt="Hole detail. Demonstration image of a fictional course." width="1280" height="800"></div>
+    <!-- Selected-hole detail (image first) -->
+    <div class="holedetail" id="holeview">
+      <figure class="holedetail__fig" data-hole-fig>
+        <img src="assets/images/tour-hero.jpg" alt="Hole 1, Parkgate. Demonstration image of a fictional course." width="1280" height="800">
+        <figcaption class="holedetail__ref">Reference image</figcaption>
+      </figure>
       <div class="holehead">
         <div>
-          <div class="hnum" data-hole-num>Hole 7</div>
-          <h2 data-hole-title>The Dell</h2>
+          <div class="hnum"><span data-hole-num>Hole 1</span> <span class="hnum__sep" aria-hidden="true">·</span> <span class="hnum__nine" data-hole-nine>Front Nine</span></div>
+          <h2 data-hole-title>Parkgate</h2>
         </div>
-        <div class="eyebrow" style="color:var(--moss)" data-hole-par>Par 4</div>
+        <div class="hpar" data-hole-par>Par 4</div>
       </div>
       <div class="holestats">
-        <div class="hs"><div class="n" data-hole-champ>426</div><div class="l">Championship</div></div>
-        <div class="hs"><div class="n" data-hole-member>402</div><div class="l">Member</div></div>
-        <div class="hs"><div class="n" data-hole-forward>338</div><div class="l">Forward</div></div>
-        <div class="hs"><div class="n" data-hole-hcp>1</div><div class="l">Handicap</div></div>
+        <div class="hs"><div class="n" data-hole-champ>408</div><div class="l">Championship</div></div>
+        <div class="hs"><div class="n" data-hole-member>384</div><div class="l">Member</div></div>
+        <div class="hs"><div class="n" data-hole-forward>322</div><div class="l">Forward</div></div>
+        <div class="hs"><div class="n" data-hole-hcp>5</div><div class="l">Stroke Index</div></div>
       </div>
-      <p class="holestrat" data-hole-strat>A strong par four that plays slightly downhill. The ideal line favors the left side of the fairway, leaving a clearer approach to a well-guarded green.</p>
-      <div class="holeprevnext">
-        <button class="btn btn-line" type="button" data-hole-prev><span class="ar" aria-hidden="true">&larr;</span> Previous</button>
-        <button class="btn-ghost" type="button" data-scorecard-toggle aria-expanded="false" aria-controls="scorecardPanel">View Scorecard</button>
-        <button class="btn btn-line" type="button" data-hole-next>Next <span class="ar" aria-hidden="true">&rarr;</span></button>
+      <p class="holestrat" data-hole-strat>A gentle opener between mature oaks. A fairway wood from the tee leaves a comfortable mid-iron; the green sits slightly above the fairway, so favor the back of the surface to hold your approach.</p>
+      <div class="holemove" aria-label="Move between holes">
+        <button class="holemove__btn" type="button" data-hole-prev aria-disabled="true">
+          <span class="holemove__dir"><span aria-hidden="true">←</span> Previous</span>
+          <span class="holemove__hint" data-prev-label></span>
+        </button>
+        <button class="holemove__all" type="button" data-allholes>All Holes</button>
+        <button class="holemove__btn holemove__btn--next" type="button" data-hole-next>
+          <span class="holemove__dir">Next <span aria-hidden="true">→</span></span>
+          <span class="holemove__hint" data-next-label>Hole 2 · The Avenue</span>
+        </button>
       </div>
-      <div class="holenav" aria-label="Select a hole"></div>
+      <p class="holemeta">
+        <button class="tlink-ox" type="button" data-scorecard-toggle aria-expanded="false" aria-controls="scorecardPanel">View Scorecard</button>
+      </p>
     </div>
   </div>
+
+  <!-- Optional Course Overview — routing plan, collapsed and secondary -->
+  <details class="overview">
+    <summary class="overview__summary"><span>View Course Overview</span><span class="overview__cue" aria-hidden="true"></span></summary>
+    <div class="overview__body">
+      <p class="overview__note">A simplified routing plan of the eighteen holes. Select a numbered marker to jump to that hole. This overview is informational; use the numbers above to move through the tour.</p>
+      <div class="tour__map">
+        <svg viewBox="0 0 320 420" role="img" aria-label="Simplified routing plan of the eighteen holes at Alderwick. Select a numbered marker to view the hole.">
+          <rect x="1" y="1" width="318" height="418" fill="#F7F7F4" stroke="#D2D3CD"/>
+          <path class="rmap-fw" d="M40 40 q30 20 20 60 q-8 34 24 52"/>
+          <path class="rmap-fw" d="M96 44 q40 10 44 60 q4 40 -18 66"/>
+          <path class="rmap-fw" d="M170 40 q34 24 24 74 q-8 40 28 60"/>
+          <path class="rmap-fw" d="M236 48 q28 34 8 80 q-16 36 12 66"/>
+          <path class="rmap-fw" d="M60 250 q40 8 60 46 q18 34 -6 74"/>
+          <path class="rmap-fw" d="M150 244 q44 16 44 70 q0 40 -20 72"/>
+          <path class="rmap-fw" d="M232 250 q26 30 10 74 q-14 40 16 68"/>
+          <circle class="rmap-green" cx="86" cy="150" r="7"/><circle class="rmap-green" cx="120" cy="166" r="7"/>
+          <circle class="rmap-green" cx="198" cy="172" r="7"/><circle class="rmap-green" cx="256" cy="192" r="7"/>
+          <circle class="rmap-green" cx="112" cy="366" r="7"/><circle class="rmap-green" cx="176" cy="380" r="7"/><circle class="rmap-green" cx="256" cy="378" r="7"/>
+          <ellipse class="rmap-bunk" cx="70" cy="120" rx="6" ry="3.4"/><ellipse class="rmap-bunk" cx="210" cy="120" rx="6" ry="3.4"/>
+          <ellipse class="rmap-bunk" cx="150" cy="320" rx="6" ry="3.4"/><ellipse class="rmap-bunk" cx="248" cy="300" rx="6" ry="3.4"/>
+          <text class="rmap-cap" x="16" y="24">Out · 1–9</text>
+          <text class="rmap-cap" x="16" y="234">In · 10–18</text>
+          <g class="rmap-mk" data-map-hole="1" tabindex="0" role="button" aria-label="Hole 1, Parkgate"><circle cx="40" cy="40" r="8"/><text x="40" y="40">1</text></g>
+          <g class="rmap-mk" data-map-hole="2" tabindex="0" role="button" aria-label="Hole 2, The Avenue"><circle cx="96" cy="44" r="8"/><text x="96" y="44">2</text></g>
+          <g class="rmap-mk" data-map-hole="3" tabindex="0" role="button" aria-label="Hole 3, Chapel Short"><circle cx="170" cy="40" r="8"/><text x="170" y="40">3</text></g>
+          <g class="rmap-mk" data-map-hole="4" tabindex="0" role="button" aria-label="Hole 4, The Orchard"><circle cx="236" cy="48" r="8"/><text x="236" y="48">4</text></g>
+          <g class="rmap-mk" data-map-hole="5" tabindex="0" role="button" aria-label="Hole 5, Elm Corner"><circle cx="286" cy="96" r="8"/><text x="286" y="96">5</text></g>
+          <g class="rmap-mk" data-map-hole="6" tabindex="0" role="button" aria-label="Hole 6, The Hollow"><circle cx="256" cy="150" r="8"/><text x="256" y="150">6</text></g>
+          <g class="rmap-mk" data-map-hole="7" tabindex="0" role="button" aria-label="Hole 7, The Dell"><circle cx="196" cy="150" r="8"/><text x="196" y="150">7</text></g>
+          <g class="rmap-mk" data-map-hole="8" tabindex="0" role="button" aria-label="Hole 8, Kingfisher"><circle cx="120" cy="140" r="8"/><text x="120" y="140">8</text></g>
+          <g class="rmap-mk" data-map-hole="9" tabindex="0" role="button" aria-label="Hole 9, Long Acre"><circle cx="58" cy="180" r="8"/><text x="58" y="180">9</text></g>
+          <g class="rmap-mk" data-map-hole="10" tabindex="0" role="button" aria-label="Hole 10, The Turn"><circle cx="60" cy="250" r="8"/><text x="60" y="250">10</text></g>
+          <g class="rmap-mk" data-map-hole="11" tabindex="0" role="button" aria-label="Hole 11, Beech Run"><circle cx="118" cy="262" r="8"/><text x="118" y="262">11</text></g>
+          <g class="rmap-mk" data-map-hole="12" tabindex="0" role="button" aria-label="Hole 12, The Cedars"><circle cx="150" cy="244" r="8"/><text x="150" y="244">12</text></g>
+          <g class="rmap-mk" data-map-hole="13" tabindex="0" role="button" aria-label="Hole 13, The Punchbowl"><circle cx="232" cy="250" r="8"/><text x="232" y="250">13</text></g>
+          <g class="rmap-mk" data-map-hole="14" tabindex="0" role="button" aria-label="Hole 14, Foxglove"><circle cx="284" cy="300" r="8"/><text x="284" y="300">14</text></g>
+          <g class="rmap-mk" data-map-hole="15" tabindex="0" role="button" aria-label="Hole 15, The Ridge"><circle cx="256" cy="340" r="8"/><text x="256" y="340">15</text></g>
+          <g class="rmap-mk" data-map-hole="16" tabindex="0" role="button" aria-label="Hole 16, Willow"><circle cx="192" cy="340" r="8"/><text x="192" y="340">16</text></g>
+          <g class="rmap-mk" data-map-hole="17" tabindex="0" role="button" aria-label="Hole 17, The Quarry"><circle cx="124" cy="330" r="8"/><text x="124" y="330">17</text></g>
+          <g class="rmap-mk" data-map-hole="18" tabindex="0" role="button" aria-label="Hole 18, Alderwick Home"><circle cx="70" cy="360" r="8"/><text x="70" y="360">18</text></g>
+        </svg>
+      </div>
+    </div>
+  </details>
 
   <!-- Scorecard -->
   <div class="scorecard" id="scorecardPanel" hidden>
