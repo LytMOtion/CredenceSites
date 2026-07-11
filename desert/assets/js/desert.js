@@ -103,12 +103,13 @@
       var panel=panelOf(n); if(!panel) return;
       panels.forEach(function(p){ p.hidden=(p!==panel); });
       holeBtns.forEach(function(b){ var on=b.getAttribute('data-hole')===String(n); b.classList.toggle('is-active',on); b.setAttribute('aria-current', on?'true':'false'); });
+      var ab=holesEl&&holesEl.querySelector('.hbtn.is-active'); if(ab){ try{ ab.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest',inline:'center'}); }catch(e){} }
       panel.querySelectorAll('.reveal,.imgscale').forEach(function(el){ el.classList.add('in'); });
       setNine(+n<=9?'front':'back');
       paintMap(n);
       if(push){ if(location.hash!=='#hole-'+n) history.pushState(null,'','#hole-'+n); }
       if(announce!==false && live) live.textContent='Showing hole '+n;
-      if(!reduce){ var im=panel.querySelector('.holepanel .fig img'); if(im){ im.style.transition='none'; im.style.opacity='.35'; requestAnimationFrame(function(){ im.style.transition='opacity .45s ease'; im.style.opacity='1'; }); } }
+      if(!reduce){ var im=panel.querySelector('.holehero img'); if(im){ im.style.transition='none'; im.style.opacity='.35'; requestAnimationFrame(function(){ im.style.transition='opacity .5s ease'; im.style.opacity='1'; }); } }
     }
     holeBtns.forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-hole'), true); }); });
     document.querySelectorAll('[data-goto]').forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-goto'), true); var v=document.querySelector('.tour__view'); if(v&&innerWidth<=940){ v.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); } }); });
