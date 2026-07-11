@@ -104,6 +104,36 @@
     function nineName(n){ return n === 'back' ? 'Back Nine' : 'Front Nine'; }
     function label(h){ return 'Hole ' + h.num + ' · ' + h.title; }
 
+    /* Live height of the fixed interface above the tour content:
+       Course System utility bar + Alderwick header ( + the sticky hole selector on mobile ).
+       Measured from the rendered DOM, so it stays correct at every phone width. */
+    function headerH(){
+      var o = 0, el;
+      el = document.querySelector('.demo-bar'); if(el) o += el.offsetHeight;
+      el = document.querySelector('.mast');     if(el) o += el.offsetHeight;
+      return o;
+    }
+    function stickyOffset(){
+      var o = headerH();
+      var sel = tour.querySelector('.holesel');
+      if(sel && window.innerWidth <= 900) o += sel.offsetHeight; // selector is a sticky top bar on mobile
+      return o + 8; // small breathing gap beneath the fixed interface
+    }
+    /* Bring the full hole photo into view beneath the fixed interface — but only when it
+       isn't already reasonably visible (otherwise the content simply updates in place). */
+    function revealFig(){
+      if(!figWrap) return;
+      var run = function(){
+        var off = stickyOffset();
+        var top = figWrap.getBoundingClientRect().top;
+        if(top >= off - 2 && top <= window.innerHeight * 0.55) return; // already well placed
+        var y = window.pageYOffset + top - off;
+        if(y < 0) y = 0;
+        window.scrollTo({ top: y, behavior: rm ? 'auto' : 'smooth' });
+      };
+      if(window.requestAnimationFrame) requestAnimationFrame(run); else run();
+    }
+
     function render(n, push, scroll){
       n = +n; var h = byNum[n]; if(!h) return; current = n;
       if(img){
@@ -136,7 +166,7 @@
       if(nextBtn){ nextBtn.setAttribute('aria-disabled', nx ? 'false' : 'true'); if(nextLab) nextLab.textContent = nx ? label(nx) : ''; }
       if(push){ var hash = '#hole-' + n; if(location.hash !== hash) history.pushState({hole:n}, '', hash); }
       if(live) live.textContent = 'Hole ' + h.num + ', ' + h.title + ', ' + nineName(h.nine) + ', par ' + h.par + '.';
-      if(scroll && figWrap){ try{ figWrap.scrollIntoView({behavior: rm ? 'auto' : 'smooth', block:'start'}); }catch(e){ figWrap.scrollIntoView(); } }
+      if(scroll) revealFig();
     }
 
     selBtns.forEach(function(b){ b.addEventListener('click', function(){ render(b.getAttribute('data-hole'), true, innerWidth <= 900); }); });
@@ -144,7 +174,16 @@
     if(nextBtn) nextBtn.addEventListener('click', function(){ if(nextBtn.getAttribute('aria-disabled') === 'true') return; render(current + 1, true, innerWidth <= 900); });
     if(allBtn) allBtn.addEventListener('click', function(){
       var sel = tour.querySelector('.holesel');
-      if(sel){ try{ sel.scrollIntoView({behavior: rm ? 'auto' : 'smooth', block:'start'}); }catch(e){ sel.scrollIntoView(); } }
+      if(sel){
+        if(window.innerWidth <= 900){
+          // position the selector just below the utility bar + header (not behind them)
+          var y = window.pageYOffset + sel.getBoundingClientRect().top - (headerH() + 8);
+          if(y < 0) y = 0;
+          window.scrollTo({ top: y, behavior: rm ? 'auto' : 'smooth' });
+        } else {
+          try{ sel.scrollIntoView({behavior: rm ? 'auto' : 'smooth', block:'start'}); }catch(e){ sel.scrollIntoView(); }
+        }
+      }
       var a = tour.querySelector('.hbtn[aria-current="true"]') || selBtns[0]; if(a) a.focus();
     });
     mapMks.forEach(function(m){
@@ -153,7 +192,7 @@
       m.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } });
     });
 
-    function fromHash(){ var mm = (location.hash.match(/hole-(\d+)/) || [])[1]; if(mm && byNum[+mm]) render(+mm, false, false); }
+    function fromHash(){ var mm = (location.hash.match(/hole-(\d+)/) || [])[1]; if(mm && byNum[+mm]) render(+mm, false, window.innerWidth <= 900); }
     window.addEventListener('popstate', fromHash);
     window.addEventListener('hashchange', fromHash);
     var h0 = (location.hash.match(/hole-(\d+)/) || [])[1];
