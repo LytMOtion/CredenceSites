@@ -20,6 +20,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/credence-v2.css">
+<style>
+/* Course Systems showcase — three-system editorial (scoped to #systems) */
+#systems .intro{max-width:60ch}
+#systems .sys{padding:58px 0;border-top:1px solid var(--line)}
+#systems .sys:first-of-type{border-top:none;padding-top:6px}
+#systems .sys .body .eyebrow{margin-bottom:14px}
+#systems .sys__name{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.4vw,3rem);line-height:1.03;letter-spacing:-.015em;margin-bottom:18px}
+#systems .sys .body p{color:var(--ink-2);max-width:46ch;margin:0}
+#systems .sys .body .tlink{margin-top:26px}
+#systems .demo-note-sys{margin:14px 0 40px;font-family:var(--serif);font-style:italic;color:var(--stone);font-size:.95rem}
+@media(max-width:920px){#systems .sys{padding:40px 0}}
+</style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Credence","description":"A specialized digital studio that designs and manages modern, photography-led websites for public golf courses, daily-fee courses, independent clubs, destination and resort golf properties.","url":"https://www.credencesites.com/","email":"hello@credencesites.com","areaServed":"United States","address":{"@type":"PostalAddress","addressLocality":"Santa Barbara","addressRegion":"CA","addressCountry":"US"}}
@@ -82,25 +94,56 @@
   </div>
 </section>
 
-<!-- COURSE SYSTEMS — The Coastal, full-bleed gate -->
-<section class="full center" id="systems">
-  <div class="full-media">
-    <picture>
-      <source media="(max-width:600px)" type="image/avif" srcset="assets/images/credence-ocean-flag-mobile.avif">
-      <source media="(max-width:600px)" type="image/webp" srcset="assets/images/credence-ocean-flag-mobile.webp">
-      <source media="(max-width:600px)" srcset="assets/images/credence-ocean-flag-mobile.jpg">
-      <source type="image/avif" srcset="assets/images/credence-ocean-flag-2000.avif">
-      <source type="image/webp" srcset="assets/images/credence-ocean-flag-2000.webp">
-      <img src="assets/images/credence-ocean-flag-2000.jpg" alt="A single flag on a coastal green against open ocean. Demonstration image of a fictional course." width="1344" height="768" loading="lazy">
-    </picture>
+<!-- COURSE SYSTEMS — three-system editorial showcase -->
+<section class="section" id="systems">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="eyebrow">Course Systems</span><span class="k-rule"></span></div>
+    <h2 class="d2 reveal" style="max-width:20ch">Three starting points, each tailored to your course.</h2>
+    <p class="lead intro reveal" style="margin-top:22px">Every Credence site begins from one of three refined course systems, then becomes entirely your property's own — its identity, photography, content, services, and booking provider.</p>
+    <p class="demo-note-sys reveal">Fictional courses shown with demonstration imagery and sample content.</p>
+
+    <!-- 01 — The Coastal (image right) -->
+    <article class="sys split i-right reveal">
+      <div class="body">
+        <span class="eyebrow">Course System 01 — The Coastal</span>
+        <h3 class="sys__name">Ocean Bluff National</h3>
+        <p>A cinematic, editorial system for courses defined by landscape, travel, hospitality, and a strong sense of place.</p>
+        <a class="tlink" href="coastal/index.html" target="_blank" rel="noopener noreferrer">Explore The Coastal <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <div class="fig wide">
+        <picture>
+          <source type="image/webp" srcset="coastal/assets/img/hero-edge.webp">
+          <img src="coastal/assets/img/hero-edge.jpg" alt="A golfer at the edge of a coastal fairway with the Pacific beyond under soft marine light. Demonstration image of a fictional course." width="1920" height="1095" loading="lazy">
+        </picture>
+      </div>
+    </article>
+
+    <!-- 02 — The Parkland (image left) -->
+    <article class="sys split i-left reveal">
+      <div class="fig wide">
+        <img src="parkland/assets/images/home-hero-fairway.jpg" alt="A wide, immaculate parkland fairway framed by mature oak and alder in soft late-afternoon light. Demonstration image of a fictional course." width="2000" height="1200" loading="lazy">
+      </div>
+      <div class="body">
+        <span class="eyebrow">Course System 02 — The Parkland</span>
+        <h3 class="sys__name">Alderwick Golf Club</h3>
+        <p>A refined club system for courses built around tradition, membership, dining, instruction, and community.</p>
+        <a class="tlink" href="parkland/index.html" target="_blank" rel="noopener noreferrer">Explore The Parkland <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </article>
+
+    <!-- 03 — The Desert (image right) -->
+    <article class="sys split i-right reveal">
+      <div class="body">
+        <span class="eyebrow">Course System 03 — The Desert</span>
+        <h3 class="sys__name">Canyon House Golf Club</h3>
+        <p>An architectural resort system for golf, stay-and-play, dining, wellness, and private groups.</p>
+        <a class="tlink" href="desert/index.html" target="_blank" rel="noopener noreferrer">Explore The Desert <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <div class="fig wide">
+        <img src="desert/assets/images/golf-hero-fairway.jpg" alt="A wide desert fairway with sculptural bunkering and stone under low desert light. Demonstration image of a fictional course." width="2000" height="1200" loading="lazy">
+      </div>
+    </article>
   </div>
-  <div class="full-in"><div class="wrap">
-    <span class="eyebrow">Course Systems</span>
-    <h2 class="d2" style="margin-top:16px">Course System 01 — The Coastal.</h2>
-    <p>A cinematic, editorial system for courses defined by landscape, travel, hospitality, and a strong sense of place.</p>
-    <div class="cta-row"><a href="coastal/index.html" class="btn btn-light" target="_blank" rel="noopener noreferrer">Step onto the course <span class="ar" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
-    <p class="demo-note">Fictional course shown with demonstration imagery and sample content.</p>
-  </div></div>
 </section>
 
 <!-- WHAT'S INCLUDED — four pillars -->
@@ -137,7 +180,7 @@
       </div>
       <div>
         <div class="rows" style="grid-template-columns:1fr">
-          <div class="r"><div class="rn">01</div><div><h3>Choose a course system</h3></div></div>
+          <div class="r"><div class="rn">01</div><div><h3>Choose a starting course system</h3><p style="margin-top:6px;color:var(--ink-2);font-size:1rem">The Coastal, The Parkland, or The Desert — the closest fit to your property. Credence then tailors it to your course.</p></div></div>
           <div class="r"><div class="rn">02</div><div><h3>Send your course information</h3></div></div>
           <div class="r"><div class="rn">03</div><div><h3>Review, approve, and launch</h3></div></div>
         </div>
@@ -172,7 +215,7 @@
   <div class="full-in"><div class="wrap">
     <h2 class="d2">Give your course a digital experience worthy of the property.</h2>
     <p>Tell us about the course and what needs to change.</p>
-    <div class="cta-row"><a href="start.html" class="btn btn-light">Start your course website <span class="ar">&rarr;</span></a><a href="coastal/index.html" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View The Coastal <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
+    <div class="cta-row"><a href="start.html" class="btn btn-light">Start your course website <span class="ar">&rarr;</span></a><a href="#systems" class="btn btn-outline">Explore the course systems</a></div>
   </div></div>
 </section>
 
@@ -182,12 +225,16 @@
     <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div>
   </div>
   <div>
-    <h5>Explore</h5>
-    <ul><li><a href="#systems">Course Systems</a></li><li><a href="#included">What's Included</a></li><li><a href="#pricing">Pricing</a></li></ul>
+    <h5>Course Systems</h5>
+    <ul>
+      <li><a href="coastal/index.html" target="_blank" rel="noopener noreferrer">The Coastal <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href="parkland/index.html" target="_blank" rel="noopener noreferrer">The Parkland <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href="desert/index.html" target="_blank" rel="noopener noreferrer">The Desert <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    </ul>
   </div>
   <div>
-    <h5>Start</h5>
-    <ul><li><a href="start.html">Start your site</a></li><li><a href="coastal/index.html" target="_blank" rel="noopener noreferrer">The Coastal demo <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+    <h5>Studio</h5>
+    <ul><li><a href="#included">What's Included</a></li><li><a href="#pricing">Pricing</a></li><li><a href="start.html">Start your site</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul>
   </div>
   <p class="legal">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice. Courses are responsible for the accuracy of their rates, policies, booking links, and operational information. Imagery shown is AI-generated demonstration reference of a fictional course, to be replaced with commissioned or licensed photography in production.</p>
   <p class="cr">© 2026 Credence · credencesites.com</p>

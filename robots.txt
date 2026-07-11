@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /approval.html
-Disallow: /coastal/
 Sitemap: https://www.credencesites.com/sitemap.xml
