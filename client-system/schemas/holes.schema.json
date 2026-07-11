@@ -37,7 +37,8 @@
           },
           "strategy": { "type": "string" },
           "riskReward": { "type": "string" },
-          "image": { "type": "string" }
+          "image": { "type": "string" },
+          "altText": { "type": "string", "description": "Alt text for the hole photograph. Required for production." }
         }
       }
     }

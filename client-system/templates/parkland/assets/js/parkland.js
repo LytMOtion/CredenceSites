@@ -79,7 +79,7 @@
   }
 
   /* ---- Course Tour: compact 1–18 selector + selected hole (hash-routed) ----
-     Interaction modelled on the Ocean Bluff / Coastal tour: choose a number, the hole
+     Interaction modelled on the Coastal course tour: choose a number, the hole
      appears immediately, move with Previous / All Holes / Next. The routing map is a
      secondary, collapsed overview and is not required to select a hole. */
   var tour = document.getElementById('tour');

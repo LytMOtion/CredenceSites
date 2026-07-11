@@ -13,6 +13,10 @@ import { validateClient } from './validate-client.mjs';
 import { loadClient, buildModel, DEMO } from '../lib/model.mjs';
 import { escapeHtml } from '../lib/render.mjs';
 import {
+  coastalSelector, coastalPanels, coastalStrip, coastalScorecard,
+  desertSelector, desertPanels, desertScorecard, totals
+} from '../lib/tour.mjs';
+import {
   TEMPLATES_DIR, GENERATED_DIR, REPO_ROOT, GENERATOR_VERSION,
   assertSafeOutput, copyDir, listFiles, writeText, writeJson, readJson,
   color, log, err, parseArgs, rel, urlKind
@@ -58,7 +62,66 @@ function stripAttribution(html) {
     .replace(/\bCredence Course System(?: 0\d)?(?:\s*[—–-]\s*The \w+)?/gi, '')
     .replace(/\bCourse System 0\d(?:\s*[—–-]\s*The \w+)?/gi, '')
     .replace(/\bby Credence\b/gi, '')
+    // placeholder photo-source labels + sample/demo data notes (never in real client content)
+    .replace(/\b(?:Demonstration|Reference|Sample) imagery?\b/gi, '')
+    .replace(/\bsample\s*(?:\/|and)?\s*demonstration (?:content|data)\b/gi, '')
+    .replace(/\bdemonstration (?:content|data|property|purposes|images?)\b/gi, '')
+    .replace(/\bfictional sample data\b/gi, '')
     .replace(/\bfictional\b/gi, '');
+}
+
+/* Clean residue left by phrase removal — leftover "by/for Credence", the word
+   "demonstration" (inactive-control affordances → "preview"), double spaces,
+   and orphaned punctuation. Protects <script>/<style> blocks so code is untouched. */
+function cleanProse(html) {
+  const stash = [];
+  html = html.replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, (m) => { stash.push(m); return '%%CP%%' + (stash.length - 1) + '%%CP%%'; });
+  html = html
+    .replace(/<!--(?!\s*(?:CS_|DS_))[\s\S]*?-->/g, '')   // drop dev comments (keep tour-injection markers)
+    .replace(/DEMONSTRATION/g, 'PREVIEW').replace(/Demonstration/g, 'Preview').replace(/demonstration/g, 'preview')
+    .replace(/\b(?:by|for) Credence\b/gi, '')
+    .replace(/(\S)[ \t]{2,}/g, '$1 ')       // collapse mid-text runs (leading indentation preserved)
+    .replace(/[ \t]+([.,;:!?])/g, '$1')       // no space before punctuation
+    .replace(/([.!?])[ \t]*\1+/g, '$1')
+    .replace(/<p\b[^>]*>\s*<\/p>/gi, '')
+    .replace(/<figure\b[^>]*>\s*<\/figure>/gi, '');      // collapse doubled sentence punctuation
+  html = html.replace(/%%CP%%(\d+)%%CP%%/g, (m, i) => stash[+i]);
+  return html;
+}
+
+/* Identity binding shared by HTML and text-asset (CSS/JS) scrubbing. Includes
+   UPPERCASE variants so demo names in SVG labels and comment headers are caught. */
+function bindIdentity(text, ctx) {
+  const { demo, model } = ctx;
+  const pub = escapeHtml(model.publicName || demo.full);
+  const shortName = escapeHtml(model.shortName || model.publicName || demo.short);
+  const tag = escapeHtml(model.tagline || '');
+  const pairs = [[demo.full, pub]];
+  if (demo.name2 && demo.name2 !== demo.full) pairs.push([demo.name2, pub]);
+  pairs.push([demo.short, shortName], [demo.csLabel, tag]);
+  // uppercase forms (longest first)
+  pairs.push([demo.full.toUpperCase(), pub.toUpperCase()]);
+  if (demo.name2 && demo.name2 !== demo.full) pairs.push([demo.name2.toUpperCase(), pub.toUpperCase()]);
+  pairs.push([demo.short.toUpperCase(), shortName.toUpperCase()], [demo.csLabel.toUpperCase(), tag.toUpperCase()]);
+  for (const [a, b] of pairs) text = replaceAll(text, a, b);
+  if (demo.location && model.locationLine) text = replaceAll(text, demo.location, escapeHtml(model.locationLine));
+  if (demo.phone && model.contact.phone) text = replaceAll(text, demo.phone, escapeHtml(model.contact.phone));
+  return text;
+}
+
+/* Scrub copied CSS/JS assets: demo identity in comment headers, and demo data
+   values (e.g. coastal data.js). Never renames JS identifiers (window.OCEANBLUFF
+   has no space, so it is untouched) — only the string content is cleaned. */
+function scrubAssets(out, ctx) {
+  const files = listFiles(out, ['.css', '.js', '.mjs']);
+  let scrubbed = 0;
+  for (const f of files) {
+    const before = fs.readFileSync(f, 'utf8');
+    let after = stripAttribution(bindIdentity(before, ctx));
+    after = after.replace(/DEMONSTRATION/g, 'PREVIEW').replace(/Demonstration/g, 'Preview').replace(/demonstration/g, 'preview');
+    if (after !== before) { writeText(f, after); scrubbed++; }
+  }
+  return scrubbed;
 }
 
 function transformHtml(html, ctx) {
@@ -72,11 +135,27 @@ function transformHtml(html, ctx) {
   if (demo.location && model.locationLine) html = replaceAll(html, demo.location, escapeHtml(model.locationLine));
   if (demo.phone && model.contact.phone) html = replaceAll(html, demo.phone, escapeHtml(model.contact.phone));
   if (model.heroHeadline) html = replaceAll(html, HERO[system], escapeHtml(model.heroHeadline));
+  // 1b) uppercase brand variants (SVG route-trace labels, etc.)
+  const pubU = escapeHtml(model.publicName || demo.full).toUpperCase();
+  const shortU = escapeHtml(model.shortName || model.publicName || demo.short).toUpperCase();
+  if (demo.name2) html = replaceAll(html, demo.name2.toUpperCase(), pubU);
+  html = replaceAll(html, demo.full.toUpperCase(), pubU);
+  html = replaceAll(html, demo.short.toUpperCase(), shortU);
+  // 1c) remove placeholder image-source caption labels (demo affordance, not client content)
+  html = html.replace(/<(span|figcaption)\b[^>]*class="[^"]*(?:__ref|__tag)[^"]*"[^>]*>[^<]*<\/\1>\s*/g, '');
   // 2) remove demonstration / fictional-property language
   demo.notices.forEach((n) => { html = replaceAll(html, n, ''); });
   html = replaceAll(html, 'Ocean Bluff / Coastal tour', 'the approved reference tour'); // parkland tour dev comment
-  // 2b) strip all Credence / Course-System / fictional attribution, then tidy the <title> whitespace
+  // 2b) strip all Credence / Course-System / fictional attribution
   html = stripAttribution(html);
+  // 2c) genericise meta descriptions site-wide (template descriptions are demo-specific and can carry strip residue)
+  const metaDesc = escapeHtml([model.publicName, model.tagline].filter(Boolean).join(' — '));
+  if (metaDesc) {
+    html = html.replace(/(<meta name="description" content=")[^"]*(">)/g, '$1' + metaDesc + '$2');
+    html = html.replace(/(<meta property="og:description" content=")[^"]*(">)/g, '$1' + metaDesc + '$2');
+  }
+  // 2d) clean phrase-removal residue + soften 'demonstration' → 'preview' (script/style-safe), then tidy <title>
+  html = cleanProse(html);
   html = html.replace(/<title>([\s\S]*?)<\/title>/g, (m, t) => '<title>' + t.replace(/\s{2,}/g, ' ').replace(/\s*[—–-]\s*$/, '').replace(/\s+([.,])/g, '$1').trim() + '</title>');
   // 3) site mode: robots
   if (production) html = html.replace(/<meta name="robots" content="noindex, nofollow">/g, '<meta name="robots" content="index, follow">');
@@ -108,6 +187,66 @@ function parklandHolesArray(holesInput) {
     return JSON.stringify(obj);
   });
   return 'window.PARKLAND_HOLES = [\n ' + items.join(',\n ') + '\n];';
+}
+
+/* Course-tour file per system, and a safe default hole image (a real, non-hole-
+   specific template hero used when a hole has no client-supplied image). */
+const TOUR_FILE = { coastal: 'tour.html', parkland: 'course-tour.html', desert: 'course-tour.html' };
+const TOUR_DEFAULT_IMG = { coastal: 'assets/img/hero-edge.jpg', desert: 'assets/images/home-hero-desert-course.jpg' };
+
+/* Genericise the tour page's meta description (the templates' descriptions name
+   demo holes). Title is already handled by identity binding. */
+function genericTourMeta(html, model) {
+  const name = escapeHtml(model.publicName || 'the course');
+  const desc = 'Explore ' + name + ' hole by hole — all eighteen holes, with yardages, stroke index, and the strategy for each.';
+  html = html.replace(/(<meta name="description" content=")[^"]*(">)/, '$1' + desc + '$2');
+  html = html.replace(/(<meta property="og:description" content=")[^"]*(">)/g, '$1' + desc + '$2');
+  return html;
+}
+
+function injectCoastalTour(html, holes, model) {
+  const def = TOUR_DEFAULT_IMG.coastal;
+  const t = totals(holes);
+  html = html.replace('<!--CS_SELECTOR-->', coastalSelector(holes));
+  html = html.replace('<!--CS_STRIP-->', coastalStrip(holes));
+  html = html.replace('<!--CS_PANELS-->', coastalPanels(holes, def));
+  html = html.replace('<!--CS_SCORECARD-->', coastalScorecard(holes, model.publicName || 'Course'));
+  html = html.replace('<!--CS_SCNOTE-->', 'Par ' + t.parTotal + ' &middot; ' + t.champTotal.toLocaleString() + ' yards from the championship tees.');
+  // genericise the demo-routing intro sentence + drop the orphaned ocean-accent legend (generator drops data-ocean)
+  html = html.replace(/(<p class="tour-intro"[^>]*>)[\s\S]*?(<\/p>)/, '$1Explore all eighteen holes, from the opening tee to the closing green.$2');
+  html = html.replace(/<p class="holes__key">[\s\S]*?<\/p>\s*/, '');
+  return genericTourMeta(html, model);
+}
+function injectDesertTour(html, holes, model) {
+  const def = TOUR_DEFAULT_IMG.desert;
+  html = html.replace('<!--DS_SELECTOR-->', desertSelector(holes));
+  html = html.replace('<!--DS_PANELS-->', desertPanels(holes, def));
+  html = html.replace('<!--DS_SCORECARD-->', desertScorecard(holes));
+  return genericTourMeta(html, model);
+}
+
+/* Remove demo per-hole photography (Ocean Bluff / Canyon House) that the newly
+   generated, data-driven tour no longer references. A file is kept only if the
+   final HTML still points at its exact relative path (i.e. the client reused the
+   same filename), so real client imagery is never deleted. */
+function pruneDemoHoleImages(out, system) {
+  const htmlText = listFiles(out, ['.html']).map((f) => fs.readFileSync(f, 'utf8')).join('\n');
+  const relOf = (p) => path.relative(out, p).split(path.sep).join('/');
+  const targets = [];
+  if (system === 'coastal') {
+    const d = path.join(out, 'assets/images/course/holes');
+    if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) targets.push(path.join(d, f));
+  } else if (system === 'desert') {
+    const d = path.join(out, 'assets/images');
+    if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) if (/^tour-hole-\d+\.(jpg|jpeg|png|webp|avif)$/i.test(f)) targets.push(path.join(d, f));
+  }
+  let pruned = 0;
+  for (const p of targets) { if (!htmlText.includes(relOf(p))) { fs.rmSync(p, { force: true }); pruned++; } }
+  if (system === 'coastal') {
+    const d = path.join(out, 'assets/images/course/holes');
+    if (fs.existsSync(d) && fs.readdirSync(d).length === 0) fs.rmSync(d, { recursive: true, force: true });
+  }
+  return pruned;
 }
 
 function backup(dir) {
@@ -168,22 +307,27 @@ export function buildClient(slug, opts = {}) {
     for (const f of fs.readdirSync(input.logosDir)) { if (/\.(svg|png|jpg|jpeg|webp|ico)$/i.test(f)) { fs.copyFileSync(path.join(input.logosDir, f), path.join(outLogos, f)); logosCopied++; } }
   }
 
-  // 5) transform HTML
+  // 5) transform HTML + scrub text assets (CSS/JS) of demo identity & sample data
   const ctx = { system, demo, model, production, social: model.social };
   const htmlFiles = listFiles(out, ['.html']);
   htmlFiles.forEach((f) => { writeText(f, transformHtml(fs.readFileSync(f, 'utf8'), ctx)); });
+  const assetsScrubbed = scrubAssets(out, ctx);
 
-  // 5b) inject parkland holes if provided
-  if (system === 'parkland' && input.holes) {
-    const tour = path.join(out, 'course-tour.html');
-    if (fs.existsSync(tour)) {
-      let h = fs.readFileSync(tour, 'utf8');
-      h = h.replace(/window\.PARKLAND_HOLES\s*=\s*\[[\s\S]*?\];/, parklandHolesArray(input.holes));
-      writeText(tour, h);
+  // 5b) inject holes into the Course Tour — all three systems are data-driven
+  let holesPruned = 0;
+  if (input.holes) {
+    const holes = (input.holes.holes || []).slice();
+    const tourPath = path.join(out, TOUR_FILE[system]);
+    if (fs.existsSync(tourPath)) {
+      let h = fs.readFileSync(tourPath, 'utf8');
+      if (system === 'parkland') h = h.replace(/window\.PARKLAND_HOLES\s*=\s*\[[\s\S]*?\];/, parklandHolesArray(input.holes));
+      else if (system === 'coastal') h = injectCoastalTour(h, holes, model);
+      else if (system === 'desert') h = injectDesertTour(h, holes, model);
+      writeText(tourPath, h);
     }
-  }
-  // 5c) for coastal/desert, hand the validated hole data to Claude for tour finalisation
-  if ((system === 'coastal' || system === 'desert') && input.holes) {
+    // remove demo per-hole photography the generated tour no longer references
+    if (system === 'coastal' || system === 'desert') holesPruned = pruneDemoHoleImages(out, system);
+    // keep a record of the validated hole data (excluded from the packaged site)
     writeJson(path.join(out, '_client-holes.json'), input.holes);
   }
 
@@ -193,6 +337,11 @@ export function buildClient(slug, opts = {}) {
     ':root{--bar-h:0px}\n' +
     '.demo-bar,.credence-bar,.demo-return{display:none!important}\n' +
     '.mast,.masthead{top:0!important}\n' +
+    '/* Long client names must not overflow the mobile masthead (demo names were short). */\n' +
+    '.brand{min-width:0}\n' +
+    '.brand__wordmark{white-space:normal;overflow-wrap:anywhere}\n' +
+    '.brand__name{min-width:0}\n.brand__name b{overflow-wrap:anywhere}\n' +
+    '@media (max-width:420px){.brand__wordmark{font-size:.9rem}.brand__name b{font-size:1rem}}\n' +
     '.client-social{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.2rem;font:600 .8rem/1 system-ui,sans-serif;letter-spacing:.02em}\n' +
     '.client-social a{opacity:.85}\n.client-social a:hover{opacity:1}\n');
 
@@ -228,7 +377,7 @@ export function buildClient(slug, opts = {}) {
     'HTML pages:    ' + htmlFiles.length,
     'Images copied: ' + imagesCopied,
     'Logos copied:  ' + logosCopied,
-    'Holes:         ' + (input.holes ? (system === 'parkland' ? 'injected into course tour' : 'validated; provided to Claude as _client-holes.json for tour finalisation') : 'not provided (template scaffolding)'),
+    'Holes:         ' + (input.holes ? ('18 holes injected into the data-driven Course Tour' + (holesPruned ? ' (' + holesPruned + ' demo hole image(s) removed)' : '')) : 'not provided (template scaffolding)'),
     'Warnings:      ' + report.warnings.length,
     backedUp ? 'Previous build backed up to: ' + rel(backedUp) : '',
     '',

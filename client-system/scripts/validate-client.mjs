@@ -64,16 +64,38 @@ export function validateClient(slug, opts = {}) {
     for (let i = 1; i <= 18; i++) if (!nums.includes(i)) E('holes.json: hole ' + i + ' is missing (holes 1–18 are required)');
     const dup = nums.filter((n, i) => nums.indexOf(n) !== i);
     if (dup.length) E('holes.json: duplicate hole numbers: ' + [...new Set(dup)].join(', '));
-    let outC = 0, inC = 0, badY = false, missStrat = 0;
+    let outC = 0, inC = 0, badY = false, missStrat = 0, missName = 0, missAlt = 0;
+    const siList = [];
     holes.forEach((h) => {
       if (h.par < 3 || h.par > 6) E('holes.json: hole ' + h.number + ' par ' + h.par + ' is implausible');
+      // every yardage tee must be numeric (not just championship)
+      Object.entries(h.yardages || {}).forEach(([tee, v]) => { if (v != null && typeof v !== 'number') { badY = true; E('holes.json: hole ' + h.number + ' ' + tee + ' yardage "' + v + '" is not numeric'); } });
       const y = (h.yardages || {}).championship;
-      if (y != null) { if (typeof y !== 'number') { badY = true; } else { if (h.number <= 9) outC += y; else inC += y; } }
+      if (typeof y === 'number') { if (h.number <= 9) outC += y; else inC += y; }
+      // front/back must agree with hole number
+      const expectNine = h.number <= 9 ? 'front' : 'back';
+      if (h.nine && h.nine !== expectNine) E('holes.json: hole ' + h.number + ' is marked "' + h.nine + '" but must be "' + expectNine + '"');
+      if (h.strokeIndex != null) siList.push(h.strokeIndex);
+      if (!h.name || !String(h.name).trim()) missName++;
       if (production && (!h.strategy || !h.strategy.trim())) missStrat++;
-      if (h.image) { const p = path.join(input.imagesDir, h.image); if (!fs.existsSync(p)) W('holes.json: hole ' + h.number + ' image "' + h.image + '" not found in images/ (falls back to template photo)'); }
+      if (h.image) {
+        const p = path.join(input.imagesDir, h.image);
+        if (!fs.existsSync(p)) W('holes.json: hole ' + h.number + ' image "' + h.image + '" not found in images/ (falls back to template photo)');
+        if (production && (!h.altText || !String(h.altText).trim())) missAlt++;
+      }
     });
-    if (badY) E('holes.json: some championship yardages are not numeric');
+    if (badY) E('holes.json: some yardages are not numeric');
     if (missStrat) (production ? E : W)(missStrat + ' hole(s) missing strategy text');
+    if (missName) (production ? E : W)(missName + ' hole(s) missing a name');
+    if (production && missAlt) E(missAlt + ' hole photo(s) missing altText (required for production accessibility)');
+    // stroke index 1–18, complete and unique
+    if (siList.length === holes.length) {
+      const siDup = siList.filter((n, i) => siList.indexOf(n) !== i);
+      const siMissing = []; for (let i = 1; i <= 18; i++) if (!siList.includes(i)) siMissing.push(i);
+      if (siDup.length) E('holes.json: duplicate stroke index values: ' + [...new Set(siDup)].join(', '));
+      if (siMissing.length && holes.length === 18) W('holes.json: stroke index set is not a complete 1–18 (missing ' + siMissing.join(', ') + ')');
+      if (!siDup.length && !siMissing.length && holes.length === 18) P('stroke index is a complete, unique 1–18 set');
+    }
     const total = outC + inC;
     if (holes.length === 18 && !badY) {
       P('scorecard totals computed: Out ' + outC + ' / In ' + inC + ' / Total ' + total + ' (championship)');

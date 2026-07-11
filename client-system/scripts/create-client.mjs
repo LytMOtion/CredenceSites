@@ -62,7 +62,7 @@ function holesSkeleton(system) {
   const holes = [];
   for (let n = 1; n <= 18; n++) {
     const y = {}; tees.forEach((t) => { y[t] = 0; });
-    holes.push({ number: n, name: '', par: 4, strokeIndex: n, nine: n <= 9 ? 'front' : 'back', yardages: y, strategy: '', image: '' });
+    holes.push({ number: n, name: '', par: 4, strokeIndex: n, nine: n <= 9 ? 'front' : 'back', yardages: y, strategy: '', riskReward: '', image: '', altText: '' });
   }
   return { yardageLabels: labels, holes };
 }
@@ -89,7 +89,7 @@ built from the protected **${system}** template.
 
 ## What to do
 1. Validate, then \`npm run client:build -- --client ${slug}\` and \`npm run client:preview -- --client ${slug}\`.
-2. Refine client-specific copy and imagery${system === 'coastal' || system === 'desert' ? ' (finalise the Course Tour holes from _client-holes.json in the output — the ' + system + ' tour panels are template scaffolding until you fill them from the client\'s hole data + photography)' : ''}.
+2. Refine client-specific copy and imagery. The Course Tour is generated automatically from \`holes.json\` for all three systems (18 holes: name, par, stroke index, yardages, strategy, risk/reward, per-hole photo + alt text) — you only edit \`holes.json\` and drop hole photos into \`images/\`, never the generated tour HTML.
 3. Test desktop and mobile (320 / 375 / 390 / 430 / 768 / 1024 / 1440): every route, the Course Tour, dialogs, footer, mobile menu, direct hashes, Back/Forward — no console errors, no horizontal overflow.
 4. Confirm no demonstration language or fictional-property notices remain, and no other course's name appears.
 5. Do **not** deploy production without explicit approval.
