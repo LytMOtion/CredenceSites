@@ -116,13 +116,13 @@ h1,h2,h3,h4,p{margin:0}
   backdrop-filter:blur(10px) saturate(120%);border-bottom:1px solid transparent;transition:border-color var(--t) var(--ease),background var(--t) var(--ease),color var(--t) var(--ease)}
 .masthead.is-stuck{border-bottom-color:var(--bd-light)}
 .masthead__in{display:flex;align-items:center;gap:1.5rem;min-height:var(--hd-h)}
-.brand{display:inline-flex;align-items:center;gap:.65rem;color:var(--carbon)}
-.brand__mark{width:30px;height:30px;flex:none}
+.brand{display:inline-flex;align-items:center;gap:.8rem;color:var(--carbon)}
+.brand__mark{width:34px;height:34px;flex:none}
 .brand__mark path{stroke:var(--carbon)}
 .brand__mark circle{fill:var(--clay)}
 .brand__name{display:flex;flex-direction:column;line-height:1}
-.brand__name b{font:600 .98rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
-.brand__name span{font:600 .56rem/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--muted-2);margin-top:5px}
+.brand__name b{font:600 1.14rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.brand__name span{font:600 .58rem/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--muted-2);margin-top:5px}
 .nav{display:flex;align-items:center;gap:1.7rem;margin-left:auto}
 .nav a,.nav .navdd__btn{font:500 .82rem/1 var(--sans);letter-spacing:.06em;color:var(--charcoal);padding:.5em 0;position:relative;background:none;border:0;cursor:pointer}
 .nav a::after,.nav .navdd__btn::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1.5px;background:var(--clay);transition:right var(--t) var(--ease)}
@@ -339,7 +339,7 @@ h1,h2,h3,h4,p{margin:0}
 .dark .disclose,.carbon .disclose{color:var(--dim)}
 
 /* ---- utility dark rail (live conditions) ---- */
-.utilrail{background:var(--carbon);color:var(--mineral);border:1px solid var(--bd-dark);display:grid;grid-template-columns:auto repeat(5,1fr);align-items:stretch}
+.utilrail{background:var(--carbon);color:var(--mineral);border:1px solid var(--bd-dark);display:grid;grid-template-columns:auto repeat(4,1fr);align-items:stretch}
 .utilrail__lab{display:flex;flex-direction:column;justify-content:center;gap:.3rem;padding:1.1rem 1.3rem;border-right:1px solid var(--bd-dark);background:var(--charcoal)}
 .utilrail__lab b{font:600 .64rem/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--clay-lt)}
 .utilrail__lab span{font:400 .68rem/1.3 var(--sans);color:var(--dim)}
