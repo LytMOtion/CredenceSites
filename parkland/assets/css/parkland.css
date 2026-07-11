@@ -156,7 +156,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spa
 .split__body .btn{margin-top:1.6rem}
 
 /* Pillars — fine rules, no cards */
-.pillars{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border)}
 .pillars__i{padding:2rem 1.6rem 2rem 0;border-top:0}
 .pillars__i .ic{width:26px;height:26px;color:var(--oxblood);margin-bottom:1rem}
 .pillars__i h3{font-size:1.16rem;margin-bottom:.5rem}
@@ -315,7 +315,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spa
   .facts__i:last-child{grid-column:1/-1;border-bottom:0}
   .split{grid-template-columns:1fr;gap:1.6rem}
   .split.i-right .split__fig{order:0}
-  .pillars{grid-template-columns:1fr 1fr}
+  .pillars{grid-template-columns:repeat(3,1fr)}
   .pillars__i{padding:1.5rem 1.2rem 1.5rem 0}
   .trio{grid-template-columns:1fr}
   .fhole{grid-template-columns:1fr}
