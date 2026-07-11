@@ -1,5 +1,5 @@
 {
-  "coastal":  { "templateSystem": "coastal",  "templateVersion": "1.0.0", "derivedFrom": "/coastal",  "yardageTees": ["championship","member","forward"] },
-  "parkland": { "templateSystem": "parkland", "templateVersion": "1.0.0", "derivedFrom": "/parkland", "yardageTees": ["championship","member","forward"] },
-  "desert":   { "templateSystem": "desert",   "templateVersion": "1.0.0", "derivedFrom": "/desert",   "yardageTees": ["championship","resort","forward"] }
+  "coastal":  { "templateSystem": "coastal",  "templateVersion": "1.0.1", "derivedFrom": "/coastal",  "yardageTees": ["championship","member","forward"], "lastChange": { "version": "1.0.1", "previousVersion": "1.0.0", "sourceCommit": "1d1f0eb", "reason": "homepage copy refinement" } },
+  "parkland": { "templateSystem": "parkland", "templateVersion": "1.0.1", "derivedFrom": "/parkland", "yardageTees": ["championship","member","forward"], "lastChange": { "version": "1.0.1", "previousVersion": "1.0.0", "sourceCommit": "1d1f0eb", "reason": "homepage copy refinement" } },
+  "desert":   { "templateSystem": "desert",   "templateVersion": "1.0.1", "derivedFrom": "/desert",   "yardageTees": ["championship","resort","forward"], "lastChange": { "version": "1.0.1", "previousVersion": "1.0.0", "sourceCommit": "1d1f0eb", "reason": "homepage copy refinement" } }
 }
