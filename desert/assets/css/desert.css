@@ -424,17 +424,19 @@ h1,h2,h3,h4,p{margin:0}
 .holehero__no{font-family:var(--serif);font-weight:500;font-size:clamp(4.4rem,3rem + 9vw,11rem);line-height:.72;letter-spacing:-.03em;color:var(--mineral)}
 .holehero__idtext{padding-bottom:.55rem}
 .holehero__meta{font:600 .62rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--clay-lt);margin:0 0 .45rem}
-.holehero__title{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,1rem + 2.2vw,2.9rem);line-height:1;color:var(--mineral)}
-.holehero .fig__tag{z-index:2}
+.holehero__title{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,1rem + 2.2vw,2.9rem);line-height:1.08;color:var(--mineral);padding-bottom:.06em}
+/* keep the reference-image label out of the bottom-left identity zone */
+.holehero .fig__tag{z-index:2;top:clamp(.7rem,2.4vw,1.05rem);right:clamp(.7rem,2.4vw,1.05rem);left:auto;bottom:auto}
 /* data rail beneath image */
 .holerail{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--bd-dark);border-top:0;margin:0}
-.holerail>div{padding:clamp(.9rem,1.6vw,1.25rem) clamp(.9rem,1.6vw,1.3rem);border-left:1px solid var(--bd-dark)}
+.holerail>div{padding:clamp(.9rem,1.6vw,1.25rem) clamp(.9rem,1.6vw,1.3rem);border-left:1px solid var(--bd-dark);min-width:0}
 .holerail>div:first-child{border-left:0}
 .holerail dt{font:600 .56rem/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 .5rem}
 .holerail dd{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(1.2rem,1rem + .7vw,1.7rem);color:var(--mineral);line-height:1}
 .holerail dd small{font-family:var(--sans);font-weight:400;font-size:.6rem;letter-spacing:.06em;color:var(--dim);margin-left:.3em;text-transform:uppercase}
-@media (max-width:720px){.holerail{grid-template-columns:repeat(3,1fr)}.holerail>div:nth-child(4){border-left:0}.holerail>div:nth-child(n+4){border-top:1px solid var(--bd-dark)}}
-@media (max-width:420px){.holerail{grid-template-columns:repeat(2,1fr)}.holerail>div:nth-child(odd){border-left:0}.holerail>div:nth-child(n+3){border-top:1px solid var(--bd-dark)}.holerail>div:last-child{grid-column:1/-1}}
+@media (min-width:641px) and (max-width:720px){.holerail{grid-template-columns:repeat(3,1fr)}.holerail>div:nth-child(4){border-left:0}.holerail>div:nth-child(n+4){border-top:1px solid var(--bd-dark)}}
+/* mobile: Par | Stroke Index / Championship | Resort / Forward (full width) */
+@media (max-width:640px){.holerail{grid-template-columns:1fr 1fr;width:100%}.holerail>div{border-top:1px solid var(--bd-dark);border-left:1px solid var(--bd-dark)}.holerail>div:nth-child(-n+2){border-top:0}.holerail>div:nth-child(odd){border-left:0}.holerail>div:last-child{grid-column:1/-1}}
 /* editorial strategy block */
 .holeplay{padding-block:clamp(2rem,4vw,3.2rem)}
 .holeplay__body{border-left:1px solid var(--clay-lt);padding-left:clamp(1rem,2vw,1.6rem);max-width:64ch}
@@ -463,6 +465,13 @@ h1,h2,h3,h4,p{margin:0}
   .holehero__id{flex-direction:column;align-items:flex-start;gap:.25rem}
   .holehero__no{font-size:clamp(3.6rem,20vw,5.6rem)}
   .holenav button{max-width:44%}
+  /* selector: fit all nine of the active nine as a grid — no horizontal scroll strip */
+  .holes{display:grid;grid-template-columns:repeat(9,1fr);overflow-x:visible;gap:0}
+  .hbtn{padding-left:0;padding-right:0;text-align:center;min-width:0}
+}
+/* tightest phones: two rows (01–05 / 06–09) for comfortable tap targets */
+@media (max-width:440px){
+  .holes{grid-template-columns:repeat(5,1fr)}
 }
 
 /* ---- schedule strip (golf page course facts) ---- */
