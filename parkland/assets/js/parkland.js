@@ -78,74 +78,86 @@
     });
   }
 
-  /* ---- Course Tour hole selector ---- */
+  /* ---- Course Tour: compact 1–18 selector + selected hole (hash-routed) ----
+     Interaction modelled on the Ocean Bluff / Coastal tour: choose a number, the hole
+     appears immediately, move with Previous / All Holes / Next. The routing map is a
+     secondary, collapsed overview and is not required to select a hole. */
   var tour = document.getElementById('tour');
   if(tour && window.PARKLAND_HOLES){
     var holes = window.PARKLAND_HOLES;
-    var current = 7; // feature Hole 7 — The Dell
-    var fig = tour.querySelector('[data-hole-fig]');
-    var img = fig ? fig.querySelector('img') : null;
-    var numEl = tour.querySelector('[data-hole-num]');
-    var titleEl2 = tour.querySelector('[data-hole-title]');
-    var parEl = tour.querySelector('[data-hole-par]');
-    var champEl = tour.querySelector('[data-hole-champ]');
-    var memEl = tour.querySelector('[data-hole-member]');
-    var fwdEl = tour.querySelector('[data-hole-forward]');
-    var hcpEl = tour.querySelector('[data-hole-hcp]');
-    var stratEl = tour.querySelector('[data-hole-strat]');
-    var navWrap = tour.querySelector('.holenav');
-    var switches = tour.querySelectorAll('.nineswitch button');
-    var prevBtn = tour.querySelector('[data-hole-prev]');
-    var nextBtn = tour.querySelector('[data-hole-next]');
-    var mapSvg = tour.querySelector('.tour__map svg');
+    var byNum = {}; holes.forEach(function(h){ byNum[h.num] = h; });
+    var IMG = 'assets/images/';
+    var figWrap = tour.querySelector('[data-hole-fig]');
+    var img = figWrap ? figWrap.querySelector('img') : null;
+    var numEl = tour.querySelector('[data-hole-num]'), nineEl = tour.querySelector('[data-hole-nine]'),
+        titleEl = tour.querySelector('[data-hole-title]'), parEl = tour.querySelector('[data-hole-par]'),
+        champEl = tour.querySelector('[data-hole-champ]'), memEl = tour.querySelector('[data-hole-member]'),
+        fwdEl = tour.querySelector('[data-hole-forward]'), hcpEl = tour.querySelector('[data-hole-hcp]'),
+        stratEl = tour.querySelector('[data-hole-strat]');
+    var prevBtn = tour.querySelector('[data-hole-prev]'), nextBtn = tour.querySelector('[data-hole-next]'),
+        prevLab = tour.querySelector('[data-prev-label]'), nextLab = tour.querySelector('[data-next-label]'),
+        allBtn = tour.querySelector('[data-allholes]'),
+        live = document.getElementById('hole-live'),
+        selBtns = tour.querySelectorAll('.hbtn[data-hole]'),
+        mapMks = tour.querySelectorAll('[data-map-hole]');
+    var current = 0;
+    function nineName(n){ return n === 'back' ? 'Back Nine' : 'Front Nine'; }
+    function label(h){ return 'Hole ' + h.num + ' · ' + h.title; }
 
-    function holeByNum(n){ for(var i=0;i<holes.length;i++){ if(holes[i].num===n) return holes[i]; } return holes[0]; }
-
-    function render(n){
-      current = n;
-      var h = holeByNum(n);
+    function render(n, push, scroll){
+      n = +n; var h = byNum[n]; if(!h) return; current = n;
+      if(img){
+        var alt = 'Hole ' + h.num + ', ' + h.title + '. Demonstration image of a fictional course.';
+        var src = img.getAttribute('src') || '';
+        if(src.indexOf(h.image) !== -1){ img.alt = alt; }         // same photo — no flicker
+        else if(rm){ img.src = IMG + h.image; img.alt = alt; }     // reduced motion — instant
+        else {
+          img.style.transition = 'opacity .28s ease'; img.style.opacity = '0';
+          var swapped = false, doSwap = function(){ if(swapped) return; swapped = true;
+            img.src = IMG + h.image; img.alt = alt;
+            requestAnimationFrame(function(){ img.style.opacity = '1'; }); };
+          img.addEventListener('transitionend', doSwap, {once:true});
+          setTimeout(doSwap, 320);
+        }
+      }
       if(numEl) numEl.textContent = 'Hole ' + h.num;
-      if(titleEl2) titleEl2.textContent = h.title;
+      if(nineEl) nineEl.textContent = nineName(h.nine);
+      if(titleEl) titleEl.textContent = h.title;
       if(parEl) parEl.textContent = 'Par ' + h.par;
       if(champEl) champEl.textContent = h.champ;
       if(memEl) memEl.textContent = h.member;
       if(fwdEl) fwdEl.textContent = h.forward;
       if(hcpEl) hcpEl.textContent = h.hcp;
       if(stratEl) stratEl.textContent = h.strategy;
-      if(img){ img.src = 'assets/images/' + h.image; img.alt = 'Hole ' + h.num + ' — ' + h.title + '. Demonstration image of a fictional course.'; }
-      // active hole button
-      if(navWrap){ navWrap.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-current', (+b.dataset.hole===n)?'true':'false'); }); }
-      // active nine switch
-      var nine = h.nine;
-      switches.forEach(function(s){ s.setAttribute('aria-selected', (s.dataset.nine===nine)?'true':'false'); });
-      buildNav(nine);
-      // map marker
-      if(mapSvg){ mapSvg.querySelectorAll('[data-map-hole]').forEach(function(m){ m.classList.toggle('is-active', +m.getAttribute('data-map-hole')===n); }); }
+      selBtns.forEach(function(b){ b.setAttribute('aria-current', (+b.getAttribute('data-hole') === n) ? 'true' : 'false'); });
+      mapMks.forEach(function(m){ m.classList.toggle('is-active', +m.getAttribute('data-map-hole') === n); });
+      var pv = byNum[n - 1], nx = byNum[n + 1];
+      if(prevBtn){ prevBtn.setAttribute('aria-disabled', pv ? 'false' : 'true'); if(prevLab) prevLab.textContent = pv ? label(pv) : ''; }
+      if(nextBtn){ nextBtn.setAttribute('aria-disabled', nx ? 'false' : 'true'); if(nextLab) nextLab.textContent = nx ? label(nx) : ''; }
+      if(push){ var hash = '#hole-' + n; if(location.hash !== hash) history.pushState({hole:n}, '', hash); }
+      if(live) live.textContent = 'Hole ' + h.num + ', ' + h.title + ', ' + nineName(h.nine) + ', par ' + h.par + '.';
+      if(scroll && figWrap){ try{ figWrap.scrollIntoView({behavior: rm ? 'auto' : 'smooth', block:'start'}); }catch(e){ figWrap.scrollIntoView(); } }
     }
-    function buildNav(nine){
-      if(!navWrap) return;
-      navWrap.innerHTML='';
-      holes.filter(function(h){return h.nine===nine;}).forEach(function(h){
-        var b=document.createElement('button');
-        b.type='button'; b.textContent=h.num; b.dataset.hole=h.num;
-        b.setAttribute('aria-label','Hole '+h.num);
-        b.setAttribute('aria-current', h.num===current?'true':'false');
-        b.addEventListener('click', function(){ render(h.num); });
-        navWrap.appendChild(b);
-      });
-    }
-    switches.forEach(function(s){
-      s.addEventListener('click', function(){
-        var nine=s.dataset.nine;
-        var first = holes.filter(function(h){return h.nine===nine;})[0];
-        render(first.num);
-      });
-    });
-    if(prevBtn) prevBtn.addEventListener('click', function(){ render(current>1?current-1:18); });
-    if(nextBtn) nextBtn.addEventListener('click', function(){ render(current<18?current+1:1); });
-    if(mapSvg){ mapSvg.querySelectorAll('[data-map-hole]').forEach(function(m){ m.addEventListener('click', function(){ render(+m.getAttribute('data-map-hole')); }); }); }
 
-    render(current);
+    selBtns.forEach(function(b){ b.addEventListener('click', function(){ render(b.getAttribute('data-hole'), true, innerWidth <= 900); }); });
+    if(prevBtn) prevBtn.addEventListener('click', function(){ if(prevBtn.getAttribute('aria-disabled') === 'true') return; render(current - 1, true, innerWidth <= 900); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ if(nextBtn.getAttribute('aria-disabled') === 'true') return; render(current + 1, true, innerWidth <= 900); });
+    if(allBtn) allBtn.addEventListener('click', function(){
+      var sel = tour.querySelector('.holesel');
+      if(sel){ try{ sel.scrollIntoView({behavior: rm ? 'auto' : 'smooth', block:'start'}); }catch(e){ sel.scrollIntoView(); } }
+      var a = tour.querySelector('.hbtn[aria-current="true"]') || selBtns[0]; if(a) a.focus();
+    });
+    mapMks.forEach(function(m){
+      var go = function(){ render(+m.getAttribute('data-map-hole'), true, true); };
+      m.addEventListener('click', go);
+      m.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } });
+    });
+
+    function fromHash(){ var mm = (location.hash.match(/hole-(\d+)/) || [])[1]; if(mm && byNum[+mm]) render(+mm, false, false); }
+    window.addEventListener('popstate', fromHash);
+    window.addEventListener('hashchange', fromHash);
+    var h0 = (location.hash.match(/hole-(\d+)/) || [])[1];
+    render((h0 && byNum[+h0]) ? +h0 : 1, false, false);
   }
 
   /* ---- Scorecard toggle ---- */
@@ -156,6 +168,17 @@
       var open = scPanel.hasAttribute('hidden');
       if(open){ scPanel.removeAttribute('hidden'); scBtn.setAttribute('aria-expanded','true'); scPanel.scrollIntoView({behavior: rm?'auto':'smooth', block:'start'}); }
       else { scPanel.setAttribute('hidden',''); scBtn.setAttribute('aria-expanded','false'); }
+    });
+  }
+
+  /* ---- Optional Course Overview: Escape-to-close + focus return ---- */
+  var overview = document.querySelector('details.overview');
+  if(overview){
+    overview.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && overview.open){
+        overview.open = false;
+        var s = overview.querySelector('summary'); if(s) s.focus();
+      }
     });
   }
 })();
