@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder for closing-desert-round">
+<rect width="2100" height="900" fill="#F4F2ED"/>
+<rect x="0" y="0" width="2100" height="900" fill="#F4F2ED" opacity="1"/>
+<rect x="0" y="0" width="2100" height="414" fill="#768993" opacity="0.18"/>
+<polygon points="0,414 462,270 924,378 1428,243 2100,360 2100,414" fill="#292825" opacity="0.16"/>
+<rect x="0" y="414" width="2100" height="900" fill="#DED6CA" opacity="1"/>
+<rect x="63" y="832" width="1050" height="40" fill="#171716" opacity="0.82"/>
+<text x="94" y="874" font-family="Archivo, Arial, sans-serif" font-size="23" letter-spacing="2" fill="#F4F2ED">DEMONSTRATION IMAGE &#183; CLOSING DESERT ROUND</text>
+<rect x="0" y="0" width="2100" height="900" fill="none" stroke="#CDC8BF" stroke-width="2"/>
+</svg>

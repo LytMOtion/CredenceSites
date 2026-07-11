@@ -1,0 +1,26 @@
+{
+  "title": "image-manifest.json — image slot definitions for a system template",
+  "type": "object",
+  "required": ["slots"],
+  "properties": {
+    "slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slot", "filename", "required"],
+        "properties": {
+          "slot": { "type": "string" },
+          "filename": { "type": "string" },
+          "page": { "type": "string" },
+          "section": { "type": "string" },
+          "required": { "type": "boolean" },
+          "aspectRatio": { "type": "string" },
+          "minimumWidth": { "type": "integer", "minimum": 1 },
+          "desktopCrop": { "type": "string" },
+          "mobileSubjectPosition": { "type": "string" },
+          "altText": { "type": "string" }
+        }
+      }
+    }
+  }
+}

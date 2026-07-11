@@ -1,0 +1,32 @@
+# ============================================================================
+# Credence repository — ignore rules
+# ============================================================================
+
+# Client generator: never commit client inputs (may hold private info) or
+# generated client sites / local builds. Keep the placeholder folders only.
+/client-work/*
+!/client-work/.gitkeep
+/generated-clients/*
+!/generated-clients/.gitkeep
+
+# Per-client private documents (belt-and-suspenders, in case of nested inputs)
+**/documents/*
+!**/documents/.gitkeep
+
+# Local builds, backups, packaged sites
+*.backup-*
+/dist/
+/tmp/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Environment / processor credentials (v1 requires none — never commit secrets)
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db

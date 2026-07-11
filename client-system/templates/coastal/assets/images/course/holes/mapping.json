@@ -1,0 +1,116 @@
+{
+ "holes": {
+  "1": {
+   "src": "gemini-2.5-flash-image_remove_the_person-0.jpg",
+   "object_position": "50% 42%",
+   "confidence": "med",
+   "reason": "Broad opening fairway, distant coast \u2014 gentle establishing opener"
+  },
+  "2": {
+   "src": "lucid-origin_View_directly_from_a_real_tee_box_through_a_narrowing_corridor_of_coastal_vegeta-2.jpg",
+   "object_position": "50% 50%",
+   "confidence": "med",
+   "reason": "Tee-box view through a coastal corridor \u2014 a driving start"
+  },
+  "3": {
+   "src": "lucid-origin_Long-lens_view_down_a_rolling_inland_fairway_subtle_elevation_changes_compressed-3.jpg",
+   "object_position": "50% 40%",
+   "confidence": "high",
+   "reason": "Filename+visual: rolling INLAND fairway"
+  },
+  "4": {
+   "src": "lucid-origin_Quiet_inland_green_complex_on_rolling_California_coastal_terrain_camera_position-0.jpg",
+   "object_position": "50% 45%",
+   "confidence": "high",
+   "reason": "Quiet INLAND green complex \u2014 feeds the inland archetype"
+  },
+  "5": {
+   "src": "lucid-origin_Medium_elevated_view_of_a_fairway_bending_around_a_realistic_water_hazard_or_bun-3.jpg",
+   "object_position": "50% 48%",
+   "confidence": "med",
+   "reason": "Fairway bending around a hazard \u2014 strategic middle"
+  },
+  "6": {
+   "src": "lucid-origin_Low_camera_position_beside_a_sculpted_golf_bunker_textured_sand_in_sharp_foregro-1.jpg",
+   "object_position": "50% 38%",
+   "confidence": "high",
+   "reason": "Deep sculpted bunker, flag beyond \u2014 strategic/bunker hole"
+  },
+  "7": {
+   "src": "lucid-origin_Golfer_hitting_an_iron_approach_from_fairway_toward_an_elevated_green_photograph-3.jpg",
+   "object_position": "50% 45%",
+   "confidence": "med",
+   "reason": "Golfer iron approach to an elevated green \u2014 building"
+  },
+  "8": {
+   "src": "lucid-origin_Single_golfer_carrying_a_golf_bag_walking_diagonally_across_a_broad_inland_fairw-3.jpg",
+   "object_position": "50% 50%",
+   "confidence": "med",
+   "reason": "Lone golfer, atmospheric \u2014 walking toward the turn"
+  },
+  "9": {
+   "src": "lucid-origin_Elevated_view_of_the_ninth_hole_approaching_the_turn_fairway_curving_through_rol-1.jpg",
+   "object_position": "50% 45%",
+   "confidence": "high",
+   "reason": "Filename: 'the NINTH hole approaching the turn'"
+  },
+  "10": {
+   "src": "lucid-origin_Golfer_arriving_at_an_elevated_tee_where_the_Pacific_suddenly_becomes_visible_be-1.jpg",
+   "object_position": "50% 50%",
+   "confidence": "high",
+   "reason": "Filename: 'Pacific suddenly becomes visible' \u2014 the ocean reveal"
+  },
+  "11": {
+   "src": "lucid-origin_Elevated_oblique_view_along_a_sweeping_par-five_fairway_toward_a_green_near_the_-0.jpg",
+   "object_position": "50% 50%",
+   "confidence": "high",
+   "reason": "Aerial oblique, cliff green, waves below \u2014 ocean drama"
+  },
+  "12": {
+   "src": "lucid-origin_Compact_coastal_green_seen_from_tee_perspective_across_natural_bluff_vegetation_-1.jpg",
+   "object_position": "50% 45%",
+   "confidence": "med",
+   "reason": "Compact coastal green, ocean behind"
+  },
+  "14": {
+   "src": "lucid-origin_Two_golfers_walking_with_bags_along_a_path_beside_a_bluff-side_fairway_photograp-2.jpg",
+   "object_position": "50% 45%",
+   "confidence": "med",
+   "reason": "Two golfers on a bluff path \u2014 walking the ocean stretch"
+  },
+  "15": {
+   "src": "lucid-origin_Back-nine_hole_turning_inland_away_from_the_Pacific_camera_positioned_behind_a_g-0.jpg",
+   "object_position": "50% 45%",
+   "confidence": "high",
+   "reason": "Filename: 'back-nine hole turning INLAND away from the Pacific' \u2014 transition away"
+  },
+  "16": {
+   "src": "lucid-origin_Low_telephoto_view_toward_a_coastal_green_near_the_bluff_flag_sharply_defined_ag-0.jpg",
+   "object_position": "50% 52%",
+   "confidence": "med",
+   "reason": "Misty coastal green \u2014 the round quieting"
+  },
+  "17": {
+   "src": "lucid-origin_Tight_editorial_photograph_of_a_golfer_lining_up_a_putt_on_a_late-round_green_ca-0.jpg",
+   "object_position": "50% 60%",
+   "confidence": "med",
+   "reason": "Filename: 'late-round green' putt \u2014 closing (tight crop; op biased down)"
+  },
+  "18": {
+   "src": "lucid-origin_Ultra-photorealistic_editorial_golf_photography_for_a_premium_California_coastal-1.jpg",
+   "object_position": "50% 45%",
+   "confidence": "med",
+   "reason": "Expansive fairway, dunes, sunset \u2014 the finisher"
+  },
+  "13": {
+   "src": "assets/img/hole13-approach.jpg (existing frozen reference)",
+   "object_position": "(frozen panel)",
+   "confidence": "n/a",
+   "reason": "Hole 13 keeps its established frozen composition; folder copy added for structural completeness only"
+  }
+ },
+ "unused": [
+  "lucid-origin_Close_editorial_study_of_a_golf_green_and_flag_in_coastal_wind_camera_low_at_fri-0.jpg",
+  "lucid-origin_Compact_coastal_green_seen_from_tee_perspective_across_natural_bluff_vegetation_-3.jpg"
+ ]
+}

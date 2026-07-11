@@ -1,0 +1,45 @@
+{
+  "title": "holes.json — reusable hole data for all Credence course systems",
+  "type": "object",
+  "required": ["holes"],
+  "properties": {
+    "yardageLabels": {
+      "type": "object",
+      "description": "Optional per-system display labels for each yardage tee (e.g. Championship / Member / Resort / Forward).",
+      "properties": {
+        "championship": { "type": "string" },
+        "member": { "type": "string" },
+        "resort": { "type": "string" },
+        "forward": { "type": "string" }
+      }
+    },
+    "holes": {
+      "type": "array",
+      "minItems": 18,
+      "maxItems": 18,
+      "items": {
+        "type": "object",
+        "required": ["number", "par", "yardages"],
+        "properties": {
+          "number": { "type": "integer", "minimum": 1, "maximum": 18 },
+          "name": { "type": "string" },
+          "par": { "type": "integer", "minimum": 3, "maximum": 6 },
+          "strokeIndex": { "type": "integer", "minimum": 1, "maximum": 18 },
+          "nine": { "type": "string", "enum": ["front", "back"] },
+          "yardages": {
+            "type": "object",
+            "properties": {
+              "championship": { "type": "integer", "minimum": 0, "maximum": 800 },
+              "member": { "type": "integer", "minimum": 0, "maximum": 800 },
+              "resort": { "type": "integer", "minimum": 0, "maximum": 800 },
+              "forward": { "type": "integer", "minimum": 0, "maximum": 800 }
+            }
+          },
+          "strategy": { "type": "string" },
+          "riskReward": { "type": "string" },
+          "image": { "type": "string" }
+        }
+      }
+    }
+  }
+}

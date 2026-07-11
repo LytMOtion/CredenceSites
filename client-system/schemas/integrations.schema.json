@@ -1,0 +1,13 @@
+{
+  "title": "integrations.json — optional external links (URLs validated separately)",
+  "type": "object",
+  "properties": {
+    "teeTimesUrl": { "type": "string" },
+    "membershipInquiryUrl": { "type": "string" },
+    "eventsInquiryUrl": { "type": "string" },
+    "lodgingUrl": { "type": "string" },
+    "diningReservationUrl": { "type": "string" },
+    "customerPortalUrl": { "type": "string" },
+    "analyticsId": { "type": "string" }
+  }
+}

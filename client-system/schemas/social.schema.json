@@ -1,0 +1,10 @@
+{
+  "title": "social.json — optional social links (URLs validated separately)",
+  "type": "object",
+  "properties": {
+    "instagram": { "type": "string" },
+    "facebook": { "type": "string" },
+    "tiktok": { "type": "string" },
+    "youtube": { "type": "string" }
+  }
+}

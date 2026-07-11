@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Demonstration booking flow · Ocean Bluff National Golf Club</title>
+<meta name="description" content="A demonstration booking flow for Ocean Bluff National — a fictional coastal course. No tee time, payment, or reservation is processed. Demonstration content for Credence Course System 01 — The Coastal.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ocean Bluff National Golf Club">
+<meta property="og:title" content="Demonstration booking flow · Ocean Bluff National Golf Club">
+<meta property="og:description" content="A demonstration booking flow for Ocean Bluff National — a fictional coastal course. No tee time, payment, or reservation is processed.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+.bookhead{padding-block:var(--sp-tight)}
+.demo-note{display:flex;gap:.8rem;align-items:flex-start;border:2px solid var(--ochre);
+  background:var(--fog-2);padding:1rem 1.15rem;margin-top:1.1rem}
+.demo-note svg{flex:none;margin-top:.15rem}
+.demo-note p{margin:0}
+.book{border:var(--hair);background:var(--fog-2);padding:clamp(1.2rem,3vw,1.8rem)}
+.book h2{font:700 var(--t-h3)/1.05 var(--exp);letter-spacing:-.005em;margin-bottom:1.1rem}
+.field-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin-bottom:.9rem}
+label.lab{display:block;font:600 var(--t-label)/1 var(--sans);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--marine);margin-bottom:.4rem}
+.ctrl{width:100%;font:500 1rem/1 var(--sans);padding:.8em .8em;border:1px solid var(--marine-soft);
+  background:var(--fog);color:var(--ink)}
+.ctrl:disabled{opacity:.7;cursor:not-allowed;background:color-mix(in srgb,var(--fog) 88%,var(--marine-soft))}
+/* sample tee-time rows */
+.tt{border-top:2px solid var(--ink);margin-top:1.2rem}
+.tt__row{display:grid;grid-template-columns:7rem 1fr auto;gap:1rem;align-items:center;
+  padding:.9rem 0;border-bottom:var(--hair)}
+.tt__time{font:800 1.15rem/1 var(--exp);font-variant-numeric:tabular-nums;color:var(--pacific)}
+.tt__meta{color:var(--marine);font:500 var(--t-label)/1.4 var(--sans);letter-spacing:.01em}
+.tt__price{font-variant-numeric:tabular-nums;font-weight:700}
+.btn:disabled,.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none}
+@media (max-width:640px){.field-row{grid-template-columns:1fr}.tt__row{grid-template-columns:5.5rem 1fr auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Credence template-preview return bar (return to Credence on mobile same-tab open) -->
+<div class="demo-return">
+  <div class="wrap demo-return__inner">
+    <span class="demo-return__label">Course System 01 — The Coastal</span>
+    <a class="demo-return__link" href="/">Return to Credence <span class="ar" aria-hidden="true">←</span></a>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap masthead__in">
+    <a class="brand" href="index.html" aria-label="Ocean Bluff National Golf Club — home"><span class="brand__wordmark">Ocean Bluff <span>National</span></span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav"><span data-label>Menu</span></button>
+    <nav id="nav" class="nav" aria-label="Primary">
+      <a href="tour.html">The Course</a>
+      <a href="rates.html">Rates &amp; Tee Times</a>
+      <a href="events.html">Events</a>
+      <a href="grill.html">The Grill</a>
+      <a href="story.html">Story</a>
+      <div class="nav__more" data-open="false">
+        <button class="nav__more-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">More <span class="nav__more-caret" aria-hidden="true"></span></button>
+        <div class="nav__more-menu" id="more-menu" role="menu" aria-label="More" hidden>
+          <a href="golf-services.html" role="menuitem">Lessons &amp; Fitting</a>
+          <a href="outings.html" role="menuitem">Tournaments &amp; Outings</a>
+          <a href="shop.html" role="menuitem">Shop</a>
+        </div>
+      </div>
+      <span class="nav__book"><a class="btn" href="rates.html"><span class="btn__dot" aria-hidden="true"></span>Book a tee time</a></span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap bookhead">
+    <p class="eyebrow eyebrow--count">Tee times <span class="tag-ph">Demonstration flow</span></p>
+    <h1 class="h2" style="max-width:22ch">Demonstration booking flow.</h1>
+
+    <div class="demo-note" role="note">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#946023" stroke-width="1.4"/><path d="M10 5.4v5.6M10 13.6v.2" fill="none" stroke="#946023" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <p class="note" style="color:var(--ink)"><b>Booking demonstration.</b> This course-system preview shows where a production website connects to the course's live tee-time provider. Reservations are disabled for this fictional property.</p>
+    </div>
+
+    <p class="note" role="note" style="border-left:2px solid var(--ochre);padding:.5rem 0 .5rem 1rem;margin-top:1rem;color:var(--marine)">Fictional demonstration property with sample content and reference imagery.</p>
+  </div>
+
+  <!-- STEP 1 — sample search (all controls disabled) -->
+  <section class="section--tight" style="padding-top:0" aria-labelledby="h-search">
+    <div class="wrap" style="max-width:820px">
+      <div class="book">
+        <h2 id="h-search">1 · Choose your round</h2>
+        <p class="note" style="margin:-.6rem 0 1.1rem;color:var(--marine)">Sample selection only — controls are disabled in this demonstration.</p>
+        <div class="field-row">
+          <div>
+            <label class="lab" for="d-date">Date</label>
+            <input class="ctrl" id="d-date" type="text" value="Sat · Sample" disabled aria-disabled="true">
+          </div>
+          <div>
+            <label class="lab" for="d-players">Players</label>
+            <select class="ctrl" id="d-players" disabled aria-disabled="true"><option>4 players</option></select>
+          </div>
+          <div>
+            <label class="lab" for="d-holes">Holes</label>
+            <select class="ctrl" id="d-holes" disabled aria-disabled="true"><option>18 holes</option></select>
+          </div>
+        </div>
+        <p style="margin-top:.4rem"><button class="btn" type="button" disabled aria-disabled="true"><span class="btn__dot" aria-hidden="true"></span>View sample tee times</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 — sample tee-time results (static, non-functional) -->
+  <section class="section--tight" aria-labelledby="h-times">
+    <div class="wrap" style="max-width:820px">
+      <h2 class="eyebrow" id="h-times">2 · Sample tee times</h2>
+      <p class="note" style="margin-top:.4rem;color:var(--marine)">These are fictional sample times and prices. Selecting a time does nothing — no availability is queried and no reservation is held.</p>
+      <div class="tt" role="group" aria-label="Sample tee times (non-functional)">
+        <div class="tt__row">
+          <span class="tt__time">7:10 AM</span>
+          <span class="tt__meta">4 players · 18 holes · cart included · sample</span>
+          <span><span class="tt__price">$175</span> <button class="btn btn--ghost" type="button" disabled aria-disabled="true">Select</button></span>
+        </div>
+        <div class="tt__row">
+          <span class="tt__time">9:40 AM</span>
+          <span class="tt__meta">4 players · 18 holes · cart included · sample</span>
+          <span><span class="tt__price">$175</span> <button class="btn btn--ghost" type="button" disabled aria-disabled="true">Select</button></span>
+        </div>
+        <div class="tt__row">
+          <span class="tt__time">12:20 PM</span>
+          <span class="tt__meta">2 players · 18 holes · sample</span>
+          <span><span class="tt__price">$175</span> <button class="btn btn--ghost" type="button" disabled aria-disabled="true">Select</button></span>
+        </div>
+        <div class="tt__row">
+          <span class="tt__time">2:15 PM</span>
+          <span class="tt__meta">Twilight · cart included · sample</span>
+          <span><span class="tt__price">$105</span> <button class="btn btn--ghost" type="button" disabled aria-disabled="true">Select</button></span>
+        </div>
+        <div class="tt__row">
+          <span class="tt__time">4:05 PM</span>
+          <span class="tt__meta">Super-twilight · sample</span>
+          <span><span class="tt__price">$75</span> <button class="btn btn--ghost" type="button" disabled aria-disabled="true">Select</button></span>
+        </div>
+      </div>
+      <p class="note" style="margin-top:.9rem;color:var(--marine)">All prices are fictional sample content. There is no checkout, cart, account, or payment step in this demonstration.</p>
+    </div>
+  </section>
+
+  <!-- STEP 3 — sample review (no payment fields) -->
+  <section class="section--tight" aria-labelledby="h-review">
+    <div class="wrap" style="max-width:820px">
+      <div class="book">
+        <h2 id="h-review">3 · Review (sample)</h2>
+        <div class="ledger" role="group" aria-label="Sample booking summary">
+          <div class="ledger__row"><span class="ledger__k">Tee time<small>Sample selection</small></span><span class="ledger__v" style="font-size:1rem;letter-spacing:0">9:40 AM</span></div>
+          <div class="ledger__row"><span class="ledger__k">Players<small>Sample</small></span><span class="ledger__v" style="font-size:1rem;letter-spacing:0">4</span></div>
+          <div class="ledger__row"><span class="ledger__k">Estimated total<small>Weekday green fee · 4 players · fictional sample amount — not charged</small></span><span class="ledger__v num">$700</span></div>
+        </div>
+        <p class="note" style="margin-top:.9rem;color:var(--marine)"><b>No payment is collected.</b> This demonstration contains no card fields, no checkout, and no payment provider. The button below is inactive.</p>
+        <p style="margin-top:.6rem"><button class="btn" type="button" disabled aria-disabled="true"><span class="btn__dot" aria-hidden="true"></span>Explore booking flow</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="field-pacific on-dark section--open" aria-labelledby="h-close">
+    <div class="wrap" style="text-align:center">
+      <h2 class="h2" id="h-close" style="margin-inline:auto;max-width:18ch">This is a demonstration only.</h2>
+      <p class="note" style="margin-inline:auto;margin-top:1rem;max-width:52ch;color:#cfe0e4">Ocean Bluff National is a fictional property. No tee time, payment, or reservation is processed anywhere in this flow.</p>
+      <p style="margin-top:1.6rem">
+        <a class="btn" href="rates.html"><span class="btn__dot" aria-hidden="true"></span>Return to Rates &amp; Tee Times</a>
+        <a class="btn btn--ghost" href="/">Return to Credence</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap"><div class="foot__bar" style="border-top:none">
+      <a class="foot__return" href="/">Return to Credence <span class="ar" aria-hidden="true">←</span></a>
+      
+    <span>Ocean Bluff National Golf Club is a fictional demonstration property created to present Credence Course System 01 — The Coastal. No real bookings, purchases, memberships, inquiries, or reservations are processed.</span>
+    <span><a href="index.html">← Home</a></span>
+  </div></div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

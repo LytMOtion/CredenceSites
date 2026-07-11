@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ocean Bluff National — The Coastal</title>
+<meta name="description" content="A fictional coastal golf destination created to demonstrate Credence Course System 01 — The Coastal.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ocean Bluff National Golf Club">
+<meta property="og:title" content="Ocean Bluff National — The Coastal">
+<meta property="og:description" content="A fictional coastal golf destination created to demonstrate Credence Course System 01 — The Coastal.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+/* --- page-specific: the hero as horizon (the edge line) ---
+   Explicit horizon: light intro (sky) → media band (sea) → a "waterline"
+   deck that content aligns to → deep water strip. Every text block sits on
+   a background chosen for legibility; the edge is the hairline, not a scrim. */
+.hero__intro{padding-block:clamp(2.5rem,7vw,5rem) clamp(1.4rem,4vw,2.4rem)}
+.hero .display{color:var(--ink);max-width:15ch}
+.hero__band{position:relative}
+.hero__band .ph--hero{min-height:clamp(48vh,56vh,640px)}
+.hero__deck{border-top:var(--hair);display:flex;flex-wrap:wrap;gap:1rem 2rem;
+  align-items:center;justify-content:space-between;padding-block:1.15rem}
+.hero__lead{color:var(--ink);max-width:34ch;margin:0}
+.hero__water{padding-block:clamp(1.4rem,4vw,2.2rem)}
+.facts{display:flex;flex-wrap:wrap;gap:2.2rem}
+/* course teaser routing motif */
+.stretch{display:flex;gap:.35rem;align-items:flex-end;height:52px;margin-top:.4rem}
+.stretch i{flex:1;background:color-mix(in srgb,var(--ink) 16%,transparent);align-self:stretch}
+.stretch i[data-o]{background:var(--ochre)}
+.stretch i:nth-child(1){height:40%}.stretch i:nth-child(2){height:55%}
+.stretch i:nth-child(3){height:48%}.stretch i:nth-child(4){height:70%}
+.stretch i:nth-child(5){height:62%}.stretch i:nth-child(6){height:88%}
+.stretch i:nth-child(7){height:74%}.stretch i:nth-child(8){height:100%}
+.stretch i:nth-child(9){height:66%}
+.disc{display:flex;gap:1rem;align-items:flex-start;border:var(--hair);
+  padding:1rem 1.15rem;background:var(--fog-2)}
+.disc svg{flex:none;margin-top:.15rem}
+.twocol{align-items:start}
+.pillar{padding-top:1.4rem;border-top:2px solid var(--ink)}
+.pillar h3{margin-bottom:.5rem}
+.pillar a{font-weight:600;text-decoration:none;box-shadow:inset 0 -1px 0 var(--marine-soft)}
+.pillar a:hover{box-shadow:inset 0 -2px 0 var(--ochre)}
+@media (max-width:860px){.hero__edge{gap:1rem}.hero__edge .row{width:100%}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Credence template-preview return bar (return to Credence on mobile same-tab open) -->
+<div class="demo-return">
+  <div class="wrap demo-return__inner">
+    <span class="demo-return__label">Course System 01 — The Coastal</span>
+    <a class="demo-return__link" href="/">Return to Credence <span class="ar" aria-hidden="true">←</span></a>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap masthead__in">
+    <a class="brand" href="index.html" aria-label="Ocean Bluff National Golf Club — home"><span class="brand__wordmark">Ocean Bluff <span>National</span></span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+      <span data-label>Menu</span>
+    </button>
+    <nav id="nav" class="nav" aria-label="Primary">
+      <a href="tour.html">The Course</a>
+      <a href="rates.html">Rates &amp; Tee Times</a>
+      <a href="events.html">Events</a>
+      <a href="grill.html">The Grill</a>
+      <a href="story.html">Story</a>
+      <div class="nav__more" data-open="false">
+        <button class="nav__more-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">More <span class="nav__more-caret" aria-hidden="true"></span></button>
+        <div class="nav__more-menu" id="more-menu" role="menu" aria-label="More" hidden>
+          <a href="golf-services.html" role="menuitem">Lessons &amp; Fitting</a>
+          <a href="outings.html" role="menuitem">Tournaments &amp; Outings</a>
+          <a href="shop.html" role="menuitem">Shop</a>
+        </div>
+      </div>
+      <span class="nav__book"><a class="btn" href="rates.html"><span class="btn__dot" aria-hidden="true"></span>Book a tee time</a></span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1 · ARRIVAL / THE EDGE — the horizon is photographic, not a CSS line -->
+  <section class="hero-shot" aria-labelledby="h-hero">
+    <figure class="shot">
+      <picture>
+        <source type="image/webp" srcset="assets/img/hero-edge.webp">
+        <img src="assets/img/hero-edge.jpg" width="1920" height="1095"
+             alt="A golfer at the edge of a coastal fairway, the Pacific behind under flat marine light.">
+      </picture>
+      <span class="shot__ref">Demonstration image</span>
+    </figure>
+    <div class="hero-shot__grad" aria-hidden="true"></div>
+    <div class="hero-shot__copy">
+      <div class="wrap">
+        <p class="eyebrow">Public golf · California coast</p>
+        <h1 class="display" id="h-hero">Golf at the edge of the Pacific.</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- deck (the land): lead + booking + instrument facts -->
+  <section class="hero-deck waterline" aria-label="Introduction">
+    <div class="wrap">
+      <div class="hero-deck__row">
+        <p class="lead" style="max-width:34ch;margin:0">A course drawn along the bluffs, out toward the open Pacific.</p>
+        <div class="row">
+          <a class="btn" href="rates.html"><span class="btn__dot" aria-hidden="true"></span>Book a tee time</a>
+          <a class="btn btn--ghost" href="rates.html">View rates</a>
+        </div>
+      </div>
+      <div class="facts" style="margin-top:clamp(1.4rem,3vw,2rem)">
+        <span class="datum"><span class="datum__l">Setting</span><span class="datum__v" style="font-size:clamp(1rem,.8rem+.9vw,1.4rem);letter-spacing:0">California Coast</span></span>
+        <span class="datum"><span class="datum__l">Holes</span><span class="datum__v num">18</span></span>
+        <span class="datum"><span class="datum__l">Par</span><span class="datum__v num">72</span></span>
+        <span class="datum"><span class="datum__l">Style</span><span class="datum__v" style="font-size:clamp(1rem,.8rem+.9vw,1.4rem);letter-spacing:0">Coastal links</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · PLAY TODAY — commercial rigor, within reach of the fold -->
+  <section class="section--open waterline" aria-labelledby="h-play">
+    <div class="wrap grid g-12-5">
+      <div class="reveal stack">
+        <p class="eyebrow">Play today</p>
+        <h2 class="h2" id="h-play">Tee times, out toward the water.</h2>
+        <p class="lead measure">Walk on or book ahead. Rates are shown before you commit — no surprises at the counter.</p>
+        <div class="disc" role="note">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#556268" stroke-width="1.4"/><path d="M10 5.5v5.5l3 2" fill="none" stroke="#556268" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <p class="note" style="margin:0">Booking is completed on the course's tee-time system. Choose an available time and continue directly to the course's booking provider.</p>
+        </div>
+        <p><a class="btn" href="rates.html"><span class="btn__dot" aria-hidden="true"></span>Book a tee time</a></p>
+      </div>
+
+      <div class="reveal" style="--i:1">
+        <p class="eyebrow eyebrow--count">Green fees</p>
+        <div class="ledger" role="group" aria-label="Indicative green fees">
+          <div class="ledger__row ledger__row--head">
+            <span class="ledger__k">Weekday · 18 holes<small>Mon–Thu, before noon</small></span>
+            <span class="ledger__v num">$175</span>
+          </div>
+          <div class="ledger__row">
+            <span class="ledger__k">Weekend · 18 holes<small>Fri–Sun &amp; holidays</small></span>
+            <span class="ledger__v num">$195</span>
+          </div>
+          <div class="ledger__row">
+            <span class="ledger__k">Twilight<small>After 2:00 PM · cart included</small></span>
+            <span class="ledger__v num">$105</span>
+          </div>
+        </div>
+        <p class="note" style="margin-top:.9rem"><a href="rates.html" style="color:var(--pacific)">All rates &amp; policies →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · THE COURSE — descent begins; image scale steps up, honest light -->
+  <section class="section--mid step-in" aria-labelledby="h-course">
+    <div class="wrap">
+      <div class="grid g-12-5" style="align-items:center">
+        <div class="reveal stack">
+          <p class="eyebrow">The course</p>
+          <h2 class="h2" id="h-course">Eighteen holes that fall toward the sea.</h2>
+          <p class="lead measure">The front nine works the rolling ground inland. The back nine drops to the bluff, where holes ten through fourteen run right along the Pacific.</p>
+          <div>
+            <p class="note" style="margin-bottom:.15rem">The ocean stretch</p>
+            <div class="stretch" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i data-o></i><i data-o></i><i data-o></i><i data-o></i>
+            </div>
+            <p class="note" style="margin-top:.4rem">Holes 10–14, marked, sit on the water.</p>
+          </div>
+          <p><a class="btn btn--ghost" href="tour.html">Walk the course →</a></p>
+        </div>
+        <figure class="shot shot--wide reveal" style="--i:1">
+          <picture>
+            <source type="image/webp" srcset="assets/img/green-honest.webp">
+            <img src="assets/img/green-honest.jpg" width="1344" height="768" loading="lazy"
+                 alt="A green with a flag seen through coastal dune grass, flat overcast light, the ocean beyond.">
+          </picture>
+          <span class="shot__ref">Demonstration image</span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3b · APPROACH — the marine layer; rhythm compresses, content nears the edge -->
+  <section class="step-near" aria-labelledby="h-approach">
+    <figure class="shot reveal">
+      <picture>
+        <source type="image/webp" srcset="assets/img/marine.webp">
+        <img src="assets/img/marine.jpg" width="1344" height="768" loading="lazy"
+             alt="A lone golfer walking with a bag through heavy marine-layer fog on the course.">
+      </picture>
+      <figcaption class="shot__cap">Some mornings the fog holds — the course plays quieter, and closer.</figcaption>
+      <span class="shot__ref">Demonstration image</span>
+    </figure>
+    <div class="wrap" style="padding-top:var(--sp-tight)">
+      <p class="eyebrow" id="h-approach">Approach</p>
+      <p class="h3 measure" style="max-width:24ch">By the tenth tee, the ground gives way and the water arrives.</p>
+    </div>
+  </section>
+
+  <!-- 4 · OCEAN STRETCH — CLIMAX. Full-bleed, near-empty, the page reaches the water. -->
+  <section class="climax" aria-labelledby="h-stretch">
+    <div class="wrap climax__band">
+      <p class="eyebrow crossing" id="h-stretch">The ocean stretch · holes 10–14</p>
+    </div>
+    <figure class="shot swell">
+      <picture>
+        <source type="image/webp" srcset="assets/img/ocean-flag.webp">
+        <img src="assets/img/ocean-flag.jpg" width="1344" height="768" loading="lazy"
+             alt="A single flag on a green that ends at the Pacific — nothing beyond but open water.">
+      </picture>
+      <figcaption class="shot__cap">Where the land runs out, the round turns. A downhill dogleg to a cliff green, a short one to the beach, a par five that dares you toward the water.</figcaption>
+      <span class="shot__ref">Demonstration image</span>
+    </figure>
+  </section>
+
+  <!-- 5 · THE LAND / history hook — the release: opens up, quiet, text-led -->
+  <section class="release edge-top" aria-labelledby="h-land">
+    <div class="wrap" style="max-width:64ch">
+      <p class="eyebrow reveal">Story</p>
+      <h2 class="h2 reveal" id="h-land" style="max-width:16ch;margin-top:.4rem">The ground has a story.</h2>
+      <p class="lead reveal" style="--i:1;margin-top:1.1rem">Ocean Bluff National was imagined as a modern coastal course shaped by wind, dunes, native landscape, and the changing character of the Pacific. Discover how the land set the rhythm of the round.</p>
+      <p class="reveal" style="--i:2;margin-top:1.3rem"><a class="btn btn--ghost" href="story.html">Discover the story →</a></p>
+    </div>
+  </section>
+
+  <!-- 6 · EVENTS + GRILL — environmental photography, two registers, in-system.
+       (Was a flat dark text block; now carries the same photographic weight as the
+       rest of the page without overpowering the golf identity.) -->
+  <section class="section--mid" id="events" aria-labelledby="h-beyond">
+    <div class="wrap">
+      <p class="eyebrow reveal" id="h-beyond">Beyond the round</p>
+      <div class="grid g-12-5" style="margin-top:1.3rem;align-items:start">
+
+        <article class="reveal stack">
+          <figure class="shot shot--wide">
+            <picture>
+              <source type="image/webp" srcset="assets/img/events.webp">
+              <img src="assets/img/events.jpg" width="1344" height="768" loading="lazy"
+                   alt="A long table set for dinner on the bluff at dusk, the Pacific behind.">
+            </picture>
+            <span class="shot__ref">Demonstration image</span>
+          </figure>
+          <div>
+            <h3 class="h3">Events &amp; celebrations</h3>
+            <p class="measure note" style="color:var(--marine);margin-top:.4rem">Weddings, company celebrations, and private dinners out on the bluff — catering from the Grill, the Pacific for a backdrop.</p>
+            <p style="margin-top:.9rem"><a class="btn btn--ghost" href="events.html">Plan an event →</a></p>
+          </div>
+        </article>
+
+        <article class="reveal stack" id="grill" style="--i:1">
+          <figure class="shot shot--tall">
+            <picture>
+              <source type="image/webp" srcset="assets/img/grill.webp">
+              <img src="assets/img/grill.jpg" width="896" height="1152" loading="lazy"
+                   alt="A quiet table set by a window over the coast at dusk.">
+            </picture>
+            <span class="shot__ref">Demonstration image</span>
+          </figure>
+          <div>
+            <h3 class="h3">The Grill</h3>
+            <p class="measure-sm note" style="color:var(--marine);margin-top:.4rem">A dining room open to the coast. Come in after your round, or just for the view.</p>
+            <p style="margin-top:.9rem"><a class="btn btn--ghost" href="grill.html">See the menu →</a></p>
+          </div>
+        </article>
+
+      </div>
+      <p class="note" style="margin-top:1.3rem;color:var(--marine)">Bringing a group for golf? <a href="outings.html" style="color:var(--pacific)">Tournaments &amp; outings</a>. Want to sharpen your game? <a href="golf-services.html" style="color:var(--pacific)">Instruction &amp; club fitting</a>.</p>
+    </div>
+  </section>
+
+  <!-- 7 · VISIT -->
+  <section class="section--mid" aria-labelledby="h-visit">
+    <div class="wrap grid g-12-5" style="align-items:start">
+      <div class="reveal stack">
+        <p class="eyebrow">Visit</p>
+        <h2 class="h2" id="h-visit">On the California coast.</h2>
+        <p class="note measure-sm">Bring a layer. The marine fog can hold into late morning, even in summer — part of playing on the coast.</p>
+      </div>
+      <div class="reveal" style="--i:1">
+        <div class="ledger">
+          <div class="ledger__row"><span class="ledger__k">Address</span><span class="ledger__v" style="font-size:1rem;letter-spacing:0;text-align:right;max-width:22ch">California Coast</span></div>
+          <div class="ledger__row"><span class="ledger__k">Golf shop</span><span class="ledger__v num">(805) 555-0148</span></div>
+          <div class="ledger__row"><span class="ledger__k">Hours</span><span class="ledger__v" style="font-size:1rem;letter-spacing:0">6:30a – 8:30p</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · CLOSING BOOK -->
+  <section class="field-dark on-dark section--open" aria-labelledby="h-close">
+    <div class="wrap" style="text-align:center">
+      <h2 class="h2 reveal" id="h-close" style="margin-inline:auto;max-width:16ch">Come play the edge.</h2>
+      <p class="reveal" style="margin-top:1.6rem"><a class="btn" href="rates.html"><span class="btn__dot" aria-hidden="true"></span>Book a tee time</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Ocean Bluff National Golf Club — home" style="margin-bottom:.7rem"><span class="brand__wordmark">Ocean Bluff <span>National</span></span></a>
+        <p style="color:#cdd7d5;max-width:34ch">California Coast<br>(805) 555-0148<br>Open 6:30 AM – 8:30 PM daily</p>
+      </div>
+      <div>
+        <h4>Course</h4>
+        <ul>
+          <li><a href="tour.html">The course</a></li>
+          <li><a href="rates.html">Rates &amp; tee times</a></li>
+          <li><a href="golf-services.html">Lessons &amp; Fitting</a></li>
+          <li><a href="story.html">Story</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gather</h4>
+        <ul>
+          <li><a href="events.html">Events &amp; celebrations</a></li>
+          <li><a href="outings.html">Tournaments &amp; outings</a></li>
+          <li><a href="grill.html">The Grill</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More</h4>
+        <ul>
+          <li><a href="shop.html">Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <a class="foot__return" href="/">Return to Credence <span class="ar" aria-hidden="true">←</span></a>
+      
+      <span>Ocean Bluff National Golf Club is a fictional demonstration property created to present Credence Course System 01 — The Coastal. No real bookings, purchases, memberships, inquiries, or reservations are processed.</span>
+      <span>Designed to WCAG 2.1 AA · reduced-motion respected</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

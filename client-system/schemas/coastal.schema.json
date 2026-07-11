@@ -1,0 +1,21 @@
+{
+  "title": "content.json — Coastal (landscape/destination) system",
+  "type": "object",
+  "required": ["hero"],
+  "properties": {
+    "hero": { "type": "object", "required": ["headline"], "properties": {
+      "eyebrow": {"type":"string"}, "headline": {"type":"string"}, "sub": {"type":"string"} } },
+    "courseOverview": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "courseFacts": { "type": "object", "properties": {
+      "holes": {"type":"integer"}, "par": {"type":"integer"}, "setting": {"type":"string"}, "style": {"type":"string"} } },
+    "rates": { "type": "object", "properties": { "heading": {"type":"string"}, "intro": {"type":"string"},
+      "rows": { "type": "array", "items": { "type": "object", "properties": { "label": {"type":"string"}, "detail": {"type":"string"}, "price": {"type":"string"} } } } } },
+    "events": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "grillDining": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "golfServices": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "lessonsFitting": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "outings": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "story": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "visit": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } }
+  }
+}

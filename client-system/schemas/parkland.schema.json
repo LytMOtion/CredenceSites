@@ -1,0 +1,19 @@
+{
+  "title": "content.json — Parkland (established club) system",
+  "type": "object",
+  "required": ["hero"],
+  "properties": {
+    "hero": { "type": "object", "required": ["headline"], "properties": {
+      "eyebrow": {"type":"string"}, "headline": {"type":"string"}, "sub": {"type":"string"} } },
+    "courseOverview": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "membership": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "ratesTeeTimes": { "type": "object", "properties": { "heading": {"type":"string"}, "intro": {"type":"string"},
+      "rows": { "type": "array", "items": { "type": "object", "properties": { "label": {"type":"string"}, "detail": {"type":"string"}, "price": {"type":"string"} } } } } },
+    "clubhouseDining": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "tournamentsOutings": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "instructionPractice": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "story": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "courseFacts": { "type": "object", "properties": {
+      "holes": {"type":"integer"}, "par": {"type":"integer"}, "yards": {"type":"string"}, "established": {"type":"string"}, "access": {"type":"string"} } }
+  }
+}

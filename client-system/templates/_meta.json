@@ -1,0 +1,5 @@
+{
+  "coastal":  { "templateSystem": "coastal",  "templateVersion": "1.0.0", "derivedFrom": "/coastal",  "yardageTees": ["championship","member","forward"] },
+  "parkland": { "templateSystem": "parkland", "templateVersion": "1.0.0", "derivedFrom": "/parkland", "yardageTees": ["championship","member","forward"] },
+  "desert":   { "templateSystem": "desert",   "templateVersion": "1.0.0", "derivedFrom": "/desert",   "yardageTees": ["championship","resort","forward"] }
+}

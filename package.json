@@ -1,0 +1,15 @@
+{
+  "name": "credence-sites",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Credence — golf-course website studio, three approved Course Systems, and the protected client-site generator.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "client:new": "node client-system/scripts/create-client.mjs",
+    "client:validate": "node client-system/scripts/validate-client.mjs",
+    "client:build": "node client-system/scripts/build-client.mjs",
+    "client:preview": "node client-system/scripts/preview-client.mjs",
+    "client:package": "node client-system/scripts/package-client.mjs"
+  }
+}

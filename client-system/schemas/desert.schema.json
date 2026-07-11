@@ -1,0 +1,21 @@
+{
+  "title": "content.json — Desert (architectural resort) system",
+  "type": "object",
+  "required": ["hero"],
+  "properties": {
+    "hero": { "type": "object", "required": ["headline"], "properties": {
+      "eyebrow": {"type":"string"}, "headline": {"type":"string"}, "sub": {"type":"string"} } },
+    "golf": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "courseFacts": { "type": "object", "properties": {
+      "holes": {"type":"integer"}, "par": {"type":"integer"}, "yards": {"type":"string"}, "setting": {"type":"string"}, "experience": {"type":"string"} } },
+    "rates": { "type": "object", "properties": { "heading": {"type":"string"}, "intro": {"type":"string"},
+      "rows": { "type": "array", "items": { "type": "object", "properties": { "label": {"type":"string"}, "detail": {"type":"string"}, "price": {"type":"string"} } } } } },
+    "courseConditions": { "type": "object", "properties": { "status": {"type":"string"}, "cartRule": {"type":"string"}, "practice": {"type":"string"}, "weather": {"type":"string"} } },
+    "stayLodging": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "packages": { "type": "array", "items": { "type": "object", "properties": { "name": {"type":"string"}, "detail": {"type":"string"}, "price": {"type":"string"} } } },
+    "dining": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "wellness": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "groupsEvents": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } },
+    "storyPlace": { "type": "object", "properties": { "heading": {"type":"string"}, "body": {"type":"string"} } }
+  }
+}

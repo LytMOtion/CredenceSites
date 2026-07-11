@@ -1,0 +1,45 @@
+{
+  "title": "client.json — primary client configuration (all systems)",
+  "type": "object",
+  "required": ["system", "siteMode", "business", "location", "contact"],
+  "properties": {
+    "system": { "type": "string", "enum": ["coastal", "parkland", "desert"] },
+    "siteMode": { "type": "string", "enum": ["draft", "production"] },
+    "business": {
+      "type": "object",
+      "required": ["publicName"],
+      "properties": {
+        "legalName": { "type": "string" },
+        "publicName": { "type": "string" },
+        "shortName": { "type": "string" },
+        "tagline": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "domain": { "type": "string" },
+    "location": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" }
+      }
+    },
+    "branding": {
+      "type": "object",
+      "properties": {
+        "primaryColor": { "type": "string" },
+        "secondaryColor": { "type": "string" },
+        "accentColor": { "type": "string" }
+      }
+    }
+  }
+}
