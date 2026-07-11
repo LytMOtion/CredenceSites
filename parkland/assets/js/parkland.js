@@ -88,7 +88,8 @@
     var byNum = {}; holes.forEach(function(h){ byNum[h.num] = h; });
     var IMG = 'assets/images/';
     var figWrap = tour.querySelector('[data-hole-fig]');
-    var img = figWrap ? figWrap.querySelector('img') : null;
+    var layers = figWrap ? figWrap.querySelectorAll('.holedetail__img') : [];
+    var reqSeq = 0; // request token: only the latest hole selection is allowed to commit
     var numEl = tour.querySelector('[data-hole-num]'), nineEl = tour.querySelector('[data-hole-nine]'),
         titleEl = tour.querySelector('[data-hole-title]'), parEl = tour.querySelector('[data-hole-par]'),
         champEl = tour.querySelector('[data-hole-champ]'), memEl = tour.querySelector('[data-hole-member]'),
@@ -134,22 +135,7 @@
       if(window.requestAnimationFrame) requestAnimationFrame(run); else run();
     }
 
-    function render(n, push, scroll){
-      n = +n; var h = byNum[n]; if(!h) return; current = n;
-      if(img){
-        var alt = 'Hole ' + h.num + ', ' + h.title + '. Demonstration image of a fictional course.';
-        var src = img.getAttribute('src') || '';
-        if(src.indexOf(h.image) !== -1){ img.alt = alt; }         // same photo — no flicker
-        else if(rm){ img.src = IMG + h.image; img.alt = alt; }     // reduced motion — instant
-        else {
-          img.style.transition = 'opacity .28s ease'; img.style.opacity = '0';
-          var swapped = false, doSwap = function(){ if(swapped) return; swapped = true;
-            img.src = IMG + h.image; img.alt = alt;
-            requestAnimationFrame(function(){ img.style.opacity = '1'; }); };
-          img.addEventListener('transitionend', doSwap, {once:true});
-          setTimeout(doSwap, 320);
-        }
-      }
+    function applyText(h){
       if(numEl) numEl.textContent = 'Hole ' + h.num;
       if(nineEl) nineEl.textContent = nineName(h.nine);
       if(titleEl) titleEl.textContent = h.title;
@@ -159,6 +145,39 @@
       if(fwdEl) fwdEl.textContent = h.forward;
       if(hcpEl) hcpEl.textContent = h.hcp;
       if(stratEl) stratEl.textContent = h.strategy;
+    }
+    function frontLayer(){ for(var i=0;i<layers.length;i++){ if(layers[i].classList.contains('is-front')) return layers[i]; } return layers[0]; }
+    function preloadNeighbours(n){ [n-1, n+1].forEach(function(k){ var hh = byNum[k]; if(hh){ var p = new Image(); p.src = IMG + hh.image; } }); }
+
+    /* Crossfade to the new photo only after it has loaded + decoded, so the current image
+       stays on screen the whole time — never a white/blank frame. Outdated loads (from a
+       faster later tap) are dropped via the request token; the latest selection always wins. */
+    function swapImage(h, seq){
+      if(!layers || !layers.length){ applyText(h); return; }
+      var url = IMG + h.image;
+      var front = frontLayer();
+      if((front.getAttribute('src') || '').indexOf(h.image) !== -1){ applyText(h); preloadNeighbours(h.num); return; } // same photo — sync text only
+      var back = (layers[0] === front) ? layers[1] : layers[0];
+      var alt = 'Hole ' + h.num + ', ' + h.title + '. Demonstration image of a fictional course.';
+      var commit = function(){
+        if(seq !== reqSeq) return;                       // a newer selection won — drop this result
+        back.src = url;                                  // already loaded + decoded → paints with no flash
+        back.alt = alt; back.removeAttribute('aria-hidden');
+        front.alt = ''; front.setAttribute('aria-hidden', 'true');
+        var flip = function(){ if(seq !== reqSeq) return; applyText(h); back.classList.add('is-front'); front.classList.remove('is-front'); };
+        if(rm) flip(); else requestAnimationFrame(flip);  // text + photo change together
+        preloadNeighbours(h.num);
+      };
+      var pre = new Image();
+      pre.onload = function(){ if(pre.decode){ pre.decode().then(commit, commit); } else { commit(); } };
+      pre.onerror = function(){ if(seq === reqSeq && window.console && console.warn){ console.warn('[course-tour] hole image failed to load: ' + url); } }; // keep the current photo + its text
+      pre.src = url;
+    }
+
+    function render(n, push, scroll){
+      n = +n; var h = byNum[n]; if(!h) return; current = n;
+      var seq = ++reqSeq;
+      // immediate feedback: active number, controls, hash, screen-reader announcement, scroll
       selBtns.forEach(function(b){ b.setAttribute('aria-current', (+b.getAttribute('data-hole') === n) ? 'true' : 'false'); });
       mapMks.forEach(function(m){ m.classList.toggle('is-active', +m.getAttribute('data-map-hole') === n); });
       var pv = byNum[n - 1], nx = byNum[n + 1];
@@ -167,6 +186,8 @@
       if(push){ var hash = '#hole-' + n; if(location.hash !== hash) history.pushState({hole:n}, '', hash); }
       if(live) live.textContent = 'Hole ' + h.num + ', ' + h.title + ', ' + nineName(h.nine) + ', par ' + h.par + '.';
       if(scroll) revealFig();
+      // photo + hole content: load first, then crossfade and update the text together
+      swapImage(h, seq);
     }
 
     selBtns.forEach(function(b){ b.addEventListener('click', function(){ render(b.getAttribute('data-hole'), true, innerWidth <= 900); }); });
