@@ -78,6 +78,11 @@
   .holes__grid{gap:.22rem}
   .hbtn{font-size:1rem}
 }
+@media (max-width:560px){
+  /* course-summary strip: 4 equal columns overflow on narrow phones — drop to 2 */
+  .scorecard-strip{grid-template-columns:repeat(2,1fr)}
+  .scorecard-strip>div{min-width:0}
+}
 
 /* course summary + view-scorecard */
 .tour-summary{margin-top:1.2rem}
