@@ -80,6 +80,21 @@ export function coastalScorecard(holes, publicName) {
   return `<caption>${escapeHtml(publicName)} &middot; scorecard (championship tees)</caption><thead><tr><th>Hole</th><th>Par</th><th>Yards</th><th>SI</th></tr></thead><tbody>${front}<tr class="sc-sum"><td>Out</td><td>${t.parOut}</td><td>${t.champOut.toLocaleString()}</td><td></td></tr>${back}<tr class="sc-sum"><td>In</td><td>${t.parIn}</td><td>${t.champIn.toLocaleString()}</td><td></td></tr><tr class="sc-sum"><td>Total</td><td>${t.parTotal}</td><td>${t.champTotal.toLocaleString()}</td><td></td></tr></tbody>`;
 }
 
+/* ---------- PARKLAND (horizontal scorecard: holes as columns) ---------- */
+export function parklandScorecard(holes) {
+  const hs = sorted(holes), t = totals(holes);
+  const row = (label, arr, outV, inV, totV) => {
+    const c = arr.map((v) => `<td>${v}</td>`);
+    return `<tr><th scope="row">${label}</th>${c.slice(0, 9).join('')}<td class="tot">${outV}</td>${c.slice(9).join('')}<td class="tot">${inV}</td><td class="tot">${totV}</td></tr>`;
+  };
+  const champ = hs.map((h) => (h.yardages || {}).championship || 0);
+  const par = hs.map((h) => h.par);
+  const hcp = hs.map((h) => h.strokeIndex || h.number);
+  return row('Champ.', champ, t.champOut, t.champIn, t.champTotal) + '\n' +
+    row('Par', par, t.parOut, t.parIn, t.parTotal) + '\n' +
+    row('Hcp', hcp, '&mdash;', '&mdash;', '&mdash;');
+}
+
 /* ---------- DESERT ---------- */
 export function desertSelector(holes) {
   return sorted(holes).map((h) => `<button class="hbtn" type="button" data-hole="${h.number}" data-nine="${nineOf(h)}" aria-label="Hole ${h.number}${h.name ? ', ' + escapeHtml(h.name) : ''}">${pad2(h.number)}</button>`).join('');

@@ -14,7 +14,7 @@ import { loadClient, buildModel, DEMO } from '../lib/model.mjs';
 import { escapeHtml } from '../lib/render.mjs';
 import {
   coastalSelector, coastalPanels, coastalStrip, coastalScorecard,
-  desertSelector, desertPanels, desertScorecard, totals
+  desertSelector, desertPanels, desertScorecard, parklandScorecard, totals
 } from '../lib/tour.mjs';
 import {
   TEMPLATES_DIR, GENERATED_DIR, REPO_ROOT, GENERATOR_VERSION,
@@ -77,7 +77,7 @@ function cleanProse(html) {
   const stash = [];
   html = html.replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, (m) => { stash.push(m); return '%%CP%%' + (stash.length - 1) + '%%CP%%'; });
   html = html
-    .replace(/<!--(?!\s*(?:CS_|DS_))[\s\S]*?-->/g, '')   // drop dev comments (keep tour-injection markers)
+    .replace(/<!--(?!\s*(?:CS_|DS_|PK_))[\s\S]*?-->/g, '')   // drop dev comments (keep tour-injection markers)
     .replace(/DEMONSTRATION/g, 'PREVIEW').replace(/Demonstration/g, 'Preview').replace(/demonstration/g, 'preview')
     .replace(/\b(?:by|for) Credence\b/gi, '')
     .replace(/(\S)[ \t]{2,}/g, '$1 ')       // collapse mid-text runs (leading indentation preserved)
@@ -320,7 +320,10 @@ export function buildClient(slug, opts = {}) {
     const tourPath = path.join(out, TOUR_FILE[system]);
     if (fs.existsSync(tourPath)) {
       let h = fs.readFileSync(tourPath, 'utf8');
-      if (system === 'parkland') h = h.replace(/window\.PARKLAND_HOLES\s*=\s*\[[\s\S]*?\];/, parklandHolesArray(input.holes));
+      if (system === 'parkland') {
+        h = h.replace(/window\.PARKLAND_HOLES\s*=\s*\[[\s\S]*?\];/, parklandHolesArray(input.holes));
+        h = h.replace('<!--PK_SCORECARD-->', parklandScorecard(holes));
+      }
       else if (system === 'coastal') h = injectCoastalTour(h, holes, model);
       else if (system === 'desert') h = injectDesertTour(h, holes, model);
       writeText(tourPath, h);
