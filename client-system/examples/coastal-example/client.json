@@ -1,0 +1,27 @@
+{
+  "system": "coastal",
+  "siteMode": "draft",
+  "business": {
+    "legalName": "Example Coastal Links LLC",
+    "publicName": "Example Coastal Links",
+    "shortName": "Example Coastal",
+    "tagline": "EXAMPLE — replace with the real course",
+    "description": "Example client input showing how to fill the coastal data files."
+  },
+  "domain": "coastal-example.example.com",
+  "location": {
+    "city": "Sample Bay",
+    "state": "CA",
+    "country": "United States"
+  },
+  "contact": {
+    "phone": "(555) 555-0100",
+    "email": "info@coastal-example.example.com",
+    "address": "1 Example Way, Sample Bay, CA"
+  },
+  "branding": {
+    "primaryColor": "",
+    "secondaryColor": "",
+    "accentColor": ""
+  }
+}

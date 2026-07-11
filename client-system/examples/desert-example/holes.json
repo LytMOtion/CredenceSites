@@ -1,0 +1,261 @@
+{
+  "yardageLabels": {
+    "championship": "Championship",
+    "resort": "Resort",
+    "forward": "Forward"
+  },
+  "holes": [
+    {
+      "number": 1,
+      "name": "Example Hole 1",
+      "par": 4,
+      "strokeIndex": 1,
+      "nine": "front",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 1.",
+      "image": ""
+    },
+    {
+      "number": 2,
+      "name": "Example Hole 2",
+      "par": 5,
+      "strokeIndex": 2,
+      "nine": "front",
+      "yardages": {
+        "championship": 540,
+        "resort": 500,
+        "forward": 460
+      },
+      "strategy": "Example strategy for hole 2.",
+      "image": ""
+    },
+    {
+      "number": 3,
+      "name": "Example Hole 3",
+      "par": 3,
+      "strokeIndex": 3,
+      "nine": "front",
+      "yardages": {
+        "championship": 170,
+        "resort": 130,
+        "forward": 90
+      },
+      "strategy": "Example strategy for hole 3.",
+      "image": ""
+    },
+    {
+      "number": 4,
+      "name": "Example Hole 4",
+      "par": 4,
+      "strokeIndex": 4,
+      "nine": "front",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 4.",
+      "image": ""
+    },
+    {
+      "number": 5,
+      "name": "Example Hole 5",
+      "par": 4,
+      "strokeIndex": 5,
+      "nine": "front",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 5.",
+      "image": ""
+    },
+    {
+      "number": 6,
+      "name": "Example Hole 6",
+      "par": 3,
+      "strokeIndex": 6,
+      "nine": "front",
+      "yardages": {
+        "championship": 170,
+        "resort": 130,
+        "forward": 90
+      },
+      "strategy": "Example strategy for hole 6.",
+      "image": ""
+    },
+    {
+      "number": 7,
+      "name": "Example Hole 7",
+      "par": 4,
+      "strokeIndex": 7,
+      "nine": "front",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 7.",
+      "image": ""
+    },
+    {
+      "number": 8,
+      "name": "Example Hole 8",
+      "par": 5,
+      "strokeIndex": 8,
+      "nine": "front",
+      "yardages": {
+        "championship": 540,
+        "resort": 500,
+        "forward": 460
+      },
+      "strategy": "Example strategy for hole 8.",
+      "image": ""
+    },
+    {
+      "number": 9,
+      "name": "Example Hole 9",
+      "par": 4,
+      "strokeIndex": 9,
+      "nine": "front",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 9.",
+      "image": ""
+    },
+    {
+      "number": 10,
+      "name": "Example Hole 10",
+      "par": 4,
+      "strokeIndex": 10,
+      "nine": "back",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 10.",
+      "image": ""
+    },
+    {
+      "number": 11,
+      "name": "Example Hole 11",
+      "par": 4,
+      "strokeIndex": 11,
+      "nine": "back",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 11.",
+      "image": ""
+    },
+    {
+      "number": 12,
+      "name": "Example Hole 12",
+      "par": 5,
+      "strokeIndex": 12,
+      "nine": "back",
+      "yardages": {
+        "championship": 540,
+        "resort": 500,
+        "forward": 460
+      },
+      "strategy": "Example strategy for hole 12.",
+      "image": ""
+    },
+    {
+      "number": 13,
+      "name": "Example Hole 13",
+      "par": 3,
+      "strokeIndex": 13,
+      "nine": "back",
+      "yardages": {
+        "championship": 170,
+        "resort": 130,
+        "forward": 90
+      },
+      "strategy": "Example strategy for hole 13.",
+      "image": ""
+    },
+    {
+      "number": 14,
+      "name": "Example Hole 14",
+      "par": 4,
+      "strokeIndex": 14,
+      "nine": "back",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 14.",
+      "image": ""
+    },
+    {
+      "number": 15,
+      "name": "Example Hole 15",
+      "par": 4,
+      "strokeIndex": 15,
+      "nine": "back",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 15.",
+      "image": ""
+    },
+    {
+      "number": 16,
+      "name": "Example Hole 16",
+      "par": 3,
+      "strokeIndex": 16,
+      "nine": "back",
+      "yardages": {
+        "championship": 170,
+        "resort": 130,
+        "forward": 90
+      },
+      "strategy": "Example strategy for hole 16.",
+      "image": ""
+    },
+    {
+      "number": 17,
+      "name": "Example Hole 17",
+      "par": 4,
+      "strokeIndex": 17,
+      "nine": "back",
+      "yardages": {
+        "championship": 410,
+        "resort": 370,
+        "forward": 330
+      },
+      "strategy": "Example strategy for hole 17.",
+      "image": ""
+    },
+    {
+      "number": 18,
+      "name": "Example Hole 18",
+      "par": 5,
+      "strokeIndex": 18,
+      "nine": "back",
+      "yardages": {
+        "championship": 540,
+        "resort": 500,
+        "forward": 460
+      },
+      "strategy": "Example strategy for hole 18.",
+      "image": ""
+    }
+  ]
+}

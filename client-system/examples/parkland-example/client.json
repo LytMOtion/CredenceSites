@@ -1,0 +1,27 @@
+{
+  "system": "parkland",
+  "siteMode": "draft",
+  "business": {
+    "legalName": "Example Parkland Club LLC",
+    "publicName": "Example Parkland Club",
+    "shortName": "Example Parkland",
+    "tagline": "EXAMPLE — replace with the real course",
+    "description": "Example client input showing how to fill the parkland data files."
+  },
+  "domain": "parkland-example.example.com",
+  "location": {
+    "city": "Sample Vale",
+    "state": "NY",
+    "country": "United States"
+  },
+  "contact": {
+    "phone": "(555) 555-0100",
+    "email": "info@parkland-example.example.com",
+    "address": "1 Example Way, Sample Vale, NY"
+  },
+  "branding": {
+    "primaryColor": "",
+    "secondaryColor": "",
+    "accentColor": ""
+  }
+}

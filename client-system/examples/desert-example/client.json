@@ -1,0 +1,27 @@
+{
+  "system": "desert",
+  "siteMode": "draft",
+  "business": {
+    "legalName": "Example Desert Resort LLC",
+    "publicName": "Example Desert Resort",
+    "shortName": "Example Desert",
+    "tagline": "EXAMPLE — replace with the real course",
+    "description": "Example client input showing how to fill the desert data files."
+  },
+  "domain": "desert-example.example.com",
+  "location": {
+    "city": "Sample Mesa",
+    "state": "AZ",
+    "country": "United States"
+  },
+  "contact": {
+    "phone": "(555) 555-0100",
+    "email": "info@desert-example.example.com",
+    "address": "1 Example Way, Sample Mesa, AZ"
+  },
+  "branding": {
+    "primaryColor": "",
+    "secondaryColor": "",
+    "accentColor": ""
+  }
+}
