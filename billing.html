@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#161A18">
+<meta name="robots" content="noindex, nofollow">
+<title>Credence — Secure Client Billing</title>
+<meta name="description" content="Secure billing access for approved Credence clients.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Credence — Secure Client Billing">
+<meta property="og:description" content="Secure billing access for approved Credence clients.">
+<meta property="og:site_name" content="Credence">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/credence-v2.css">
+<style>
+/* Client Billing — editorial, restrained; reuses the Credence system (scoped) */
+.bill-paths{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);margin-top:44px}
+.bill-path{padding:40px 0;border-bottom:1px solid var(--line)}
+.bill-path + .bill-path{border-left:1px solid var(--line);padding-left:44px}
+.bill-path:first-child{padding-right:44px}
+.bill-path .eyebrow{margin-bottom:14px}
+.bill-path h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,2.4vw,2.05rem);line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+.bill-path p{color:var(--ink-2);max-width:46ch;margin:0 0 18px}
+.bill-price{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px 26px}
+.bill-price .amt{font-family:var(--serif);font-size:1.5rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.bill-price .amt small{font-family:var(--sans);font-size:.9rem;color:var(--stone)}
+.bill-note{font-size:.9rem;color:var(--stone);margin:0 0 22px;max-width:46ch}
+.bill-inactive{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-size:.94rem;font-weight:600;padding:.95rem 1.7rem;border:1px solid var(--line-2);border-radius:2px;background:transparent;color:var(--ink);cursor:pointer;transition:border-color .3s,color .3s}
+.bill-inactive:hover{border-color:var(--ink)}
+.bill-inactive:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bill-inactive .lockdot{width:7px;height:7px;border-radius:50%;background:var(--stone)}
+.bill-security{border-left:2px solid var(--line-2);padding:6px 0 6px 20px;margin-top:40px;color:var(--ink-2);font-size:.98rem;max-width:64ch}
+/* dialog */
+.bd{border:1px solid var(--line);border-radius:6px;padding:0;max-width:min(94vw,520px);width:100%;color:var(--ink);background:var(--paper);box-shadow:0 30px 80px -30px rgba(17,20,19,.5)}
+.bd::backdrop{background:rgba(17,20,19,.55)}
+.bd__in{padding:clamp(1.6rem,4vw,2.4rem)}
+.bd h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.1;margin:0 0 14px}
+.bd p{color:var(--ink-2);margin:0 0 20px}
+.bd__row{display:flex;flex-wrap:wrap;gap:14px}
+.bd__x{position:absolute;top:12px;right:14px;background:none;border:0;font-size:1.4rem;line-height:1;color:var(--stone);cursor:pointer;padding:.2em .4em}
+.bd__x:hover{color:var(--ink)}
+.bd__x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bd__wrap{position:relative}
+body.bd-open{overflow:hidden}
+@media(max-width:760px){
+  .bill-paths{grid-template-columns:1fr}
+  .bill-path + .bill-path{border-left:0;padding-left:0}
+  .bill-path:first-child{padding-right:0}
+}
+</style>
+</head>
+<body id="top">
+<header class="head"><div class="wrap head-in">
+  <a href="index.html" class="brand">Credence<span class="rule"></span></a>
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html#systems">Course Systems</a>
+    <a href="index.html#included">What's Included</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="start.html" class="navcta">Start Your Site</a>
+  </nav>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
+
+<main id="main">
+<section class="section">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="eyebrow">Client Billing</span><span class="k-rule"></span></div>
+    <h1 class="d2 reveal" style="max-width:20ch">Secure billing for approved Credence clients.</h1>
+    <p class="lead reveal" style="margin-top:22px;max-width:60ch">Payment access is provided after project approval and completion of the Credence service agreement.</p>
+    <p class="reveal" style="margin-top:14px;color:var(--ink-2);max-width:64ch">Credence does not collect or store card information on this website. Payments will be completed through our secure billing provider once your account is activated.</p>
+
+    <div class="bill-paths reveal">
+      <div class="bill-path">
+        <span class="eyebrow">New client payment</span>
+        <h2>Begin an approved project</h2>
+        <p>After your proposal and service agreement are approved, Credence will send a secure payment link for the one-time setup and the agreed billing schedule.</p>
+        <div class="bill-price">
+          <span class="amt">$1,000 <small>one-time setup</small></span>
+          <span class="amt">$250 <small>/ month Website Care &amp; Management</small></span>
+        </div>
+        <p class="bill-note">Additional pages, integrations, photography, film, and custom services are quoted separately.</p>
+        <button class="bill-inactive" type="button" data-billing="new" aria-haspopup="dialog"><span class="lockdot" aria-hidden="true"></span>Secure payment link provided after approval</button>
+      </div>
+      <div class="bill-path">
+        <span class="eyebrow">Existing clients</span>
+        <h2>Manage billing</h2>
+        <p>Existing clients will receive private access to update payment details, review invoices, and manage their billing account.</p>
+        <button class="bill-inactive" type="button" data-billing="portal" aria-haspopup="dialog"><span class="lockdot" aria-hidden="true"></span>Billing portal access provided privately</button>
+      </div>
+    </div>
+
+    <p class="bill-security reveal">Credence does not collect or store card or bank information on this website. When billing is activated, all payments are completed on the secure billing provider's own hosted pages — never on this site.</p>
+  </div>
+</section>
+</main>
+
+<dialog class="bd" id="billingDialog" aria-labelledby="bdTitle">
+  <div class="bd__wrap">
+    <button class="bd__x" type="button" data-bd-close aria-label="Close">&times;</button>
+    <div class="bd__in">
+      <h2 id="bdTitle">Billing access is not active yet</h2>
+      <p>Credence billing will become available after the business account and secure payment provider are established. Approved clients will receive a private payment or billing-management link directly from Credence.</p>
+      <div class="bd__row">
+        <button class="btn btn-solid" type="button" data-bd-close>Close</button>
+        <a class="btn btn-outline" href="mailto:hello@credencesites.com?subject=Credence%20billing%20question">Contact Credence</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<footer class="foot"><div class="wrap"><div class="foot-in">
+  <div>
+    <div class="brand d3">Credence</div>
+    <div class="fmeta">Golf-course websites, designed and managed.<br>Santa Barbara, California<br><a href="mailto:hello@credencesites.com">hello@credencesites.com</a></div>
+  </div>
+  <div>
+    <h5>Explore</h5>
+    <ul><li><a href="index.html#systems">Course Systems</a></li><li><a href="index.html#included">What's Included</a></li><li><a href="index.html#pricing">Pricing</a></li></ul>
+  </div>
+  <div>
+    <h5>Studio</h5>
+    <ul><li><a href="start.html">Start Your Site</a></li><li><a href="billing.html" aria-current="page">Client Billing</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+  </div>
+  <p class="legal">Credence provides website design, technical implementation, and hosting — not legal, accessibility, or regulatory compliance advice. Courses are responsible for the accuracy of their rates, policies, booking links, and operational information. Imagery shown is AI-generated demonstration reference of a fictional course, to be replaced with commissioned or licensed photography in production.</p>
+  <p class="cr">© 2026 Credence · credencesites.com</p>
+</div></div></footer>
+
+<script src="assets/js/credence-v2.js"></script>
+<script src="assets/js/billing-config.js"></script>
+<script>
+(function(){
+  'use strict';
+  var cfg = window.CREDENCE_BILLING || {};
+  var dlg = document.getElementById('billingDialog');
+  var lastFocus = null;
+  function isHttpUrl(u){ if(typeof u!=='string'||!u) return false; try{ var p=new URL(u); return p.protocol==='http:'||p.protocol==='https:'; }catch(e){ return false; } }
+  function openDialog(invoker){
+    lastFocus = invoker || document.activeElement;
+    document.body.classList.add('bd-open');
+    if(dlg.showModal){ dlg.showModal(); } else { dlg.setAttribute('open',''); }
+    var f = dlg.querySelector('button, [href]'); if(f) f.focus();
+  }
+  function closeDialog(){
+    document.body.classList.remove('bd-open');
+    if(dlg.close){ try{ dlg.close(); }catch(e){ dlg.removeAttribute('open'); } } else { dlg.removeAttribute('open'); }
+    if(lastFocus && lastFocus.focus){ lastFocus.focus(); }
+  }
+  if(dlg){
+    dlg.addEventListener('cancel', function(e){ e.preventDefault(); closeDialog(); }); // Escape
+    dlg.addEventListener('click', function(e){ if(e.target===dlg) closeDialog(); });     // backdrop click
+    dlg.querySelectorAll('[data-bd-close]').forEach(function(b){ b.addEventListener('click', closeDialog); });
+  }
+  // Wire the two inactive actions: activate an external link only if a valid public URL exists.
+  document.querySelectorAll('[data-billing]').forEach(function(btn){
+    var kind = btn.getAttribute('data-billing');
+    var url = kind==='new' ? cfg.newClientCheckoutUrl : cfg.customerPortalUrl;
+    btn.addEventListener('click', function(){
+      if(isHttpUrl(url)){ window.open(url, '_blank', 'noopener,noreferrer'); } // hosted provider page, new tab
+      else { openDialog(btn); }                                               // inactive → billing dialog
+    });
+  });
+})();
+</script>
+</body></html>
