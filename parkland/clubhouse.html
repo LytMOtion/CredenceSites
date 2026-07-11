@@ -17,6 +17,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/parkland.css">
+<style>
+/* Clubhouse hero — full-width editorial overlay (page-scoped; reuses the homepage .phero system) */
+.phero.phero--interior{min-height:clamp(400px,54svh,560px)}
+.phero--interior .phero__img{object-position:center 60%}
+.phero--interior .phero__scrim{background:
+  linear-gradient(90deg,rgba(19,21,18,.74) 0%,rgba(19,21,18,.48) 32%,rgba(19,21,18,.16) 62%,rgba(19,21,18,0) 90%),
+  linear-gradient(0deg,rgba(19,21,18,.68) 0%,rgba(19,21,18,.26) 30%,rgba(19,21,18,0) 56%),
+  linear-gradient(180deg,rgba(19,21,18,.24) 0%,rgba(19,21,18,0) 20%)}
+.phero--interior .k-rule{background:rgba(230,228,220,.55)}
+/* soft lift so white copy stays legible where it crosses the bright building — no hard edge */
+.phero--interior .phero__copy .eyebrow{text-shadow:0 1px 10px rgba(19,21,18,.4)}
+.phero--interior .phero__copy h1{text-shadow:0 1px 20px rgba(19,21,18,.5),0 1px 2px rgba(19,21,18,.28)}
+.phero--interior .phero__copy .lead{text-shadow:0 1px 16px rgba(19,21,18,.5)}
+.phero__note{margin:1.35rem 0 0;font-size:.82rem;font-style:italic;color:rgba(255,255,255,.78);text-shadow:0 1px 10px rgba(19,21,18,.45);max-width:46ch}
+@media (max-width:640px){
+  .phero.phero--interior{min-height:clamp(360px,52svh,460px)}
+  .phero--interior .phero__img{object-position:center 48%}
+}
+</style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body id="top">
@@ -47,18 +66,19 @@
 
 <main id="main">
 
-<!-- HERO split -->
-<section class="section tight band-white"><div class="wrap">
-  <div class="split reveal" style="align-items:end">
-    <div class="split__fig tall"><img src="assets/images/clubhouse-exterior.jpg" alt="The elegant two-story clubhouse at Alderwick Golf Club. Demonstration image of a fictional course." width="1280" height="1600" fetchpriority="high"></div>
-    <div class="split__body">
+<!-- HERO — full-width editorial overlay -->
+<section class="phero phero--interior" aria-labelledby="club-h">
+  <img class="phero__img" src="assets/images/clubhouse-exterior.jpg" alt="The elegant white clubhouse at Alderwick Golf Club, framed by lawn and palms. Demonstration image of a fictional course." width="1344" height="768" fetchpriority="high">
+  <div class="phero__scrim" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="phero__copy">
       <div class="klabel"><span class="k-rule"></span><span class="eyebrow">The Clubhouse</span></div>
-      <h1 class="d1" style="margin-bottom:1rem">Clubhouse &amp; Dining</h1>
-      <p class="lead measure">Where great conversations and exceptional cuisine come together.</p>
-      <p class="disc" style="margin-top:1rem">Fictional demonstration property with sample content and reference imagery.</p>
+      <h1 class="d1" id="club-h">Clubhouse &amp; Dining</h1>
+      <p class="lead">Where great conversations and exceptional cuisine come together.</p>
+      <p class="phero__note">Fictional demonstration property with sample content and reference imagery.</p>
     </div>
   </div>
-</div></section>
+</section>
 
 <!-- EXPERIENCES -->
 <section class="section band-stone"><div class="wrap">
