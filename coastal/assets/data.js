@@ -7,8 +7,6 @@ window.OCEANBLUFF = {
     name: 'Ocean Bluff National Golf Club',
     shortName: 'Ocean Bluff National',
     location: 'California Coast',
-    website: 'oceanbluffnational.example',
-    email: 'hello@oceanbluffnational.example',
     phone: '(805) 555-0148',
     hours: '6:30 AM – 8:00 PM daily (sample hours)',
     holes: 18, par: 72,
@@ -25,12 +23,12 @@ window.OCEANBLUFF = {
   rates: {
     flag: 'demo',
     rows: [
-      { k: 'Weekday · 18 holes', sub: 'Mon–Thu, before noon', v: 165 },
-      { k: 'Weekend · 18 holes', sub: 'Fri–Sun & holidays, before noon', v: 185 },
-      { k: 'Twilight', sub: 'After 2:00 PM, cart included', v: 110 },
-      { k: 'Super-twilight', sub: 'After 4:00 PM', v: 80 },
-      { k: 'Replay (same day)', sub: 'Subject to availability', v: 65 },
-      { k: 'Cart', sub: 'Per player, where not included', v: 24 }
+      { k: 'Weekday · 18 holes', sub: 'Mon–Thu, before noon', v: 175 },
+      { k: 'Weekend · 18 holes', sub: 'Fri–Sun & holidays, before noon', v: 195 },
+      { k: 'Twilight', sub: 'After 2:00 PM, cart included', v: 105 },
+      { k: 'Super-twilight', sub: 'After 4:00 PM', v: 75 },
+      { k: 'Replay (same day)', sub: 'Subject to availability', v: 60 },
+      { k: 'Cart', sub: 'Per player, where not included', v: 22 }
     ],
     policies: [
       'All rates and policies shown are fictional demonstration content.',
@@ -74,4 +72,14 @@ window.OCEANBLUFF.destinations = {
   book_preferred:   'booking-demo.html',
   book_reciprocal:  'booking-demo.html',
   scorecard:        null
+};
+
+/* SHOP CONFIG — future client configuration only. No store, cart, or payment is built.
+   A future generator can populate these to point the demonstration shop at a real provider. */
+window.OCEANBLUFF.shop = {
+  shop_url: null,
+  shop_provider: null,
+  gift_card_url: null,
+  shop_link_label: 'Visit the Online Shop',
+  shop_integration_type: null
 };

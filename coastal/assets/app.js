@@ -1,4 +1,4 @@
-/* OCEANBLUFF — Creative Proof · shared behavior (progressive enhancement).
+/* OCEAN BLUFF NATIONAL — shared behavior (progressive enhancement).
    All content is present in HTML without JS; JS only enhances. */
 (function () {
   'use strict';
@@ -75,19 +75,22 @@
   // Resolve only when the image is actually ready to paint (fetch + decode).
   // Forces a hidden/lazy image to load; a safety timeout guarantees we never hang.
   function ready(img) {
+    // Resolve once the image bytes are available (complete, load, error) or a safety
+    // timeout. We intentionally do NOT call img.decode(): decode() never settles for a
+    // complete image inside a hidden (display:none) panel, which stalls the hole swap
+    // (deep-links / taps to preloaded holes). The show transition's opacity fade covers
+    // any brief decode-on-paint, so there is no white flash.
     return new Promise(function (res) {
       if (!img) return res();
-      var finish = function () { if (img.decode) { img.decode().then(res, res); } else { res(); } };
-      if (img.complete && img.naturalWidth > 0) return finish();
+      if (img.complete && img.naturalWidth > 0) return res();
       var safety = setTimeout(res, 2500);
       var done = function () {
         clearTimeout(safety);
         img.removeEventListener('load', done); img.removeEventListener('error', done);
-        finish();
+        res();
       };
       img.addEventListener('load', done); img.addEventListener('error', done);
       img.loading = 'eager';                    // kick a lazy/hidden image into loading
-      if (img.decode) img.decode().then(function () { clearTimeout(safety); done(); }, function () {});
     });
   }
   function setActive(n) {                        // sole visual driver + a11y
@@ -108,6 +111,7 @@
       if (my !== seq) return;                    // superseded by a newer tap — abort
       holePanels.forEach(function (p) { p.hidden = (p !== panel); });
       setActive(n);                              // aria-current now matches DISPLAYED hole
+      panel.querySelectorAll('.reveal,.swell').forEach(function (el) { el.classList.add('in'); }); // ensure shown panel is visible
       if (push) history.replaceState(null, '', '#hole-' + n);
       if (announce !== false) { var live = document.getElementById('hole-live'); if (live) live.textContent = 'Showing hole ' + n; }
       if (!reduce) {                             // subtle fade of the already-decoded image (never white)
@@ -128,6 +132,9 @@
     var visN = visible ? visible.getAttribute('data-hole-panel') : '13';
     var initial = (m && panelOf(m)) ? m : visN;
     setActive(initial);
+    // ensure the initially-visible hole panel is shown even if it loads below the reveal trigger
+    var ip0 = panelOf(initial);
+    if (ip0) ip0.querySelectorAll('.reveal,.swell').forEach(function (el) { el.classList.add('in'); });
     if (initial !== visN) { showHole(initial, false, false); }   // deep-link to a different hole
     else { preload(initial); preload(+initial + 1); preload(+initial - 1); }
     // progressively warm the rest of the 18 during idle time (no upfront bandwidth spike)
@@ -156,10 +163,49 @@
       el.setAttribute('aria-disabled', 'true');
       if (!el.hasAttribute('role')) el.setAttribute('role', 'link');
       if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
-      el.setAttribute('title', 'Booking destination pending verification (proof stage).');
+      el.setAttribute('title', 'This destination is not available in the demonstration.');
       var stop = function (e) { e.preventDefault(); };
       el.addEventListener('click', stop);
       el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') e.preventDefault(); });
     }
+  });
+
+  /* --- Course tour: Previous / Next hole + "All holes" ---
+     These reuse the same showHole engine (hash + deep-link stay intact). We use a
+     separate [data-goto] attribute so these controls are NOT treated as hole
+     selectors (no false aria-current/active state on Prev/Next). */
+  if (holeButtons.length) {
+    document.querySelectorAll('[data-goto]').forEach(function (b) {
+      b.addEventListener('click', function () { showHole(b.getAttribute('data-goto'), true); });
+    });
+    var holesNav = document.querySelector('.holes');
+    document.querySelectorAll('[data-allholes]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (!holesNav) return;
+        holesNav.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        var cur = holesNav.querySelector('.hbtn.is-active') || holesNav.querySelector('.hbtn');
+        if (cur) cur.focus();
+      });
+    });
+  }
+
+  /* --- Demonstration modals (event / tournament / lesson / shop inquiries) ---
+     A control with [data-demo="modalId"] opens the matching <dialog>. The native
+     dialog provides the focus trap, Escape-to-close, and focus return to the
+     invoker. Nothing is submitted: no inquiry, appointment, order, or payment. */
+  document.querySelectorAll('[data-demo]').forEach(function (btn) {
+    var dlg = document.getElementById(btn.getAttribute('data-demo'));
+    if (!dlg) return;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (dlg.showModal) { dlg.showModal(); }
+      else { dlg.setAttribute('open', ''); }        // very old browsers: inline fallback
+    });
+  });
+  document.querySelectorAll('[data-demo-close]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var d = b.closest('dialog'); if (!d) return;
+      if (d.close) { d.close(); } else { d.removeAttribute('open'); }
+    });
   });
 })();

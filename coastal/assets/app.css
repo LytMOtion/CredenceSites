@@ -1,6 +1,6 @@
 /* ============================================================
-   OCEANBLUFF — CREATIVE PROOF · shared design system
-   Prototype only. Not production. Fonts via CDN (self-host in prod).
+   OCEAN BLUFF NATIONAL — shared design system (Course System 01 — The Coastal).
+   Fonts via CDN.
    Palette derived from the site; contrast verified WCAG AA (see NOTES.md).
    ============================================================ */
 
@@ -420,3 +420,22 @@ html{scroll-padding-top:calc(64px + var(--demo-bar-h))}
   letter-spacing:.02em;color:var(--fog)}
 .foot__return .ar{color:#C56A4F}
 .foot__return:hover{box-shadow:inset 0 -1px 0 #C56A4F}
+
+/* ---- Demonstration modal (events / outings / lessons / shop) ─────────
+   Native <dialog>: built-in focus trap, Escape-to-close, and focus return
+   to the invoking control. No real inquiry, appointment, or order is sent. */
+.demo-modal{border:none;padding:0;max-width:min(92vw,540px);width:100%;
+  background:var(--fog);color:var(--ink);
+  box-shadow:0 24px 60px -24px rgba(10,40,48,.6)}
+.demo-modal::backdrop{background:rgba(10,23,26,.55)}
+.demo-modal__in{padding:clamp(1.4rem,4vw,2.2rem)}
+.demo-modal__tag{font:600 .64rem/1.3 var(--sans);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ochre-ink);margin:0 0 .7rem}
+.demo-modal h2{font:700 var(--t-h3)/1.05 var(--exp);letter-spacing:-.005em;margin:0 0 .7rem}
+.demo-modal p{color:var(--marine);margin:0 0 1.2rem;max-width:none}
+.demo-modal__actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.demo-modal__actions .btn{font-size:.95rem}
+@media (prefers-reduced-motion:no-preference){
+  .demo-modal[open]{animation:demoIn .28s var(--swell)}
+  @keyframes demoIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
